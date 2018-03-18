@@ -15,28 +15,9 @@ RUN yum -y install make \
  && yum -y install git \
  && yum -y install wget \
  && yum -y install emacs \
+ && yum -y install bison \
+ && yum -y install flex \
  && yum -y install unzip
-
-# metis
-# /usr/local/lib
-# /usr/local/include
-RUN mkdir -p local \
- && cd local \
- && wget http://glaros.dtc.umn.edu/gkhome/fetch/sw/metis/metis-5.1.0.tar.gz \
- && tar xvfz metis-5.1.0.tar.gz \
- && cd metis-5.1.0 \
- && make config openmp=1 cc=gcc \
- && make && make install
-
-# scotch
-RUN mkdir -p local \
- && cd local \
- && wget https://gforge.inria.fr/frs/download.php/file/34618/scotch_6.0.4.tar.gz \
- && tar xvfz scotch_6.0.4.tar.gz \
- && cd scotch_6.0.4/src \
- && cp Make.inc/Makefile.inc.i686_pc_linux2 Makefile.inc \
- && make \
- && make install
 
 # OpenBLAS
 # /usr/local/lib64
@@ -67,6 +48,48 @@ RUN mkdir -p local \
  && make \
  && make install
 
+# metis
+# /usr/local/lib
+# /usr/local/include
+RUN mkdir -p local \
+ && cd local \
+ && wget http://glaros.dtc.umn.edu/gkhome/fetch/sw/metis/metis-5.1.0.tar.gz \
+ && tar xvfz metis-5.1.0.tar.gz \
+ && cd metis-5.1.0 \
+ && make config openmp=1 cc=gcc \
+ && make && make install
+
+# scotch
+# /usr/local/lib
+# /usr/local/include
+RUN mkdir -p local \
+ && cd local \
+ && wget https://gforge.inria.fr/frs/download.php/file/34618/scotch_6.0.4.tar.gz \
+ && tar xvfz scotch_6.0.4.tar.gz \
+ && cd scotch_6.0.4/src \
+ && cp Make.inc/Makefile.inc.x86-64_pc_linux2 Makefile.inc \
+ && sed -i \
+      -e "s|^CCS\s*= .*$|CCS = mpicc|" \
+      -e "s|^CCD\s*= .*$|CCD = mpicc|" \
+      Makefile.inc \
+ && export PATH=$PATH:/usr/lib64/openmpi/bin \
+ && make \
+ && make install \
+ && make ptesmumps \
+ && make install \
+ && cp -f esmumps/libptesmumps.a /usr/local/lib \
+ && cp -f esmumps/esmumps.h /usr/local/include
+
+# parmetis
+RUN mkdir -p local \
+ && cd local \
+ && wget http://glaros.dtc.umn.edu/gkhome/fetch/sw/parmetis/parmetis-4.0.3.tar.gz \
+ && tar xvfz parmetis-4.0.3.tar.gz \
+ && cd parmetis-4.0.3 \
+ && make cc=mpicc cxx=mpicxx \
+ && make \
+ && make install
+
 # mumps
 # /local/MUMPS_5.1.2/lib
 # /local/MUMPS_5.1.2/include
@@ -78,10 +101,13 @@ RUN mkdir -p local \
  && cd MUMPS_5.1.2 \
  && cp Make.inc/Makefile.inc.generic Makefile.inc \
  && sed -i \
+      -e "s|^#SCOTCHDIR\s*= .*$|SCOTCHDIR = /usr/local|" \
+      -e "s|^#ISCOTCH\s*= .*$|ISCOTCH = -I\$(SCOTCHDIR)/include|" \
+      -e "s|^#LSCOTCH\s*= .*$|LSCOTCH = -L\$(SCOTCHDIR)/lib -lptesmumps -lptscotch -lptscotcherr -lscotch|" \
       -e "s|^#LMETISDIR = .*$|LMETISDIR = /usr/local/lib|" \
       -e "s|^#IMETIS    = .*$|IMETIS = -I/usr/local/include|" \
-      -e "s|^#LMETIS    = -L\$(LMETISDIR) -lmetis$|LMETIS = -L\$(LMETISDIR)/lib -lmetis|" \
-      -e "s|^ORDERINGSF  = -Dpord$|ORDERINGSF = -Dpord -Dmetis|" \
+      -e "s|^#LMETIS    = -L\$(LMETISDIR) -lmetis$|LMETIS = -L\$(LMETISDIR) -lmetis|" \
+      -e "s|^ORDERINGSF  = -Dpord$|ORDERINGSF = -Dpord -Dmetis -Dscotch|" \
       -e "s|^CC      = cc|CC      = mpicc|"  \
       -e "s|^FC      = f90|FC      = mpif90|"  \
       -e "s|^FL      = f90|FL      = mpifort|" \
@@ -137,9 +163,10 @@ RUN wget https://github.com/FrontISTR/FrontISTR/archive/v5.0a.tar.gz \
  && mkdir build \
  && cd build \
  && cmake -DWITH_TOOLS=1 -DWITH_MPI=1 -DWITH_METIS=1 -DWITH_MUMPS=1 \
-        -DBLAS_LIBRARIES=/usr/local/lib64/libopenblas.a \
-        -DLAPACK_LIBRARIES=/usr/local/lib64/libopenblas.a \
-        .. \
+       -DBLAS_LIBRARIES=/usr/local/lib64/libopenblas.a \
+       -DLAPACK_LIBRARIES=/usr/local/lib64/libopenblas.a \
+       -DMUMPS_LIBRARIES="/usr/local/lib/libptesmumps.a;/usr/local/lib/libptesmumps.a;/usr/local/lib/libptscotch.a;/usr/local/lib/libptscotcherr.a;/usr/local/lib/libscotch.a" \
+       .. \
  && make
 
 RUN useradd fistr
