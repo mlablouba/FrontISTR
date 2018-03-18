@@ -1,7 +1,7 @@
 #
 # docker build ./ -t frontistr:5.0a
 # cd [FrontISTR working directory]
-# docker run -u="fistr" -v `pwd`:/work frontistr:5.0a
+# docker run -u="fistr" -v `pwd`:/work  -e NCPU=2 frontistr:5.0a
 #
 FROM centos:7.4.1708
 
@@ -143,7 +143,9 @@ RUN wget https://github.com/FrontISTR/FrontISTR/archive/v5.0a.tar.gz \
  && make
 
 RUN useradd fistr
+ENV PATH=$PATH:/usr/lib64/openmpi/bin:/FrontISTR-5.0a/build/fistr1/:/FrontISTR-5.0a/build/hecmw1/tools
+ADD docker/run.sh /FrontISTR-5.0a/
+RUN chmod 755 /FrontISTR-5.0a/run.sh
 USER fistr
-ENV PATH=$PATH:/usr/lib64/openmpi/bin
 WORKDIR /work
-CMD [ "/FrontISTR-5.0a/build/fistr1/fistr1" ]
+CMD [ "/FrontISTR-5.0a/run.sh" ]
