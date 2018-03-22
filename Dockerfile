@@ -6,7 +6,8 @@
 FROM centos:7.4.1708
 
 # /usr/lib64/openmpi/bin
-RUN yum -y install make \
+RUN yum -y update \
+ && yum -y install make \
  && yum -y install cmake \
  && yum -y install gcc gcc-c++ gcc-gfortran \
  && yum -y install openmpi \
@@ -17,7 +18,8 @@ RUN yum -y install make \
  && yum -y install emacs \
  && yum -y install bison \
  && yum -y install flex \
- && yum -y install unzip
+ && yum -y install unzip \
+ && yum -y install ruby
 
 # OpenBLAS
 # /usr/local/lib64
@@ -79,16 +81,6 @@ RUN mkdir -p local \
  && make install \
  && cp -f esmumps/libptesmumps.a /usr/local/lib \
  && cp -f esmumps/esmumps.h /usr/local/include
-
-# parmetis
-RUN mkdir -p local \
- && cd local \
- && wget http://glaros.dtc.umn.edu/gkhome/fetch/sw/parmetis/parmetis-4.0.3.tar.gz \
- && tar xvfz parmetis-4.0.3.tar.gz \
- && cd parmetis-4.0.3 \
- && make cc=mpicc cxx=mpicxx \
- && make \
- && make install
 
 # mumps
 # /local/MUMPS_5.1.2/lib
@@ -169,10 +161,17 @@ RUN wget https://github.com/FrontISTR/FrontISTR/archive/v5.0a.tar.gz \
        .. \
  && make
 
+RUN echo '#!/bin/bash' > /FrontISTR-5.0a/run.sh \
+ && echo 'if [ -z "${NCPU}" ] || [ ${NCPU} -le 1 ]; then' >> /FrontISTR-5.0a/run.sh \
+ && echo '    /FrontISTR-5.0a/build/fistr1/fistr1' >> /FrontISTR-5.0a/run.sh \
+ && echo 'else' >> /FrontISTR-5.0a/run.sh \
+ && echo '    /FrontISTR-5.0a/build/hecmw1/tools/hecmw_part1' >> /FrontISTR-5.0a/run.sh \
+ && echo '    mpirun -np ${NCPU} /FrontISTR-5.0a/build/fistr1/fistr1' >> /FrontISTR-5.0a/run.sh \
+ && echo 'fi'  >> /FrontISTR-5.0a/run.sh \
+ && chmod 755 /FrontISTR-5.0a/run.sh
+
 RUN useradd fistr
-ENV PATH=$PATH:/usr/lib64/openmpi/bin:/FrontISTR-5.0a/build/fistr1/:/FrontISTR-5.0a/build/hecmw1/tools
-ADD docker/run.sh /FrontISTR-5.0a/
-RUN chmod 755 /FrontISTR-5.0a/run.sh
+ENV PATH=$PATH:/usr/lib64/openmpi/bin
 USER fistr
 WORKDIR /work
 CMD [ "/FrontISTR-5.0a/run.sh" ]
