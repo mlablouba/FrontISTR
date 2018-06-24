@@ -87,6 +87,7 @@ contains
     integer(kind=kint) :: c_elemopt, c_aincparam, c_timepoints
     integer(kind=kint) :: c_output, islog
     integer(kind=kint) :: k
+    integer(kind=kint) :: cache = 1
 
     write( logfileNAME, '(i5,''.log'')' ) myrank
 
@@ -520,11 +521,19 @@ contains
           stop
         endif
         cid = 0
-        do i=1,hecMESH%material%n_mat
-          if( fstr_streqr( hecMESH%material%mat_name(i), mName ) ) then
-            cid = i; exit
-          endif
-        enddo
+        if(cache < hecMESH%material%n_mat .and. &
+          fstr_streqr( hecMESH%material%mat_name(cache), mName ))then
+          cid = cache
+          cache = cache + 1
+        else
+          do i=1,hecMESH%material%n_mat
+            if( fstr_streqr( hecMESH%material%mat_name(i), mName ) ) then
+              cid = i
+              cache = i + 1
+              exit
+            endif
+          enddo
+        endif
         if(cid == 0)then
           write(*,*) '### Error: Fail in read in material definition : ' , c_material
           write(ILOG,*) '### Error: Fail in read in material definition : ', c_material
@@ -532,6 +541,7 @@ contains
         endif
         fstrSOLID%materials(cid)%name = mName
         if(c_material>hecMESH%material%n_mat) call initMaterial( fstrSOLID%materials(cid) )
+
       else if( header_name == '!ELASTIC' ) then
         if( c_material >0 ) then
           if( fstr_ctrl_get_ELASTICITY( ctrl,                                        &
@@ -985,12 +995,16 @@ contains
     if( hecMESH%n_elem <=0 ) then
       stop "no element defined!"
     endif
+
+    fstrSOLID%maxn_gauss = 0
+
     allocate( fstrSOLID%elements(hecMESH%n_elem) )
     do i=1,hecMESH%n_elem
       fstrSOLID%elements(i)%etype = hecMESH%elem_type(i)
       if( hecMESH%elem_type(i)==301 ) fstrSOLID%elements(i)%etype=111
       if (hecmw_is_etype_link(fstrSOLID%elements(i)%etype)) cycle
       ng = NumOfQuadPoints( fstrSOLID%elements(i)%etype )
+      if( ng > fstrSOLID%maxn_gauss ) fstrSOLID%maxn_gauss = ng
       if(ng>0) allocate( fstrSOLID%elements(i)%gausses( ng ) )
 
       isect= hecMESH%section_ID(i)
@@ -1019,6 +1033,8 @@ contains
       allocate(fstrSOLID%elements(i)%equiForces(nn*ndof))
       fstrSOLID%elements(i)%equiForces = 0.0d0
     enddo
+
+    call hecmw_allreduce_I1(hecMESH,fstrSOLID%maxn_gauss,HECMW_MAX)
   end subroutine
 
   !> Finalizer of fstr_solid
@@ -1379,6 +1395,7 @@ contains
       P%SOLID%ESTRAIN => phys%ESTRAIN
       P%SOLID%ESTRESS => phys%ESTRESS
       P%SOLID%EMISES  => phys%EMISES
+      allocate( P%SOLID%REACTION( P%MESH%n_dof*P%MESH%n_node ) )
     end if
 
     if( P%PARAM%fg_visual == kON .and. P%MESH%my_rank == 0) then

@@ -8,6 +8,22 @@
 ###############################################################
 cmake_minimum_required(VERSION 2.8.11)
 
+###############################################################
+# Check building mode whether out-of-source builds
+###############################################################
+if (${CMAKE_SOURCE_DIR} STREQUAL ${CMAKE_BINARY_DIR})
+  message(FATAL_ERROR "
+*************** ERROR ***************
+ Only support for out-of-source building.
+ You may need to remove CMakeCache.txt file and CMakeFiles/ directory.
+ Please make new directory such as build/ and run cmake in it again.
+[example]
+ rm CMakeCache.txt; rm -rf CMakeFiles/
+ mkdir build/; cd build/
+ cmake ..
+ make")
+endif()
+
 project(FrontISTR Fortran C CXX)
 ###############################################################
 # Includes standard macros
@@ -304,7 +320,7 @@ if(WITH_DOC)
     file(COPY ${CMAKE_SOURCE_DIR}/doc/fistr.css DESTINATION ${CMAKE_BINARY_DIR}/doc/)
     file(COPY ${CMAKE_SOURCE_DIR}/doc/fistr_logo.png DESTINATION ${CMAKE_BINARY_DIR}/doc/)
 
-    set(doxy_main_page "${CMAKE_SOURCE_DIR}/INSTALL.md")
+    set(doxy_main_page "${CMAKE_SOURCE_DIR}/README")
     set(doxyfile_in ${CMAKE_SOURCE_DIR}/doc/Doxyfile.in)
     set(doxyfile ${CMAKE_BINARY_DIR}/doc/Doxyfile)
     configure_file(${doxyfile_in} ${doxyfile} @ONLY)
@@ -375,7 +391,7 @@ endif()
 ###############################################################################
 include(InstallRequiredSystemLibraries)
 set(CPACK_PACKAGE_DESCRIPTION_SUMMARY "Large-scale structural analysis program with FEM ")
-set(CPACK_PACKAGE_DESCRIPTION_FILE "${CMAKE_CURRENT_SOURCE_DIR}/INSTALL.md")
+set(CPACK_PACKAGE_DESCRIPTION_FILE "${CMAKE_CURRENT_SOURCE_DIR}/README")
 set(CPACK_RESOURCE_FILE_LICENSE "${CMAKE_CURRENT_SOURCE_DIR}/License.txt")
 set(CPACK_PACKAGE_VENDOR "FrontISTR Forum, The University of Tokyo")
 set(CPACK_PACKAGE_NAME "${PROJECT_NAME}")
