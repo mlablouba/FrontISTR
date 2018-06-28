@@ -1,9 +1,11 @@
 #
-# docker build ./ -t frontistr:5.0a
+# docker build ./ --build-arg USER_ID=`id -u` GROUP_ID=`id -g` -t frontistr:5.0a
 # cd [FrontISTR working directory]
-# docker run -u="fistr" -v `pwd`:/work  -e NCPU=2 frontistr:5.0a
+# docker run -v `pwd`:/work -e NCPU=2 frontistr:5.0a
 #
-FROM centos:7.4.1708
+FROM centos:7
+ARG USER_ID=1000
+ARG GROUP_ID=1000
 
 # /usr/lib64/openmpi/bin
 RUN yum -y update \
@@ -170,7 +172,8 @@ RUN echo '#!/bin/bash' > /FrontISTR-5.0a/run.sh \
  && echo 'fi'  >> /FrontISTR-5.0a/run.sh \
  && chmod 755 /FrontISTR-5.0a/run.sh
 
-RUN useradd fistr
+RUN groupadd -g ${GROUP_ID} fistr
+RUN useradd -u ${USER_ID} -g ${GROUP_ID} fistr
 ENV PATH=$PATH:/usr/lib64/openmpi/bin
 USER fistr
 WORKDIR /work
