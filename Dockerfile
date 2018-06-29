@@ -1,5 +1,5 @@
 #
-# docker build ./ --build-arg USER_ID=`id -u` GROUP_ID=`id -g` -t frontistr:5.0a
+# docker build ./ --build-arg USER_ID=`id -u` --build-arg GROUP_ID=`id -g` -t frontistr:5.0a
 # cd [FrontISTR working directory]
 # docker run -v `pwd`:/work -e NCPU=2 frontistr:5.0a
 #
