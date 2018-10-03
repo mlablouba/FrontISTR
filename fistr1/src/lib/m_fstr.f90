@@ -399,16 +399,6 @@ module m_fstr
     real(kind=kreal), pointer :: TEMP0(:)
     real(kind=kreal), pointer :: TEMPC(:)
     real(kind=kreal), pointer :: TEMP (:)
-    real(kind=kreal), pointer :: TEMPW(:)
-
-    !> Residual
-    real(kind=kreal), pointer :: re(:)
-    real(kind=kreal), pointer :: QV(:)
-    real(kind=kreal), pointer :: RR(:)
-    real(kind=kreal), pointer :: RL(:)
-    real(kind=kreal), pointer :: RU(:)
-    real(kind=kreal), pointer :: RD(:)
-    real(kind=kreal), pointer :: IWKX(:,:)
 
     !> FIXTEMP
     integer :: T_FIX_tot
@@ -696,14 +686,6 @@ contains
     nullify( H%TEMP0 )
     nullify( H%TEMPC )
     nullify( H%TEMP  )
-    nullify( H%TEMPW )
-    nullify( H%re )
-    nullify( H%QV )
-    nullify( H%RR )
-    nullify( H%RL )
-    nullify( H%RU )
-    nullify( H%RD )
-    nullify( H%IWKX )
     nullify( H%T_FIX_node )
     nullify( H%T_FIX_ampl )
     nullify( H%T_FIX_val )
@@ -787,7 +769,7 @@ contains
     hecMAT%Iarray(32)=    0    ! = dumpexit
     hecMAT%Iarray(33)=    0    ! = usejad
     hecMAT%Iarray(34)=   10    ! = ncolor_in
-    hecMAT%Iarray(13)=    3    ! = mpc_method
+    hecMAT%Iarray(13)=    0    ! = mpc_method
     hecMAT%Iarray(14)=    0    ! = estcond
     hecMAT%Iarray(35)=    3    ! = maxrecycle_precond
 
