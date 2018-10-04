@@ -1,0 +1,60 @@
+#
+# docker build ./ -f Dockerfile.ubuntu18.04 --build-arg USER_ID=`id -u` --build-arg GROUP_ID=`id -g` -t frontistr:5.0a
+# cd [FrontISTR working directory]
+# docker run -v `pwd`:/work -e NCPU=2 frontistr:5.0a
+#
+
+FROM ubuntu:18.04
+ARG USER_ID=1000
+ARG GROUP_ID=1000
+
+RUN apt -y update \
+ && apt -y install build-essential \
+ && apt -y install gfortran \
+ && apt -y install libopenmpi-dev \
+ && apt -y install libopenblas-dev \
+# && apt -y install libscalapack-openmpi-dev \
+ && apt -y install libmetis-dev \
+ && apt -y install libscotch-dev \
+ && apt -y install libptscotch-dev \
+ && apt -y install libmumps-dev \
+ && apt -y install trilinos-all-dev \
+ && apt -y install cmake \
+ && apt -y install wget \
+ && apt -y install ssh \
+ && apt -y install ruby
+
+# scalapack
+RUN mkdir -p local \
+ && cd local \
+ && wget http://www.netlib.org/scalapack/scalapack-2.0.2.tgz \
+ && tar xvfz scalapack-2.0.2.tgz \
+ && cd scalapack-2.0.2 \
+ && mkdir build \
+ && cd build \
+ && cmake .. \
+ && make \
+ && make install
+
+RUN wget https://github.com/FrontISTR/FrontISTR/archive/v5.0a.tar.gz \
+ && tar xvfz v5.0a.tar.gz \
+ && cd FrontISTR-5.0a \
+ && mkdir build \
+ && cd build \
+ && cmake -DWITH_TOOLS=1 -DWITH_MPI=1 -DWITH_METIS=1 -DWITH_MUMPS=1 .. \
+ && make
+
+RUN echo '#!/bin/bash' > /FrontISTR-5.0a/run.sh \
+ && echo 'if [ -z "${NCPU}" ] || [ ${NCPU} -le 1 ]; then' >> /FrontISTR-5.0a/run.sh \
+ && echo '    /FrontISTR-5.0a/build/fistr1/fistr1' >> /FrontISTR-5.0a/run.sh \
+ && echo 'else' >> /FrontISTR-5.0a/run.sh \
+ && echo '    /FrontISTR-5.0a/build/hecmw1/tools/hecmw_part1' >> /FrontISTR-5.0a/run.sh \
+ && echo '    mpirun -np ${NCPU} /FrontISTR-5.0a/build/fistr1/fistr1' >> /FrontISTR-5.0a/run.sh \
+ && echo 'fi'  >> /FrontISTR-5.0a/run.sh \
+ && chmod 755 /FrontISTR-5.0a/run.sh
+
+RUN groupadd -g ${GROUP_ID} fistr
+RUN useradd -u ${USER_ID} -g ${GROUP_ID} -m -s /bin/bash fistr
+USER fistr
+WORKDIR /work
+CMD [ "/FrontISTR-5.0a/run.sh" ]

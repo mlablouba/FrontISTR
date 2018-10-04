@@ -1,8 +1,9 @@
 #
-# docker build ./ --build-arg USER_ID=`id -u` --build-arg GROUP_ID=`id -g` -t frontistr:5.0a
+# docker build ./ -f Dockerfile.centos7 --build-arg USER_ID=`id -u` --build-arg GROUP_ID=`id -g` -t frontistr:5.0a
 # cd [FrontISTR working directory]
 # docker run -v `pwd`:/work -e NCPU=2 frontistr:5.0a
 #
+
 FROM centos:7
 ARG USER_ID=1000
 ARG GROUP_ID=1000
