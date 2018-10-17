@@ -1,0 +1,16 @@
+FROM ubuntu:18.04
+
+RUN apt -y update \
+ && apt -y install \
+ build-essential \
+ gfortran \
+ libopenmpi-dev \
+ libopenblas-dev \
+ libscalapack-openmpi-dev \
+ libmetis-dev \
+ libscotch-dev \
+ libptscotch-dev \
+ libmumps-dev \
+ trilinos-all-dev \
+ cmake \
+ make
