@@ -96,6 +96,7 @@ else()
     $ENV{HOME}/local/lib
     $ENV{HOME}/.local/lib
     ${CMAKE_LIBRARY_PATH}
+    $ENV{MPI_LIB}
     /usr/local/scalapack/lib
     /usr/local/lib
     /usr/lib

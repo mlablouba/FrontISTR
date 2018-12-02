@@ -44,6 +44,7 @@ if(NOT METIS_VER_4)
     /usr/local/metis/lib
     /usr/local/lib
     /usr/metis/lib
+    /usr/lib64
     /usr/lib
   )
 else()
@@ -71,6 +72,7 @@ else()
     /usr/local/metis/lib
     /usr/local/lib
     /usr/metis/lib
+    /usr/lib64
     /usr/lib
   )
 endif()
