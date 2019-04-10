@@ -4,11 +4,14 @@
 ###############################################################################
 cmake_minimum_required(VERSION 2.8.11)
 
-list(APPAND hecmw_SOURCES
+list(APPAND hecmw_F_SOURCES
   ${CMAKE_CURRENT_SOURCE_DIR}/hecmw_transfer_result_c.f90
   ${CMAKE_CURRENT_SOURCE_DIR}/hecmw_transfer_data_c.f90
   ${CMAKE_CURRENT_SOURCE_DIR}/hecmw_transfer_data_c2f.f90
   ${CMAKE_CURRENT_SOURCE_DIR}/hecmw_dist_result_copy_c2f.f90
+)
+
+list(APPEND hecmw_C_SOURCES
   ${CMAKE_CURRENT_SOURCE_DIR}/hecmw_dlb_data_transfer.c
   ${CMAKE_CURRENT_SOURCE_DIR}/hecmw_dynamic_load_balancing.c
   ${CMAKE_CURRENT_SOURCE_DIR}/hecmw_dlb_mesh2graph.c

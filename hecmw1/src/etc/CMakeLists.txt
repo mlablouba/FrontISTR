@@ -4,7 +4,7 @@
 ###############################################################################
 cmake_minimum_required(VERSION 2.8.11)
 
-list(APPEND hecmw_SOURCES
+list(APPEND hecmw_C_SOURCES
   ${CMAKE_CURRENT_LIST_DIR}/mpi_wrapper.c
 )
 

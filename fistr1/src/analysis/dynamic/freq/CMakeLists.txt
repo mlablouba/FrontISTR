@@ -5,6 +5,6 @@
 
 cmake_minimum_required(VERSION 2.8.11)
 
-list(APPEND fistr_SOURCES
+list(APPEND fistr_F_SOURCES
   ${CMAKE_CURRENT_LIST_DIR}/fstr_frequency_analysis.f90
 )

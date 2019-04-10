@@ -6,11 +6,13 @@ cmake_minimum_required(VERSION 2.8.11)
 
 project(fistr CXX Fortran C)
 
-set(fistr_SOURCES)
+set(fistr_C_SOURCES)
+set(fistr_F_SOURCES)
 set(fistr_INCLUDE_DIRS)
 set(fistr_DEFINITIONS)
 set(fistr_LIBRARIES)
-set(fistr1_SOURCES)
+set(fistr1_C_SOURCES)
+set(fistr1_F_SOURCES)
 
 #
 # Inherit definitions from fistr options
@@ -23,7 +25,7 @@ set(fistr_LIBRARIES ${FrontISTR_LIBRARIES})
 # Build for libfistr.a
 #
 include(src/CMakeLists.txt)
-add_library(fistr STATIC ${fistr_SOURCES})
+add_library(fistr STATIC ${fistr_C_SOURCES} ${fistr_F_SOURCES})
 target_link_libraries(fistr hecmw)
 target_include_directories(fistr PUBLIC
   ${fistr_INCLUDE_DIRS} ${hecmw_INCLUDE_DIRS}
@@ -36,7 +38,7 @@ target_compile_definitions(fistr PUBLIC
 # Build for fistr1 (executable)
 #
 include(src/main/CMakeLists.txt)
-add_executable(fistr1 ${fistr1_SOURCES})
+add_executable(fistr1 ${fistr1_C_SOURCES} ${fistr1_F_SOURCES})
 target_link_libraries(fistr1
   fistr hecmw ${hecmw_LIBRARIES} ${fistr_LIBRARIES}
   ${CMAKE_Fortran_IMPLICIT_LINK_LIBRARIES}
@@ -68,3 +70,4 @@ install(TARGETS fistr1
 if(WITH_TOOLS)
   add_subdirectory(tools)
 endif()
+

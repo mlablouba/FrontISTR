@@ -10,7 +10,7 @@ include(${CMAKE_CURRENT_LIST_DIR}/physics/CMakeLists.txt)
 include(${CMAKE_CURRENT_LIST_DIR}/user/CMakeLists.txt)
 include(${CMAKE_CURRENT_LIST_DIR}/utilities/CMakeLists.txt)
 
-list(APPEND fistr_SOURCES
+list(APPEND fistr_F_SOURCES
   ${CMAKE_CURRENT_LIST_DIR}/GaussM.f90
   ${CMAKE_CURRENT_LIST_DIR}/dynamic_mass.f90
   ${CMAKE_CURRENT_LIST_DIR}/eigen_LIB.f90

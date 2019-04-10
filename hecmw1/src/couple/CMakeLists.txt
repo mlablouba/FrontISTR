@@ -4,7 +4,7 @@
 ###############################################################################
 cmake_minimum_required(VERSION 2.8.11)
 
-list(APPEND hecmw_SOURCES
+list(APPEND hecmw_C_SOURCES
   ${CMAKE_CURRENT_LIST_DIR}/hecmw_couple_comm.c
   ${CMAKE_CURRENT_LIST_DIR}/hecmw_couple_copy_c2f.c
   ${CMAKE_CURRENT_LIST_DIR}/hecmw_couple_copy_f2c.c
@@ -35,6 +35,9 @@ list(APPEND hecmw_SOURCES
   ${CMAKE_CURRENT_LIST_DIR}/hecmw_couple_startup_if.c
   ${CMAKE_CURRENT_LIST_DIR}/hecmw_couple_if.c
   ${CMAKE_CURRENT_LIST_DIR}/hecmw_couple_finalize_if.c
+)
+
+list(APPEN hecmw_F_SOURCES
   ${CMAKE_CURRENT_LIST_DIR}/hecmw_couple_define_f.f90
   ${CMAKE_CURRENT_LIST_DIR}/hecmw_couple_struct_f.f90
   ${CMAKE_CURRENT_LIST_DIR}/hecmw_couple_copy_c2f_f.f90

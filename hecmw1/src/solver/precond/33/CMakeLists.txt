@@ -4,8 +4,11 @@
 ###############################################################################
 cmake_minimum_required(VERSION 2.8.11)
 
-list(APPEND hecmw_SOURCES
+list(APPEND hecmw_C_SOURCES
   ${CMAKE_CURRENT_LIST_DIR}/hecmw_ML_wrapper_33.c
+)
+
+list(APPEND hecmw_F_SOURCES
   ${CMAKE_CURRENT_LIST_DIR}/hecmw_precond_BILU_33.f90
   ${CMAKE_CURRENT_LIST_DIR}/hecmw_precond_DIAG_33.f90
   ${CMAKE_CURRENT_LIST_DIR}/hecmw_precond_SSOR_33.f90

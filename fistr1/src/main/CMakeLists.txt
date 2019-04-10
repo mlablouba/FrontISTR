@@ -4,7 +4,10 @@
 ###############################################################################
 cmake_minimum_required(VERSION 2.8.11)
 
-list(APPEND fistr1_SOURCES
+list(APPEND fistr1_C_SOURCES
   ${CMAKE_CURRENT_LIST_DIR}/fistr_main.f90
+)
+
+list(APPEND fistr1_F_SOURCES
   ${CMAKE_CURRENT_LIST_DIR}/main.c
 )

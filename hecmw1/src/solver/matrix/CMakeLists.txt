@@ -4,7 +4,7 @@
 ###############################################################################
 cmake_minimum_required(VERSION 2.8.11)
 
-list(APPEND hecmw_SOURCES
+list(APPEND hecmw_F_SOURCES
   ${CMAKE_CURRENT_LIST_DIR}/hecmw_allocate.f90
   ${CMAKE_CURRENT_LIST_DIR}/hecmw_estimate_condition.F90
   ${CMAKE_CURRENT_LIST_DIR}/hecmw_local_matrix.f90

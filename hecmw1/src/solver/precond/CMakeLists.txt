@@ -11,6 +11,6 @@ include(${CMAKE_CURRENT_LIST_DIR}/44/CMakeLists.txt)
 include(${CMAKE_CURRENT_LIST_DIR}/66/CMakeLists.txt)
 include(${CMAKE_CURRENT_LIST_DIR}/nn/CMakeLists.txt)
 
-list(APPEND hecmw_SOURCES
+list(APPEND hecmw_F_SOURCES
   ${CMAKE_CURRENT_LIST_DIR}/hecmw_precond.f90
 )

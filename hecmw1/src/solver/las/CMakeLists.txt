@@ -4,7 +4,7 @@
 ###############################################################################
 cmake_minimum_required(VERSION 2.8.11)
 
-list(APPEND hecmw_SOURCES
+list(APPEND hecmw_F_SOURCES
   ${CMAKE_CURRENT_LIST_DIR}/hecmw_solver_las_11.f90
   ${CMAKE_CURRENT_LIST_DIR}/hecmw_solver_las_22.f90
   ${CMAKE_CURRENT_LIST_DIR}/hecmw_solver_las_33.f90
