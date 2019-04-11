@@ -25,10 +25,27 @@ set(fistr_LIBRARIES ${FrontISTR_LIBRARIES})
 # Build for libfistr.a
 #
 include(src/CMakeLists.txt)
-add_library(fistr STATIC ${fistr_C_SOURCES} ${fistr_F_SOURCES})
+add_library(fistr_c_obj OBJECT ${fistr_C_SOURCES})
+add_library(fistr_f_obj OBJECT ${fistr_F_SOURCES})
+add_library(fistr STATIC
+  $<TARGET_OBJECTS:fistr_c_obj>
+  $<TARGET_OBJECTS:fistr_f_obj>
+)
 target_link_libraries(fistr hecmw)
+target_include_directories(fistr_c_obj PUBLIC
+  ${fistr_INCLUDE_DIRS} ${hecmw_INCLUDE_DIRS}
+)
+target_include_directories(fistr_f_obj PUBLIC
+  ${fistr_INCLUDE_DIRS} ${hecmw_INCLUDE_DIRS}
+)
 target_include_directories(fistr PUBLIC
   ${fistr_INCLUDE_DIRS} ${hecmw_INCLUDE_DIRS}
+)
+target_compile_definitions(fistr_c_obj PUBLIC
+  ${fistr_DEFINITIONS} ${hecmw_DEFINITIONS}
+)
+target_compile_definitions(fistr_f_obj PUBLIC
+  ${fistr_DEFINITIONS} ${hecmw_DEFINITIONS}
 )
 target_compile_definitions(fistr PUBLIC
   ${fistr_DEFINITIONS} ${hecmw_DEFINITIONS}
