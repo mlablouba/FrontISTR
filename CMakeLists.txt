@@ -307,7 +307,9 @@ endif()
 if(WINDOWS)
   list(APPEND FrontISTR_DEFINITIONS "_WINDOWS")
   list(APPEND FrontISTR_LIBRARIES "ws2_32")
-  set(CMAKE_Fortran_FLAGS "${CMAKE_Fortran_FLAGS} -fno-range-check")
+  if(NOT MSVC)
+    set(CMAKE_Fortran_FLAGS "${CMAKE_Fortran_FLAGS} -fno-range-check")
+  endif()
 endif()
 
 
