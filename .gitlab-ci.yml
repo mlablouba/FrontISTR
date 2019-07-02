@@ -33,7 +33,8 @@ document:
         - cd doc; doxygen; cd ..
         - cp  -r doc/html/ public/
     artifacts:
-        - pulic
+        paths:
+            - pulic
 
 #     build_serial:
 #         stage: build
