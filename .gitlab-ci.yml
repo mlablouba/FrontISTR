@@ -1,8 +1,6 @@
 image: centos:latest
 
 before_script:
-    - yum install -y cmake make doxygen
-    - yum install -y gcc-gfortran libgfortran  gcc-c++
 
 cache:
     paths:
@@ -16,6 +14,7 @@ stages:
 make:
     stage: build
     script:
+        - yum install -y cmake make gcc-gfortran libgfortran  gcc-c++
         - mkdir -p build
         - cd build; cmake ..; make -j; cd ..
     artifacts:
@@ -30,8 +29,9 @@ tutorial_01:
 document:
     stage: deploy
     script:
+        - yum install -y doxygen
         - mkdir -p public
-        - cd doc; doxygen; cd ..
+        - cd doc; doxygen .; cd ..
         - cp  -r doc/html/ public/
     artifacts:
         paths:
