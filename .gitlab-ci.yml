@@ -5,35 +5,35 @@ before_script:
 
 cache:
     paths:
-        - build
+        - build/
 
-    stages:
-        - build
-        - test
-        - deploy
+stages:
+    - build
+    - test
+    - deploy
 
-    make:
-        stage: build
-        script:
-            - mkdir -p build
-            - cd build; cmake ..; make -j; cd ..
-        artifacts:
-            paths:
-                - build_p/fistr1/fistr1
+make:
+    stage: build
+    script:
+        - mkdir -p build
+        - cd build; cmake ..; make -j; cd ..
+    artifacts:
+        paths:
+            - build_p/fistr1/fistr1
 
-    tutorial_01:
-        stage: test
-        script:
-            - echo "test now"
+tutorial_01:
+    stage: test
+    script:
+        - echo "test now"
 
-    document:
-        stage: deploy
-        script:
-            - mkdir -p public
-            - cd doc; doxygen; cd ..
-            - cp  -r doc/html/ public/
-        artifacts:
-            - pulic
+document:
+    stage: deploy
+    script:
+        - mkdir -p public
+        - cd doc; doxygen; cd ..
+        - cp  -r doc/html/ public/
+    artifacts:
+        - pulic
 
 #     build_serial:
 #         stage: build
