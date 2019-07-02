@@ -1,7 +1,8 @@
 image: centos:latest
 
 before_script:
-    - yum install -y cmake make g++ git doxygen
+    - yum install -y cmake make doxygen
+    - yum install -y gcc-gfortran libgfortran  gcc-c++
 
 cache:
     paths:
