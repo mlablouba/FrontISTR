@@ -8,7 +8,6 @@ cache:
 
 stages:
     - build
-    - test
     - deploy
 
 make:
@@ -19,12 +18,7 @@ make:
         - cd build; cmake ..; make -j; cd ..
     artifacts:
         paths:
-            - build_p/fistr1/fistr1
-
-tutorial_01:
-    stage: test
-    script:
-        - echo "test now"
+            - build/
 
 document:
     stage: deploy
@@ -35,7 +29,7 @@ document:
         - cp  -r doc/html/ public/
     artifacts:
         paths:
-            - pulic
+            - public
 
 #     build_serial:
 #         stage: build
