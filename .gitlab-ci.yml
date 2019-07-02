@@ -12,7 +12,7 @@ cache:
         - test
         - deploy
 
-    build:
+    make:
         stage: build
         script:
             - mkdir -p build
@@ -21,8 +21,8 @@ cache:
             paths:
                 - build_p/fistr1/fistr1
 
-    test:
-        stage: tutorial_01
+    tutorial_01:
+        stage: test
         script:
             - echo "test now"
 
