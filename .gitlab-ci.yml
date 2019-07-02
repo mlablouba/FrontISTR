@@ -27,7 +27,8 @@ pages:
         - mkdir -p public
         - cd doc; doxygen .; cd ..
         - cp  -r doc/html/* public/
-    only: master
+    only:
+        - master
     artifacts:
         paths:
             - public
