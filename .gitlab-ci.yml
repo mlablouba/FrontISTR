@@ -20,7 +20,7 @@ make:
         paths:
             - build/
 
-document:
+pages:
     stage: deploy
     script:
         - yum install -y doxygen
