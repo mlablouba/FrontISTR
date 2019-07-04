@@ -1,3 +1,5 @@
+image: centos:latest
+
 cache:
     paths:
         - build/
@@ -7,12 +9,10 @@ stages:
 
 
 pages:
-    image:
-        name: squidfunk/mkdocs-material
-        entrypoint: [""]
     stage: deploy
     script:
-        - apt install -y doxygen bash 
+        - yum install -y doxygen python
+        - pip insatll mkdocs
         - mkdir -p public
         - cd doc; ./create_docs.sh; cd ..
         - cp  -r doc/html/* public/
