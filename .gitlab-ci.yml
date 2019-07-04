@@ -22,7 +22,7 @@ pages:
     image: squidfunk/mkdocs-material
     stage: deploy
     script:
-        - yum install -y doxygen 
+        - yum install -y doxygen bash 
         - mkdir -p public
         - cd doc; ./create_docs.sh; cd ..
         - cp  -r doc/html/* public/
