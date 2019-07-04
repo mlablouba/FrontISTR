@@ -19,7 +19,9 @@ make:
 
 
 pages:
-    image: squidfunk/mkdocs-material
+    image:
+        name: squidfunk/mkdocs-material
+        entrypoint: [""]
     stage: deploy
     script:
         - yum install -y doxygen bash 
