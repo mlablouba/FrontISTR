@@ -3,19 +3,7 @@ cache:
         - build/
 
 stages:
-    - build
     - deploy
-
-make:
-    image: centos:latest
-    stage: build
-    script:
-        - yum install -y cmake make gcc-gfortran libgfortran  gcc-c++
-        - mkdir -p build
-        - cd build; cmake ..; make -j; cd ..
-    artifacts:
-        paths:
-            - build/
 
 
 pages:
@@ -35,6 +23,19 @@ pages:
 #     only:
 #         - master
 
+
+# make:
+#     image: centos:latest
+#     stage: build
+#     script:
+#         - yum install -y cmake make gcc-gfortran libgfortran  gcc-c++
+#         - mkdir -p build
+#         - cd build; cmake ..; make -j; cd ..
+#     artifacts:
+#         paths:
+#             - build/
+
+############################################################
 #     build_serial:
 #         stage: build
 #         only:
