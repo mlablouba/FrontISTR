@@ -11,7 +11,8 @@ stages:
 pages:
     stage: deploy
     script:
-        - yum install -y doxygen python
+        - yum install -y doxygen python wget
+        - wget https://bootstrap.pypa.io/get-pip.py; python get-pip.py
         - pip insatll mkdocs
         - mkdir -p public
         - cd doc; ./create_docs.sh; cd ..
