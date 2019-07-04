@@ -13,7 +13,7 @@ pages:
     script:
         - yum install -y doxygen python wget
         - wget https://bootstrap.pypa.io/get-pip.py; python get-pip.py
-        - pip insatll mkdocs
+        - pip install mkdocs
         - mkdir -p public
         - cd doc; ./create_docs.sh; cd ..
         - cp  -r doc/html/* public/
