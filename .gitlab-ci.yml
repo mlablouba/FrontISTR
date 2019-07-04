@@ -20,12 +20,13 @@ make:
         paths:
             - build/
 
+
 pages:
     stage: deploy
     script:
-        - yum install -y doxygen
+        - yum install -y doxygen 
         - mkdir -p public
-        - cd doc; doxygen .; cd ..
+        - cd doc; doxygen Doxyfile.in; cd ..
         - cp  -r doc/html/* public/
     only:
         - master
