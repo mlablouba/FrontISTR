@@ -27,11 +27,11 @@ pages:
         - cd doc; ./create_docs.sh; cd ..
         - cp  -r doc/html/* public/
         - mkdocs -v
-    only:
-        - master
     artifacts:
         paths:
             - public
+#     only:
+#         - master
 
 #     build_serial:
 #         stage: build
