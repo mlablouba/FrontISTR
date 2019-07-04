@@ -1,7 +1,3 @@
-image: centos:latest
-
-before_script:
-
 cache:
     paths:
         - build/
@@ -11,6 +7,7 @@ stages:
     - deploy
 
 make:
+    image: centos:latest
     stage: build
     script:
         - yum install -y cmake make gcc-gfortran libgfortran  gcc-c++
@@ -22,12 +19,14 @@ make:
 
 
 pages:
+    image: squidfunk/mkdocs-material
     stage: deploy
     script:
         - yum install -y doxygen 
         - mkdir -p public
-        - cd doc; doxygen Doxyfile.in; cd ..
+        - cd doc; ./create_docs.sh; cd ..
         - cp  -r doc/html/* public/
+        - mkdocs -v
     only:
         - master
     artifacts:
