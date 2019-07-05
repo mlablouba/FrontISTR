@@ -5,10 +5,10 @@ cache:
         - build/
 
 stages:
+    - build
     - deploy
 
 make:
-    image: centos:latest
     stage: build
     script:
         - yum install -y cmake make gcc-gfortran libgfortran  gcc-c++
