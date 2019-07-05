@@ -1,5 +1,5 @@
 #!/bin/bash
-git submodule update -i
+cd ..; git submodule update -i; cd -
 rm -rf doc/*
 
 echo "create developers guide"

@@ -29,6 +29,7 @@ pages:
         - pip install mkdocs-windmill
         - pip install python-markdown-math
         - mkdir -p public
+        - git submodule update -i
         - cd doc; ./create_docs.sh; cd ..
         - cp -r doc/doc/* public/
     artifacts:
