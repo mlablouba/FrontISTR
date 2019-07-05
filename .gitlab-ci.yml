@@ -36,8 +36,8 @@ pages:
         paths:
             - public
         expire_in: 1day
-#     only:
-#         - master
+    only:
+        - master
 
 
 
