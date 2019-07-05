@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <title>付録 - FrontISTR ver. 5.0</title>
+        <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="../../css/highlight.css">
+        <link href="../../css/base.css" rel="stylesheet">
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.3/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+        <script src="../../js/jquery-1.10.2.min.js"></script>
+        <script src="../../js/bootstrap-3.3.7.min.js"></script>
+        <script src="../../js/highlight.pack.js"></script>
+         
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../../index.html">FrontISTR ver. 5.0</a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+            <!-- Main navigation -->
+            <ul class="nav navbar-nav">
+            
+            
+                <li >
+                    <a href="../../index.html">ホーム</a>
+                </li>
+            
+            
+            
+                <li class="dropdown active">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">導入 <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        <li >
+                            <a href="../install_00/index.html">はじめに</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../install_01/index.html">動作環境</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../install_02/index.html">アーカイブファイルの解凍・展開</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../install_03/index.html">インストール</a>
+                        </li>
+                    
+                        <li class="active">
+                            <a href="index.html">付録</a>
+                        </li>
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">理論 <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        <li >
+                            <a href="../../02_theory/theory_00/index.html">はじめに</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../02_theory/theory_01/index.html">微小変形線形弾性静解析</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../02_theory/theory_02/index.html">非線形静解析手法</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../02_theory/theory_03/index.html">動的解析手法</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../02_theory/theory_04/index.html">熱伝導解析</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../02_theory/theory_05/index.html">固有値解析</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../02_theory/theory_06/index.html">周波数応答解析</a>
+                        </li>
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">解析 <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        <li >
+                            <a href="../../03_analysis/analysis_00/index.html">はじめに</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../03_analysis/analysis_01/index.html">解析の流れと入出力ファイル</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../03_analysis/analysis_02/index.html">要素ライブラリおよび材料データ</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../03_analysis/analysis_03/index.html">全体制御データ</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../03_analysis/analysis_04/index.html">単一領域メッシュデータ</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../03_analysis/analysis_05/index.html">解析制御データ</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../03_analysis/analysis_06/index.html">ユーザーサブルーチン</a>
+                        </li>
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">例題 <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        <li >
+                            <a href="../../04_tutorial/tutorial_00/index.html">はじめに</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../04_tutorial/tutorial_02/index.html">解析手順</a>
+                        </li>
+                    
+                        <li >
+                            <a href="">解析例</a>
+                        </li>
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">検証 <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        <li >
+                            <a href="../../05_example/example_00/index.html">はじめに</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../05_example/example_01/index.html">単純形状モデルによる検証</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../05_example/example_02/index.html">弾性静解析用実モデル例題</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../05_example/example_03/index.html">固有値解析用実モデル例題</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../05_example/example_04/index.html">熱伝導解析用実モデル例題</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../05_example/example_05/index.html">線形動的解析用実モデル例題</a>
+                        </li>
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">付録 <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        <li >
+                            <a href="../../06_release_note/00_release_note/index.html">リリースノート</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../07_cheat_sheet/00_cheat_sheet/index.html">チートシート (コマンド早見表)</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../08_quick_guide/00_FrontISTR_install_quickguide_ubuntu/index.html">FrontISTR ver. 4.6のインストール (ubuntu 16.04 LTS)</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../08_quick_guide/01_FrontISTR_install_quickguide_windows/index.html">FrontISTR ver. 4.6のインストール (Windows10 - MinGW-w64)</a>
+                        </li>
+                    
+                    </ul>
+                </li>
+            
+            
+            </ul>
+
+            <!-- Search, Navigation and Repo links -->
+            <ul class="nav navbar-nav navbar-right">
+                    <li >
+                        <a rel="next" href="../install_03/index.html">
+                            <i class="fa fa-arrow-left"></i> Previous
+                        </a>
+                    </li>
+                    <li >
+                        <a rel="prev" href="../../02_theory/theory_00/index.html">
+                            Next <i class="fa fa-arrow-right"></i>
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+</div>
+
+        <div class="container">
+                <div class="row">
+                    <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+      
+    
+        <li class="main active"><a href="#_1">付録</a></li>
+        
+            <li><a href="#makefileconf">Makefile.confの変数一覧</a></li>
+        
+            <li><a href="#makefileconf_1">Makefile.confの設定例</a></li>
+        
+            <li><a href="#fx10">京コンピュータおよび富士通FX10における注意</a></li>
+        
+    
+    
+    </ul>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<!-- include, libの順に記載する -->
+
+<h1 id="_1">付録</h1>
+<h2 id="makefileconf">Makefile.confの変数一覧</h2>
+<h3 id="mpi">MPIに関する設定</h3>
+<p>MPI対応コンパイラーが自動参照している場合は、MPIに関する設定は不要である。</p>
+<table>
+<thead>
+<tr>
+<th align="left">変数名</th>
+<th align="left">説明</th>
+<th align="left">既定値</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">MPIDIR</td>
+<td align="left">MPIがインストールされているディレクトリのパスを指定する</td>
+<td align="left">なし</td>
+</tr>
+<tr>
+<td align="left">MPIBINDIR</td>
+<td align="left">MPIの実行ファイル群がインストールされているディレクトリのパスを指定する</td>
+<td align="left">なし</td>
+</tr>
+<tr>
+<td align="left">MPIINCDIR</td>
+<td align="left">MPIのヘッダーファイル群がインストールされているディレクトリのパスを指定する</td>
+<td align="left">.</td>
+</tr>
+<tr>
+<td align="left">MPILIBDIR</td>
+<td align="left">MPIのライブラリ群がインストールされているディレクトリのパスを指定する</td>
+<td align="left">.</td>
+</tr>
+<tr>
+<td align="left">MPILIBS</td>
+<td align="left">CおよびFortran90のオブジェクトファイルにリンクさせるMPIライブラリを指定する</td>
+<td align="left">なし</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_2">インストールディレクトリに関する設定</h3>
+<table>
+<thead>
+<tr>
+<th align="left">変数名</th>
+<th align="left">説明</th>
+<th align="left">既定値</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">PREFIX</td>
+<td align="left">本ソフトウェアをインストールするディレクトリのパスを指定する</td>
+<td align="left"><code>$(HOME)/FrontISTR</code></td>
+</tr>
+<tr>
+<td align="left">BINDIR</td>
+<td align="left">本ソフトウェアの実行ファイル群をインストールするディレクトリのパスを指定する</td>
+<td align="left"><code>$(PREFIX)/bin</code></td>
+</tr>
+<tr>
+<td align="left">INCLUDEDIR</td>
+<td align="left">本ソフトウェアのヘッダーファイル群をインストールするディレクトリのパスを指定する</td>
+<td align="left"><code>$(PREFIX)/include</code></td>
+</tr>
+<tr>
+<td align="left">LIBDIR</td>
+<td align="left">本ソフトウェアのライブラリ群をインストールするディレクトリのパスを指定する</td>
+<td align="left"><code>$(PREFIX)/lib</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="metis">METISに関する設定</h3>
+<table>
+<thead>
+<tr>
+<th align="left">変数名</th>
+<th align="left">説明</th>
+<th align="left">既定値</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">METISDIR</td>
+<td align="left">METISがインストールされているディレクトリのパスを指定する</td>
+<td align="left"><code>$(HOME)/metis</code></td>
+</tr>
+<tr>
+<td align="left">METISINCDIR</td>
+<td align="left">METISのヘッダーファイル群（metis.hなど）がインストールされているディレクトリのパスを指定する</td>
+<td align="left"><code>$(METISDIR)/include</code></td>
+</tr>
+<tr>
+<td align="left">METISLIBDIR</td>
+<td align="left">METISのライブラリ（libmetis.a）がインストールされているディレクトリのパスを指定する</td>
+<td align="left"><code>$(METISDIR)/lib</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="parmetis">ParMETISに関する設定</h3>
+<table>
+<thead>
+<tr>
+<th align="left">変数名</th>
+<th align="left">説明</th>
+<th align="left">既定値</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">PARMETISDIR</td>
+<td align="left">ParMETISがインストールされているディレクトリのパスを指定する。</td>
+<td align="left"><code>$(HOME)/ParMetis</code></td>
+</tr>
+<tr>
+<td align="left">PAEMETISINCDIR</td>
+<td align="left">ParMETISのヘッダーファイル群（parmetis.hなど）がインストールされているディレクトリのパスを指定する</td>
+<td align="left"><code>$(PARMETISDIR)/include</code></td>
+</tr>
+<tr>
+<td align="left">PARMETISLIBDIR</td>
+<td align="left">ParMETISのライブラリ（libparmetis.a）がインストールされているディレクトリのパスを指定する</td>
+<td align="left"><code>$(PARMETISDIR)/lib</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="revocap_refiner">REVOCAP_Refinerに関する設定</h3>
+<table>
+<thead>
+<tr>
+<th align="left">変数名</th>
+<th align="left">説明</th>
+<th align="left">既定値</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">REFINERDIR</td>
+<td align="left">REVOCAP_Refinerがインストールされているディレクトリのパスを指定する</td>
+<td align="left"><code>$(HOME)/REVOCAP_Refiner</code></td>
+</tr>
+<tr>
+<td align="left">REFINERINCDIR</td>
+<td align="left">REVOCAP_Refinerのヘッダーファイル群がインストールされているディレクトリのパスを指定する</td>
+<td align="left"><code>$(PARMETISDIR)/include</code></td>
+</tr>
+<tr>
+<td align="left">REFINERLIBDIR</td>
+<td align="left">REVOCAP_Refinerのライブラリ群がインストールされているディレクトリのパスを指定する</td>
+<td align="left"><code>$(PARMETISDIR)/lib</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="revocap_coupler">REVOCAP_Couplerに関する設定</h3>
+<table>
+<thead>
+<tr>
+<th align="left">変数名</th>
+<th align="left">説明</th>
+<th align="left">既定値</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">REVOCAPDIR</td>
+<td align="left">REVOCAP_Couplerがインストールされているディレクトリのパスを指定する</td>
+<td align="left"><code>$(HOME)/REVOCAP_Coupler</code></td>
+</tr>
+<tr>
+<td align="left">REVOCAPINCDIR</td>
+<td align="left">REVOCAP_Couplerのヘッダーファイル群がインストールされているディレクトリのパスを指定する</td>
+<td align="left"><code>$(REVOCAPDIR)/include</code></td>
+</tr>
+<tr>
+<td align="left">REVOCAPLIBDIR</td>
+<td align="left">REVOCAP_Couplerのライブラリ群がインストールされているディレクトリのパスを指定する</td>
+<td align="left"><code>$(REVOCAPDIR)/lib</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="mumps">MUMPSに関する設定</h3>
+<table>
+<thead>
+<tr>
+<th align="left">変数名</th>
+<th align="left">説明</th>
+<th align="left">既定値</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">MUMPSDIR</td>
+<td align="left">MUMPSがインストールされているディレクトリのパスを指定する</td>
+<td align="left"><code>$(HOME)/MUMPS</code></td>
+</tr>
+<tr>
+<td align="left">MUMPSINCDIR</td>
+<td align="left">MUMPSのヘッダーファイル群がインストールされているディレクトリのパスを指定する</td>
+<td align="left"><code>$(MUMPSDIR)/include</code></td>
+</tr>
+<tr>
+<td align="left">MUMPSLIBDIR</td>
+<td align="left">MUMPSのライブラリ群がインストールされているディレクトリのパスを指定する</td>
+<td align="left"><code>$(MUMPSDIR)/lib</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="ml">MLに関する設定</h3>
+<table>
+<thead>
+<tr>
+<th align="left">変数名</th>
+<th align="left">説明</th>
+<th align="left">既定値</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">MLDIR</td>
+<td align="left">MLがインストールされているディレクトリのパスを指定する</td>
+<td align="left"><code>$(HOME)/trilinos</code></td>
+</tr>
+<tr>
+<td align="left">MLINCDIR</td>
+<td align="left">MLのヘッダーファイル群がインストールされているディレクトリのパスを指定する</td>
+<td align="left"><code>$(MLDIR)/include</code></td>
+</tr>
+<tr>
+<td align="left">MLLIBDIR</td>
+<td align="left">MLのライブラリ群がインストールされているディレクトリのパスを指定する</td>
+<td align="left"><code>$(MLDIR)/lib</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="c">Cコンパイラーに関する設定</h3>
+<table>
+<thead>
+<tr>
+<th align="left">変数名</th>
+<th align="left">説明</th>
+<th align="left">既定値</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">CC</td>
+<td align="left">Cコンパイラーの起動コマンドを指定する</td>
+<td align="left"><code>mpicc</code></td>
+</tr>
+<tr>
+<td align="left">CFLAGS</td>
+<td align="left">Cコンパイラーに付与するオプションを指定する</td>
+<td align="left">なし</td>
+</tr>
+<tr>
+<td align="left">LDFLAGS</td>
+<td align="left">Cリンカーに付与するオプションを指定する。REVOCAP_Refinerを使用する場合で、CプログラムのリンクにCコンパイラーを用いる場合には、C++の標準ライブラリ（-lstdc++など）を指定する必要がある。</td>
+<td align="left"><code>-lm</code></td>
+</tr>
+<tr>
+<td align="left">OPTFLAGS</td>
+<td align="left">Cコンパイラーに付与する最適化オプションなどを指定する</td>
+<td align="left"><code>-O3</code></td>
+</tr>
+<tr>
+<td align="left">CLINKER</td>
+<td align="left">Cプログラムのリンク時に用いるコマンドを指定する。REVOCAP_Refinerを使用する場合で、CプログラムのリンクにC++コンパイラーを用いる必要がある場合などに指定する。</td>
+<td align="left"><code>$(CC)</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="c_1">C++コンパイラーに関する設定</h3>
+<table>
+<thead>
+<tr>
+<th align="left">変数名</th>
+<th align="left">説明</th>
+<th align="left">既定値</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">CPP</td>
+<td align="left">C++コンパイラーの起動コマンドを指定する</td>
+<td align="left"><code>mpic++</code></td>
+</tr>
+<tr>
+<td align="left">CPPFLAGS</td>
+<td align="left">C++コンパイラーに付与するオプションを指定する。BoostライブラリがC++コンパイラーから自動参照されない場合、-Iオプションにより、インクルードファイルが格納されているディレクトリを指定する。</td>
+<td align="left"><code>-DMPICH_IGNORE_CXX_SEEK</code></td>
+</tr>
+<tr>
+<td align="left">CPPLDFLAGS</td>
+<td align="left">C++リンカーに付与するオプションを指定する</td>
+<td align="left">なし</td>
+</tr>
+<tr>
+<td align="left">CPPOPTFLAGS</td>
+<td align="left">C++コンパイラーに付与する最適化オプションなどを指定する</td>
+<td align="left"><code>-O3</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="fortran90">Fortran90コンパイラーに関する設定</h3>
+<table>
+<thead>
+<tr>
+<th align="left">変数名</th>
+<th align="left">説明</th>
+<th align="left">既定値</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">F90</td>
+<td align="left">Fortran90コンパイラーの起動コマンドを指定する</td>
+<td align="left"><code>mpif90</code></td>
+</tr>
+<tr>
+<td align="left">F90FLAGS</td>
+<td align="left">Fortran90コンパイラーに付与するオプションを指定する</td>
+<td align="left"><code>-DMPICH_IGNORE_CXX_SEEK</code></td>
+</tr>
+<tr>
+<td align="left">F90LDFLAGS</td>
+<td align="left">Fortran90リンカーに付与するオプションを指定する。Intel MKLを利用する場合には、そのリンクオプションを指定する。また、REVOCAP_Refinerを使用する場合で、Fortran90プログラムのリンクにFortran90コンパイラーを用いる場合には、C++の標準ライブラリ（-lstdc++など）を指定する必要がある。</td>
+<td align="left">なし</td>
+</tr>
+<tr>
+<td align="left">F90OPTFLAGS</td>
+<td align="left">Fortran90コンパイラーに付与する最適化オプションなどを指定する</td>
+<td align="left"><code>-O2</code></td>
+</tr>
+<tr>
+<td align="left">F90LINKER</td>
+<td align="left">Fortran90プログラムのリンク時に用いるコマンドを指定する。REVOCAP_Refinerを使用する場合で、Fortran90プログラムのリンクにC++コンパイラーを用いる必要がある場合などに指定する（京コンピュータでは“mpiFCCpx --linkfortran” を指定する）。</td>
+<td align="left"><code>$(F90)</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="unix">UNIXコマンドに関する設定</h3>
+<table>
+<thead>
+<tr>
+<th align="left">変数名</th>
+<th align="left">説明</th>
+<th align="left">既定値</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">MAKE</td>
+<td align="left">makeの起動コマンドを指定する。オプションが必要な場合は同時に指定する。</td>
+<td align="left"><code>make</code></td>
+</tr>
+<tr>
+<td align="left">AR</td>
+<td align="left">アーカイブの作成、変更などを行なうコマンドを指定する。オプションが必要な場合は同時に指定する。</td>
+<td align="left"><code>ar ruv</code></td>
+</tr>
+<tr>
+<td align="left">CP</td>
+<td align="left">ファイルやディレクトリをコピーするコマンドを指定する。オプションが必要な場合は同時に指定する。</td>
+<td align="left"><code>cp -f</code></td>
+</tr>
+<tr>
+<td align="left">RM</td>
+<td align="left">ファイルやディレクトリを削除するコマンドを指定する。オプションが必要な場合は同時に指定する。</td>
+<td align="left"><code>rm -f</code></td>
+</tr>
+<tr>
+<td align="left">MKDIR</td>
+<td align="left">ディレクトリを作成するコマンドを指定する。オプションが必要な場合は同時に指定する。</td>
+<td align="left"><code>mkdir -p</code></td>
+</tr>
+<tr>
+<td align="left">MV</td>
+<td align="left">ファイルを移動するコマンドを指定する。オプションが必要な場合は同時に指定する。</td>
+<td align="left"><code>mv</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="makefileconf_1">Makefile.confの設定例</h2>
+<h2 id="fx10">京コンピュータおよび富士通FX10における注意</h2>
+<p>本バージョンでは、京コンピュータおよび富士通FX10向けのチューニングが行われていますが、これに伴い、利用する環境に応じてソースコードの一部を変更する必要があります。</p>
+<p>変更するファイル：</p>
+<p><code>hecmw1/src/solver/solver_33/hecmw_tuning_fx.f90</code></p>
+<p>変更内容：</p>
+<p>ファイル内で定義されているパラーメータ変数 <strong>TotalSectorCacheSize</strong> を</p>
+<ul>
+<li>
+<p>京コンピュータでは <strong>12</strong></p>
+</li>
+<li>
+<p>FX10では <strong>24</strong></p>
+</li>
+</ul>
+<p>に設定する。</p>
+<p>なお、初期状態では京コンピュータ向けの設定となっています。</p></div>
+                </div>
+        </div>
+
+    <hr>
+    <footer class="container">
+        
+        <center>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</center>
+    </footer>
+        <script src="../../js/base.js"></script>
+        <script src="../../search/require.js"></script>
+        <script src="../../search/search.js"></script>
+    </body>
+</html>

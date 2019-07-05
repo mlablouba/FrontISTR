@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <title>熱伝導解析 - FrontISTR ver. 5.0</title>
+        <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="../../css/highlight.css">
+        <link href="../../css/base.css" rel="stylesheet">
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.3/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+        <script src="../../js/jquery-1.10.2.min.js"></script>
+        <script src="../../js/bootstrap-3.3.7.min.js"></script>
+        <script src="../../js/highlight.pack.js"></script>
+         
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../../index.html">FrontISTR ver. 5.0</a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+            <!-- Main navigation -->
+            <ul class="nav navbar-nav">
+            
+            
+                <li >
+                    <a href="../../index.html">ホーム</a>
+                </li>
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">導入 <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        <li >
+                            <a href="../../01_install/install_00/index.html">はじめに</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../01_install/install_01/index.html">動作環境</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../01_install/install_02/index.html">アーカイブファイルの解凍・展開</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../01_install/install_03/index.html">インストール</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../01_install/install_04/index.html">付録</a>
+                        </li>
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li class="dropdown active">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">理論 <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        <li >
+                            <a href="../theory_00/index.html">はじめに</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../theory_01/index.html">微小変形線形弾性静解析</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../theory_02/index.html">非線形静解析手法</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../theory_03/index.html">動的解析手法</a>
+                        </li>
+                    
+                        <li class="active">
+                            <a href="index.html">熱伝導解析</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../theory_05/index.html">固有値解析</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../theory_06/index.html">周波数応答解析</a>
+                        </li>
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">解析 <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        <li >
+                            <a href="../../03_analysis/analysis_00/index.html">はじめに</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../03_analysis/analysis_01/index.html">解析の流れと入出力ファイル</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../03_analysis/analysis_02/index.html">要素ライブラリおよび材料データ</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../03_analysis/analysis_03/index.html">全体制御データ</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../03_analysis/analysis_04/index.html">単一領域メッシュデータ</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../03_analysis/analysis_05/index.html">解析制御データ</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../03_analysis/analysis_06/index.html">ユーザーサブルーチン</a>
+                        </li>
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">例題 <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        <li >
+                            <a href="../../04_tutorial/tutorial_00/index.html">はじめに</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../04_tutorial/tutorial_02/index.html">解析手順</a>
+                        </li>
+                    
+                        <li >
+                            <a href="">解析例</a>
+                        </li>
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">検証 <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        <li >
+                            <a href="../../05_example/example_00/index.html">はじめに</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../05_example/example_01/index.html">単純形状モデルによる検証</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../05_example/example_02/index.html">弾性静解析用実モデル例題</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../05_example/example_03/index.html">固有値解析用実モデル例題</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../05_example/example_04/index.html">熱伝導解析用実モデル例題</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../05_example/example_05/index.html">線形動的解析用実モデル例題</a>
+                        </li>
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">付録 <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        <li >
+                            <a href="../../06_release_note/00_release_note/index.html">リリースノート</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../07_cheat_sheet/00_cheat_sheet/index.html">チートシート (コマンド早見表)</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../08_quick_guide/00_FrontISTR_install_quickguide_ubuntu/index.html">FrontISTR ver. 4.6のインストール (ubuntu 16.04 LTS)</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../08_quick_guide/01_FrontISTR_install_quickguide_windows/index.html">FrontISTR ver. 4.6のインストール (Windows10 - MinGW-w64)</a>
+                        </li>
+                    
+                    </ul>
+                </li>
+            
+            
+            </ul>
+
+            <!-- Search, Navigation and Repo links -->
+            <ul class="nav navbar-nav navbar-right">
+                    <li >
+                        <a rel="next" href="../theory_03/index.html">
+                            <i class="fa fa-arrow-left"></i> Previous
+                        </a>
+                    </li>
+                    <li >
+                        <a rel="prev" href="../theory_05/index.html">
+                            Next <i class="fa fa-arrow-right"></i>
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+</div>
+
+        <div class="container">
+                <div class="row">
+                    <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+      
+    
+        <li class="main active"><a href="#_1">熱伝導解析</a></li>
+        
+            <li><a href="#_2">基礎方程式</a></li>
+        
+            <li><a href="#_3">離散化</a></li>
+        
+    
+    
+    </ul>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    processEscapes: true
+  },
+  CommonHTML: { matchFontHeight: true },
+  displayAlign: "center"
+});
+</script>
+
+<script async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML"></script>
+
+<h2 id="_1">熱伝導解析</h2>
+<p>本開発コードで用いられる有限要素法（Finite ElementMethod）による固体についての熱伝導解析手法を示す。</p>
+<h3 id="_2">基礎方程式</h3>
+<p>連続体中での熱伝導方程式は以下のようになる。</p>
+<p>$$
+  \rho c \frac{\partial T}{\partial t} =
+  \frac{\partial}{\partial x}(k_x \frac{\partial T}{\partial x})
++ \frac{\partial}{\partial y}(k_y \frac{\partial T}{\partial y})
++ \frac{\partial}{\partial z}(k_z \frac{\partial T}{\partial z}) + Q
+\tag{2.4.1}$$</p>
+<p>ここで、$\rho=\rho(x)$は質量（密度）、$c=c(x,T)$は比熱、$T=T(x,t)$は温度、$k=k(x,T)$は熱伝導率、$Q=Q(x,T,t)$は発熱量、
+$x$は位置、$T$は温度、$t$は時間を表す。</p>
+<p>考慮している領域を$S$、その周囲を$\Gamma$とする。
+$\Gamma$上では、Dirichet型かNeumann型のいずれかの境界条件が、いたるところで与えられるものと仮定すると境界条件は以下のようになる。</p>
+<p>$$
+T = T_1(x,t), \; x \in \Gamma_1
+\tag{2.4.2}$$</p>
+<p>$$
+k \frac{\partial T}{\partial n} = q(x,T,t), \; x \in \Gamma_2
+\tag{2.4.3}$$</p>
+<p>ただし、$T_1$，$q$は関数形が既知とする。$q$は境界からの流出熱流束である。
+本プログラムでは、3種類の熱流束が考慮できる。</p>
+<p>$$
+q=-q_s+q_c+q_r
+\tag{2.4.4}$$</p>
+<p>$$
+q_s=q_s(x,t)
+\tag{2.4.5}$$</p>
+<p>$$
+q_c=hc(T-Tc)
+\tag{2.4.6}$$</p>
+<p>$$
+q_r=hr(T^4-Tr^4)
+\tag{2.4.7}$$</p>
+<p>ここで、$q_s$は分布熱流束、$q_c$は対流熱伝達による熱流束、$q_r$は輻射熱伝達による熱流束である。</p>
+<p>ただし、
+$Tc=Tc(x,t)$は対流熱伝達率雰囲気温度、
+$hc=hc(x,t)$は対流熱伝達係数、
+$Tr=Tr(x,t)$は輻射熱伝達率雰囲気温度、
+$hr=\varepsilon \sigma F = {hr(x,t)}$は輻射熱伝達係数、
+$\varepsilon$は輻射率，$\sigma$はStefanBoltzmann定数、$F$は形態係数である．</p>
+<h3 id="_3">離散化</h3>
+<p>方程式(2.4.1)をGalerkin法によって離散化すると、</p>
+<p>$$
+K T + M \frac{\partial T}{\partial t} = F
+\tag{2.4.8}$$</p>
+<p>ただし、</p>
+<p>$$
+K = \int( k_x \frac{\partial N^T}{\partial x}\frac{\partial N}{\partial x}
++ k_y \frac{\partial N^T}{\partial y}\frac{\partial N}{\partial y}
++ k_z \frac{\partial N^T}{\partial z}\frac{\partial N}{\partial z} ) dV
++ \int hc N^T N ds + \int hr N^T N ds
+\tag{2.4.9}$$</p>
+<p>$$
+M = \int \rho c N^T N dV
+\tag{2.4.10}$$</p>
+<p>$$
+F = \int Q N^T dV - \int q_s N^T dS
++ \int{hc} T c N^T dS
++ \int{hcTr} ({T+Tr}) ({T^2 + T r^2}) N^T dS
+\tag{2.4.11}$$</p>
+<p>$$
+N = (N^1, N^2, \ldots, Ni)
+\tag{2.4.12}$$</p>
+<p>方程式(2.4.8)は非線形かつ非定常の方程式である。
+いま、時間に関して後退オイラー法により離散化して、時刻$t=t_0$における温度が既知のとき時刻$t=t_{0+\Delta t}$での温度を次式を用いて計算することにする。</p>
+<p>$$
+K_{t=t_{0+\Delta t}} T_{t=t_{0+\Delta t}} + M_{t=t_{0 + \Delta t}} \frac{T_{t=t_{0 + \Delta t}} - T_{t=t_0}}{\Delta t} = F_{t=t_{0+\Delta t}}
+\tag{2.4.13}$$</p>
+<p>ここでの式(2.4.13)を近似的にみたす温度ベクトル$T_{t=t_{0+\Delta t}}^{(i)}$
+を改善して、精度の良い解$T_{t=t_{0+\Delta t}}^{(i)+1}$を求めることを考える。</p>
+<p>そのために、まず、温度ベクトルを次のようにあらわす。</p>
+<p>$$
+T_{t=t_{0+\Delta t}}=
+T_{t=t_{0+\Delta t}}^{(i)} + \Delta T_{t=t_{0+\Delta t}}^{(i)}
+\tag{2.4.14}$$</p>
+<p>熱伝導マトリクスと温度ベクトルとの積、質量マトリクスなどを次式のように近似的にあらわす。</p>
+<p>$$
+K_{t=t_{0+\Delta t}} T_{t=t_{0+\Delta t}}
+K_{t=t_{0+\Delta t}}^{(i)} T_{t=t_{0+\Delta t}}^{(i)}
+\frac{\partial K_{t=t_{0+\Delta t}}^{(i)}}{T_{t=t_{0+\Delta t}}^{(i)}}
+\partial T_{t=t_{0+\Delta t}}^{(i)} \Delta T_{t=t_{0+\Delta t}}^{(i)}
+\tag{2.4.15}$$</p>
+<p>$$
+M_{t=t_{0+\Delta t}}
+M_{t=t_{0+\Delta t}}^{(i)}
++ \frac{\partial M_{t=t_{0+\Delta t}}^{(i)}}{\partial T_{t=t_{0+\Delta t}}^{(i)}}
+\Delta T_{t=t_{0+\Delta t}}^{(i)}
+\tag{2.4.16}$$</p>
+<p>式(2.4.14)、式(2.4.15)、式(2.4.16)を式(2.4.13)に代入して二次以上の項を省略すると次式を得る。</p>
+<p>$$
+(\frac{M_{t=t_{0+\Delta t}}^{(i)}}{\Delta t}
++ \partial M_{t=t_{0+\Delta t}}^{(i)} T_{t=t_{0+\Delta t}}^{(i)}
+\partial T_{t=t_{0+\Delta t}}^{(i)}
+\frac{T_{t=t_{0+\Delta t}}^{(i)} - T_{t=t_0}}{\Delta t}
++ \frac{\partial K_{t=t_{0+\Delta t}}^{(i)}}{T_{t=t_{0+\Delta t}}^{(i)}}
+\partial T_{t=t_{0+\Delta t}}^{(i)})
+\Delta T_{t=t_{0+\Delta t}}^{(i)} =
+$$</p>
+<p>$$F_{t=t_0+\Delta t} - M_{t=t_{0+\Delta t}}^{(i)}
+\frac{T_{t=t_{0+\Delta t}}^{(i)} - T_{t=t_0}}{\Delta t}
+- K_{t=t_{0+\Delta t}}^{(i)} T_{t=t_{0+\Delta t}}^{(i)}
+\tag{2.4.17}$$</p>
+<p>さらに左辺の係数マトリクスを次式を用いて近似評価する。</p>
+<p>$$
+K^{(i)} = \frac{M_{t=t_0+\Delta t}^{(i)}}{\Delta t} +
+\frac{\partial K_{t=t_0+\Delta t}^{(i)}}{\partial T^{(i)}_{t=t_0+\Delta t}}
+$$</p>
+<p>$$
+T_{t=t_0+\Delta t}^{(i)}
+= \frac{M_{t=t_0+\Delta t}^{(i)}}{\Delta t} + K_{T_{t=t_0+\Delta t}^{(i)}}
+\tag{2.4.18}$$</p>
+<p>ここで$K_{T_{t=t_0+\Delta t}}^{(i)}$は接線剛性マトリクスである。</p>
+<p>結局次式を用いて反復計算を行うことによって時刻 $t=t_0+\Delta t$での温度を計算することができる。</p>
+<p>$$
+K^{(i)} T_{t=t_{0+\Delta t}}^{(i)} = F_{t=t_0+\Delta t} - M_{t=t_{0+\Delta t}}^{(i)} \frac{T_{t=t_{0+\Delta t}}^{(i)} - T_{t=t_0}}{\Delta t} - K^{(i)} T_{t=t_{0+\Delta t}}^{(i)}
+\tag{2.4.19}$$</p>
+<p>特に定常解析においては次式を用いて反復計算を行う。</p>
+<p>$$
+K_T^{(i)} \Delta T_{t=\infty}^{(i)} = F_{t=\infty} - K_T^{(i)} \Delta T_{t=\infty}^{(i)}
+$$</p>
+<p>$$
+T_{t=\infty}^{(i+1)} = T_{t=\infty}^{(i)} + \Delta{T}_{t=\infty}^{(i)}
+\tag{2.4.20}$$</p>
+<p>非定常解析において時間増分$\Delta t$の選び方は、時間に関する離散化に陰解法を採用しているので、一般にその大きさの制約を受けない。ただし時間増分$\Delta t$が大きすぎると、反復計算における収束回数は増加する。
+そこで本プログラムは、反復計算過程における残差ベクトルの大きさをつねにモニターし、反復計算の収束がおそすぎれば時間増分$\Delta t$を減少させ、反復計算回数が少なくなると時間増分$\Delta t$を増加される自動増分機能を備えている。</p></div>
+                </div>
+        </div>
+
+    <hr>
+    <footer class="container">
+        
+        <center>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</center>
+    </footer>
+        <script src="../../js/base.js"></script>
+        <script src="../../search/require.js"></script>
+        <script src="../../search/search.js"></script>
+    </body>
+</html>

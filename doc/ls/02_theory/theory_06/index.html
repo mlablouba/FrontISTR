@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <title>周波数応答解析 - FrontISTR ver. 5.0</title>
+        <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="../../css/highlight.css">
+        <link href="../../css/base.css" rel="stylesheet">
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.3/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+        <script src="../../js/jquery-1.10.2.min.js"></script>
+        <script src="../../js/bootstrap-3.3.7.min.js"></script>
+        <script src="../../js/highlight.pack.js"></script>
+         
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../../index.html">FrontISTR ver. 5.0</a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+            <!-- Main navigation -->
+            <ul class="nav navbar-nav">
+            
+            
+                <li >
+                    <a href="../../index.html">ホーム</a>
+                </li>
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">導入 <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        <li >
+                            <a href="../../01_install/install_00/index.html">はじめに</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../01_install/install_01/index.html">動作環境</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../01_install/install_02/index.html">アーカイブファイルの解凍・展開</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../01_install/install_03/index.html">インストール</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../01_install/install_04/index.html">付録</a>
+                        </li>
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li class="dropdown active">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">理論 <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        <li >
+                            <a href="../theory_00/index.html">はじめに</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../theory_01/index.html">微小変形線形弾性静解析</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../theory_02/index.html">非線形静解析手法</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../theory_03/index.html">動的解析手法</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../theory_04/index.html">熱伝導解析</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../theory_05/index.html">固有値解析</a>
+                        </li>
+                    
+                        <li class="active">
+                            <a href="index.html">周波数応答解析</a>
+                        </li>
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">解析 <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        <li >
+                            <a href="../../03_analysis/analysis_00/index.html">はじめに</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../03_analysis/analysis_01/index.html">解析の流れと入出力ファイル</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../03_analysis/analysis_02/index.html">要素ライブラリおよび材料データ</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../03_analysis/analysis_03/index.html">全体制御データ</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../03_analysis/analysis_04/index.html">単一領域メッシュデータ</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../03_analysis/analysis_05/index.html">解析制御データ</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../03_analysis/analysis_06/index.html">ユーザーサブルーチン</a>
+                        </li>
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">例題 <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        <li >
+                            <a href="../../04_tutorial/tutorial_00/index.html">はじめに</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../04_tutorial/tutorial_02/index.html">解析手順</a>
+                        </li>
+                    
+                        <li >
+                            <a href="">解析例</a>
+                        </li>
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">検証 <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        <li >
+                            <a href="../../05_example/example_00/index.html">はじめに</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../05_example/example_01/index.html">単純形状モデルによる検証</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../05_example/example_02/index.html">弾性静解析用実モデル例題</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../05_example/example_03/index.html">固有値解析用実モデル例題</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../05_example/example_04/index.html">熱伝導解析用実モデル例題</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../05_example/example_05/index.html">線形動的解析用実モデル例題</a>
+                        </li>
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">付録 <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        <li >
+                            <a href="../../06_release_note/00_release_note/index.html">リリースノート</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../07_cheat_sheet/00_cheat_sheet/index.html">チートシート (コマンド早見表)</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../08_quick_guide/00_FrontISTR_install_quickguide_ubuntu/index.html">FrontISTR ver. 4.6のインストール (ubuntu 16.04 LTS)</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../08_quick_guide/01_FrontISTR_install_quickguide_windows/index.html">FrontISTR ver. 4.6のインストール (Windows10 - MinGW-w64)</a>
+                        </li>
+                    
+                    </ul>
+                </li>
+            
+            
+            </ul>
+
+            <!-- Search, Navigation and Repo links -->
+            <ul class="nav navbar-nav navbar-right">
+                    <li >
+                        <a rel="next" href="../theory_05/index.html">
+                            <i class="fa fa-arrow-left"></i> Previous
+                        </a>
+                    </li>
+                    <li >
+                        <a rel="prev" href="../../03_analysis/analysis_00/index.html">
+                            Next <i class="fa fa-arrow-right"></i>
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+</div>
+
+        <div class="container">
+                <div class="row">
+                    <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+      
+    
+        <li class="main active"><a href="#_1">周波数応答解析</a></li>
+        
+            <li><a href="#_2">定式化</a></li>
+        
+    
+    
+    </ul>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    processEscapes: true
+  },
+  CommonHTML: { matchFontHeight: true },
+  displayAlign: "center"
+});
+</script>
+
+<script async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML"></script>
+
+<h2 id="_1">周波数応答解析</h2>
+<h3 id="_2">定式化</h3>
+<p>減衰を考慮しない場合の周波数応答解析の運動方程式は式のようになる。</p>
+<p>$$
+M \ddot{U} + K U = 0
+\tag{2.6.1}$$</p>
+<p>これを固有モードごとに展開すると、</p>
+<p>$$
+U = U_j e^{i \omega_j t}
+\tag{2.6.2}$$</p>
+<p>となる。これを式(2.6.1)に代入すると、</p>
+<p>$$
+K U_j = \omega_j^2 M U_j
+\tag{2.6.3}$$</p>
+<p>を得る。この固有振動数が実数になることを以下のように証明する。$\omega_j^2 = \lambda_j$とおき、式(2.6.3)の複素共役をとると式(2.6.4)を得る。</p>
+<p>$$
+K U_j = \lambda_j M U_j
+K \overline{UJ} = \overline{\lambda_J} M \overline{U_J}
+\tag{2.6.4}$$</p>
+<p>これに$\overline{U}_J^T$をかけると、</p>
+<p>$$
+U_j^T K \overline{U}_J = \overline{\lambda}_J
+U_j^T M \overline{U}_J
+\overline{U}_J^T K U_j = \lambda_j \overline{U}_J^T M U_j
+\tag{2.6.5}$$</p>
+<p>を得る。式(2.6.5)より、</p>
+<p>$$
+0 = ( \lambda_j - \overline{\lambda_J} ) \overline{U_J}^T M U_j
+\tag{2.6.6}$$</p>
+<p>となる。ここで、質量マトリクスは正定値対称なのでゼロベクトルでない固有ベクトルについて</p>
+<p>$$
+\overline{U_J} M U_j &gt; 0
+\tag{2.6.7}$$</p>
+<p>が成り立つ。ゆえに、</p>
+<p>$$
+\lambda_j =\overline{\lambda_J}
+\tag{2.6.8}$$</p>
+<p>となり、$\omega_j^2 = \lambda_j$は実数となる。ここで、2つの違うモードについて考える。</p>
+<p>$$
+K U_i = \lambda_i M U_i
+K U_j = \lambda_j M U_j
+\tag{2.6.9}$$</p>
+<p>これより、</p>
+<p>$$
+( \lambda_i - \lambda_j ) U_j^T M U_i = 0
+\tag{2.6.10}$$</p>
+<p>が得られ、固有値が異なる場合には、</p>
+<p>$$
+U_j^T M U_i = 0
+\tag{2.6.11}$$</p>
+<p>となる。すなわち異なる固有モードは質量マトリクスについて直交する。
+同じモードについては質量マトリクスについて規格化する(式(2.6.12))ことによって取り扱いが容易になる利点がある。</p>
+<p>$$
+U_i^T M U_i = 1
+\tag{2.6.12}$$</p>
+<p>次に、減衰を考慮した場合の周波数応答解析についての定式化を示す。対象とする運動方程式を式(2.6.13)に示す。</p>
+<p>$$
+M \ddot{U} + C \dot{U} + K U = F
+\tag{2.6.13}$$</p>
+<p>ここでの減衰項はRayleigh型を想定して(2.6.14)のようにして表せるものとする。</p>
+<p>$$
+C = \alpha M + \beta K
+\tag{2.6.14}$$</p>
+<p>固有値解析で得られた固有ベクトルにより変位ベクトルは時刻<em>t</em>において式(2.6.15)のように展開できる。</p>
+<p>$$
+U(t) = \sum_i b_i(t) U_i
+\tag{2.6.15}$$</p>
+<p>このとき、外力項が調和振動子式の</p>
+<p>$$
+F(t) = ( F_R + i F_I )e^{i \Omega t}
+\tag{2.6.16}$$</p>
+<p>場合において$b_{j}(t)$を決定する。運動方程式(2.6.13)は強制振動の形になるので</p>
+<p>$$
+b_j (t) = (b_{jR} + b_{jI}) e^{i \Omega t}
+\tag{2.6.17}$$</p>
+<p>が成り立つ。$b_{j}(t)$の展開係数の実部および虚部を求めると式(2.6.18)および式(2.6.19)の形になる。</p>
+<p>$$
+b_{jR} = \frac{ U^T_j F_R (\omega^2_j - \Omega^2) + U^T_j F_I (\alpha + \beta \omega_j^2) \Omega}{ (\omega^2_j - \Omega^2)^2 + (\alpha + \beta \omega_j^2)^2 \Omega^2}
+\tag{2.6.18}$$</p>
+<p>$$
+b_{jI} = \frac{ U^T_j F_I(\omega^2_j - \Omega^2) - U^T_j F_R(\alpha + \beta \omega_j^2) \Omega}{ (\omega^2_j - \Omega^2)^2 + (\alpha + \beta \omega_j^2)^2 \Omega^2}
+\tag{2.6.19}$$</p>
+<p>となる。</p></div>
+                </div>
+        </div>
+
+    <hr>
+    <footer class="container">
+        
+        <center>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</center>
+    </footer>
+        <script src="../../js/base.js"></script>
+        <script src="../../search/require.js"></script>
+        <script src="../../search/search.js"></script>
+    </body>
+</html>

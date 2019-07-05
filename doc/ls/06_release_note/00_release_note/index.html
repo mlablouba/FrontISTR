@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <title>リリースノート - FrontISTR ver. 5.0</title>
+        <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="../../css/highlight.css">
+        <link href="../../css/base.css" rel="stylesheet">
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.3/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+        <script src="../../js/jquery-1.10.2.min.js"></script>
+        <script src="../../js/bootstrap-3.3.7.min.js"></script>
+        <script src="../../js/highlight.pack.js"></script>
+         
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../../index.html">FrontISTR ver. 5.0</a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+            <!-- Main navigation -->
+            <ul class="nav navbar-nav">
+            
+            
+                <li >
+                    <a href="../../index.html">ホーム</a>
+                </li>
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">導入 <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        <li >
+                            <a href="../../01_install/install_00/index.html">はじめに</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../01_install/install_01/index.html">動作環境</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../01_install/install_02/index.html">アーカイブファイルの解凍・展開</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../01_install/install_03/index.html">インストール</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../01_install/install_04/index.html">付録</a>
+                        </li>
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">理論 <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        <li >
+                            <a href="../../02_theory/theory_00/index.html">はじめに</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../02_theory/theory_01/index.html">微小変形線形弾性静解析</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../02_theory/theory_02/index.html">非線形静解析手法</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../02_theory/theory_03/index.html">動的解析手法</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../02_theory/theory_04/index.html">熱伝導解析</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../02_theory/theory_05/index.html">固有値解析</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../02_theory/theory_06/index.html">周波数応答解析</a>
+                        </li>
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">解析 <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        <li >
+                            <a href="../../03_analysis/analysis_00/index.html">はじめに</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../03_analysis/analysis_01/index.html">解析の流れと入出力ファイル</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../03_analysis/analysis_02/index.html">要素ライブラリおよび材料データ</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../03_analysis/analysis_03/index.html">全体制御データ</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../03_analysis/analysis_04/index.html">単一領域メッシュデータ</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../03_analysis/analysis_05/index.html">解析制御データ</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../03_analysis/analysis_06/index.html">ユーザーサブルーチン</a>
+                        </li>
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">例題 <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        <li >
+                            <a href="../../04_tutorial/tutorial_00/index.html">はじめに</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../04_tutorial/tutorial_02/index.html">解析手順</a>
+                        </li>
+                    
+                        <li >
+                            <a href="">解析例</a>
+                        </li>
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">検証 <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        <li >
+                            <a href="../../05_example/example_00/index.html">はじめに</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../05_example/example_01/index.html">単純形状モデルによる検証</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../05_example/example_02/index.html">弾性静解析用実モデル例題</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../05_example/example_03/index.html">固有値解析用実モデル例題</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../05_example/example_04/index.html">熱伝導解析用実モデル例題</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../05_example/example_05/index.html">線形動的解析用実モデル例題</a>
+                        </li>
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li class="dropdown active">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">付録 <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        <li class="active">
+                            <a href="index.html">リリースノート</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../07_cheat_sheet/00_cheat_sheet/index.html">チートシート (コマンド早見表)</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../08_quick_guide/00_FrontISTR_install_quickguide_ubuntu/index.html">FrontISTR ver. 4.6のインストール (ubuntu 16.04 LTS)</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../08_quick_guide/01_FrontISTR_install_quickguide_windows/index.html">FrontISTR ver. 4.6のインストール (Windows10 - MinGW-w64)</a>
+                        </li>
+                    
+                    </ul>
+                </li>
+            
+            
+            </ul>
+
+            <!-- Search, Navigation and Repo links -->
+            <ul class="nav navbar-nav navbar-right">
+                    <li >
+                        <a rel="next" href="../../05_example/example_05/index.html">
+                            <i class="fa fa-arrow-left"></i> Previous
+                        </a>
+                    </li>
+                    <li >
+                        <a rel="prev" href="../../07_cheat_sheet/00_cheat_sheet/index.html">
+                            Next <i class="fa fa-arrow-right"></i>
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+</div>
+
+        <div class="container">
+                <div class="row">
+                    <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+      
+    
+        <li class="main active"><a href="#_1">リリースノート</a></li>
+        
+            <li><a href="#ver38">Ver.3.8における更新内容</a></li>
+        
+            <li><a href="#ver37">Ver.3.7における更新内容</a></li>
+        
+            <li><a href="#ver36">Ver.3.6における更新内容</a></li>
+        
+            <li><a href="#ver35">Ver.3.5における更新内容</a></li>
+        
+    
+    
+    </ul>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="_1">リリースノート</h1>
+<h2 id="ver38">Ver.3.8における更新内容</h2>
+<p>FrontISTR Ver.3.8において、以下に示す機能が追加された。</p>
+<ul>
+<li>解析機能・アルゴリズム<ul>
+<li>回転変位の境界条件の実装</li>
+<li>トルクの境界条件の実装</li>
+<li>3次元線形静解析の反力計算の計算方法の変更</li>
+<li>非圧縮性流体解析機能の導入（RC版）</li>
+</ul>
+</li>
+<li>要素<ul>
+<li>非圧縮性流体解析用の四面体要素（3414要素）を追加</li>
+<li>（積層）シェル要素の応力値計算部分の修正</li>
+</ul>
+</li>
+<li>材料<ul>
+<li>メッシュファイル内の材料定義部分の読み込みを高速化</li>
+<li>解析制御ファイル内の材料定義部分の読み込みを高速化</li>
+<li>非圧縮性流体解析用の材料物性を追加</li>
+</ul>
+</li>
+<li>線形ソルバー<ul>
+<li>MUMPS使用時のログ出力方法を細分化</li>
+<li>4×4 CGソルバーの修正</li>
+<li>6x6 CGソルバーの修正</li>
+</ul>
+</li>
+<li>メッシュ・リファイン関連<ul>
+<li>大規模モデルをリファインした際の不具合を修正</li>
+</ul>
+</li>
+<li>また、以下に示す修正が行われた<ul>
+<li>非線形静解析の結果を引き継いだ固有値解析（!STATICEIGEN）での要素定義の不具合を修正</li>
+<li>接触解析時のscan_contact_state関数のメモリリーク</li>
+<li>コンパイル時にwarningが表示される部分を修正</li>
+<li>プログラムコード先頭のヘッダを変更</li>
+<li>LICENSEファイルの変更</li>
+</ul>
+</li>
+</ul>
+<h2 id="ver37">Ver.3.7における更新内容</h2>
+<p>FrontISTR Ver.3.7において、以下に示す機能が追加された。</p>
+<ul>
+<li>入出力<ul>
+<li>6自由度ソルバにおける応力値計算部分の修正</li>
+<li>主応力・主ひずみの算出機能の追加</li>
+<li>積層シェル要素の出力部分の修正</li>
+<li>解析ファイル (cntファイル)のINCLUDE機能追加</li>
+<li>!EQUATIONのMPC入力にLINKカードを追加</li>
+<li>UCD出力にMaterial ID (要素形状ID)を出力するよう変更</li>
+<li>!SOLVERにSTEPLOG機能の追加</li>
+<li>行列の非零要素プロット機能の追加</li>
+<li>!SUBDIRフラグのMONITOR出力機能の追加</li>
+<li>刺激係数と有効質量の出力機能の追加 (固有値解析)</li>
+<li>大規模メッシュへの対応</li>
+<li>!AMPLITUDEの入力時にTYPE=TIMEVALUEを追加</li>
+<li>Abaqus用インプット関数の改良</li>
+<li>解析ファイル (cntファイル)に設定されたMATERIAL関数の名前検索部分の修正</li>
+<li>Logfileアウトプットの修正</li>
+<li>Global summaryの修正</li>
+</ul>
+</li>
+<li>リファイナ<ul>
+<li>接触問題のリファイン機能を追加</li>
+<li>リファイン時のUCD出力の修正</li>
+</ul>
+</li>
+<li>解析<ul>
+<li>バネ境界条件機能の修正</li>
+<li>接触解析の接触ペア探索の高速化 (アルゴリズムの更新、OpenMP並列化を実施)</li>
+</ul>
+</li>
+<li>要素<ul>
+<li>TLOAD_C3D8IC機能の追加 (熱応力荷重の付加)</li>
+<li>トラス要素 (301要素)と4面体1次要素 (341要素)を並列接触解析への対応</li>
+</ul>
+</li>
+<li>材料<ul>
+<li>OpenMP有効時の弾塑性材料の計算に関する不具合の修正</li>
+</ul>
+</li>
+<li>機能<ul>
+<li>flushテストの修正</li>
+</ul>
+</li>
+<li>線形ソルバ<ul>
+<li>ISAINV前処理・ IRIF前処理の追加</li>
+<li>Intel PARDISOインターフェースの追加</li>
+<li>OpenMP atomic記述子に関する部分の不具合修正</li>
+<li>!SOLVERのUSEJADカードの不具合修正</li>
+<li>METIS ver. 5.0への対応</li>
+<li>hecmw_solver_direct ルーチンの修正</li>
+<li>OpenMP=1の場合のSSOR前処理の不具合修正</li>
+<li>ML前処理の剛体モードの算出部分の自由度混在要素対応</li>
+</ul>
+</li>
+<li>例題・チュートリアル<ul>
+<li>自由度混在用シェル要素（761要素・781要素）の例題追加</li>
+<li>バネ境界条件機能の例題追加</li>
+<li>付属チュートリアル例題の全てが正しく実行できることを確認</li>
+</ul>
+</li>
+<li>パーティショナ<ul>
+<li>パーティショナが1領域の分散メッシュを正しく生成するよう修正</li>
+</ul>
+</li>
+<li>その他軽微な修正<ul>
+<li>fstr_setup_util.f90における初期化忘れの修正</li>
+<li>intent文の修正</li>
+</ul>
+</li>
+</ul>
+<h2 id="ver36">Ver.3.6における更新内容</h2>
+<p>FrontISTR Ver.3.6において、以下に示す機能が追加された。</p>
+<ul>
+<li>入出力<ul>
+<li>ファイル読込の高速化</li>
+<li>781シェル要素と761シェル要素を使用した場合の出力変更</li>
+<li>デバッグ用のメッセージ消去</li>
+</ul>
+</li>
+<li>リファイナ<ul>
+<li>!EQUATIONの定義で，右辺の定数を設定した場合に，正しくリファインされない不具合を修正</li>
+</ul>
+</li>
+<li>解析<ul>
+<li>周波数応答解析に関する修正</li>
+<li>!SOLUTION,TYPE=STATICを通る場合の熱応力解析に関する修正</li>
+<li>!SOLUTION,TYPE=NLSTATICを通る場合の圧力法線方向更新に関する修正</li>
+<li>接触剛性マトリックスのサブルーチンgetContactStiffnessの修正</li>
+</ul>
+</li>
+<li>要素<ul>
+<li>要素ループのOpenMP並列化</li>
+<li>B-bar要素 (ソリッド要素) に関する修正</li>
+<li>シェル要素に関する修正</li>
+<li>トラス要素に関する修正</li>
+<li>シェル，ビーム，トラス，ソリッドが全て混在した場合に発生するメモリ不正の修正</li>
+</ul>
+</li>
+<li>材料<ul>
+<li>直交異方弾性体に関する修正</li>
+</ul>
+</li>
+<li>線形ソルバー<ul>
+<li>行列ダンプ機能の修正</li>
+<li>3×3 ILU前処理の省メモリ化</li>
+<li>4×4 CGソルバーの追加</li>
+<li>6×6 CGソルバーの追加</li>
+<li>3×3 CG, GMRESソルバーによる前処理適用後行列の条件数推定（試験的）</li>
+<li>3×3 CGソルバーへの発散チェック追加</li>
+<li>3×3ソルバー使用時の前処理セットアップ情報の再利用</li>
+<li>3×3ソルバー用外部AMG前処理ライブラリ（ML）へのインターフェース（試験的）</li>
+<li>3×3ソルバーの行列ベクトル積での通信隠蔽（試験的）</li>
+<li>陽的な自由度消去法による多点拘束条件処理</li>
+<li>接触解析における反復法ソルバーの利用（試験的）</li>
+</ul>
+</li>
+<li>パーティショナ関連<ul>
+<li>ファイル入力の高速化</li>
+<li>ログ出力の機能拡張</li>
+<li>分散メッシュ作成ループのOpenMP並列化</li>
+</ul>
+</li>
+</ul>
+<h2 id="ver35">Ver.3.5における更新内容</h2>
+<p>FrontISTR Ver.3.5において、以下に示す機能が追加された。</p>
+<ul>
+<li>解析機能関連<ul>
+<li>シェル・梁要素とソリッド要素の混在解析対応（3.7、4.1、6.3(3)参照）</li>
+<li>シェル要素における直交異方性材料対応（4.2.2(3)参照）</li>
+<li>積層シェル対応（4.2.2(3)参照）</li>
+<li>大変形解析の際の圧力荷重のFOLLOW機能（7.4.2(14)参照）</li>
+<li>梁要素の動解析対応（3.7参照）</li>
+<li>動解析における複数節点のモニタリング（7.4.5(1)参照）</li>
+<li>動解析における節点応力・節点ひずみのモニタリング（7.4.5(1)参照）</li>
+<li>連成解析における入力流体力へのウィンドウ関数の適用（7.4.5(4)参照）</li>
+</ul>
+</li>
+<li>パーティショナ関連<ul>
+<li>大幅な高速化</li>
+<li>Metis Ver.5系列への対応（インストールマニュアル参照）</li>
+</ul>
+</li>
+<li>メッシュ・リファイン関連<ul>
+<li>要素タイプ混在モデルのリファイン対応</li>
+<li>入力温度データのリファイン情報に基づく補間に対応</li>
+</ul>
+</li>
+<li>線形ソルバ関連（7.4.6(1)参照）<ul>
+<li>前処理におけるマルチカラー処理およびハイブリッド並列対応</li>
+<li>ベクトル計算機向けオーダリング</li>
+<li>自由度３の問題で利用可能な前処理と反復解法の組み合わせの拡大</li>
+<li>行列データのダンプ機能</li>
+</ul>
+</li>
+<li>また、以下に示す修正が行われた<ul>
+<li>シェル要素のDrilling DOFの修正</li>
+<li>非線形解析における収束判定の修正</li>
+<li>線形動解析のリスタート時の時刻の修正</li>
+<li>連成解析時のメッセージ内の節点番号表示の修正</li>
+<li>ILU前処理の修正</li>
+<li>一部のコンパイラによる最適化時の不具合回避</li>
+</ul>
+</li>
+</ul></div>
+                </div>
+        </div>
+
+    <hr>
+    <footer class="container">
+        
+        <center>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</center>
+    </footer>
+        <script src="../../js/base.js"></script>
+        <script src="../../search/require.js"></script>
+        <script src="../../search/search.js"></script>
+    </body>
+</html>

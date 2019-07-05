@@ -14,13 +14,17 @@ pages:
         - yum install -y doxygen python wget
         - wget https://bootstrap.pypa.io/get-pip.py; python get-pip.py
         - pip install mkdocs
+        - pip install mkdocs-bootstrap
+        - pip install mkdocs-windmill
+        - pip install python-markdown-math
         - mkdir -p public
         - cd doc; ./create_docs.sh; cd ..
-        - cp  -r doc/html/* public/
-        - mkdocs -v
+        - cp -r doc/doc/* public/
     artifacts:
         paths:
             - public
+        expire_in:
+            - 1 day
 #     only:
 #         - master
 
@@ -35,6 +39,8 @@ pages:
 #     artifacts:
 #         paths:
 #             - build/
+#         expire_in:
+#             - 1 day
 
 ############################################################
 #     build_serial:

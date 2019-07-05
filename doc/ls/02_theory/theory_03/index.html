@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <title>動的解析手法 - FrontISTR ver. 5.0</title>
+        <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="../../css/highlight.css">
+        <link href="../../css/base.css" rel="stylesheet">
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.3/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+        <script src="../../js/jquery-1.10.2.min.js"></script>
+        <script src="../../js/bootstrap-3.3.7.min.js"></script>
+        <script src="../../js/highlight.pack.js"></script>
+         
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../../index.html">FrontISTR ver. 5.0</a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+            <!-- Main navigation -->
+            <ul class="nav navbar-nav">
+            
+            
+                <li >
+                    <a href="../../index.html">ホーム</a>
+                </li>
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">導入 <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        <li >
+                            <a href="../../01_install/install_00/index.html">はじめに</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../01_install/install_01/index.html">動作環境</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../01_install/install_02/index.html">アーカイブファイルの解凍・展開</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../01_install/install_03/index.html">インストール</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../01_install/install_04/index.html">付録</a>
+                        </li>
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li class="dropdown active">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">理論 <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        <li >
+                            <a href="../theory_00/index.html">はじめに</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../theory_01/index.html">微小変形線形弾性静解析</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../theory_02/index.html">非線形静解析手法</a>
+                        </li>
+                    
+                        <li class="active">
+                            <a href="index.html">動的解析手法</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../theory_04/index.html">熱伝導解析</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../theory_05/index.html">固有値解析</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../theory_06/index.html">周波数応答解析</a>
+                        </li>
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">解析 <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        <li >
+                            <a href="../../03_analysis/analysis_00/index.html">はじめに</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../03_analysis/analysis_01/index.html">解析の流れと入出力ファイル</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../03_analysis/analysis_02/index.html">要素ライブラリおよび材料データ</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../03_analysis/analysis_03/index.html">全体制御データ</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../03_analysis/analysis_04/index.html">単一領域メッシュデータ</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../03_analysis/analysis_05/index.html">解析制御データ</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../03_analysis/analysis_06/index.html">ユーザーサブルーチン</a>
+                        </li>
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">例題 <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        <li >
+                            <a href="../../04_tutorial/tutorial_00/index.html">はじめに</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../04_tutorial/tutorial_02/index.html">解析手順</a>
+                        </li>
+                    
+                        <li >
+                            <a href="">解析例</a>
+                        </li>
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">検証 <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        <li >
+                            <a href="../../05_example/example_00/index.html">はじめに</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../05_example/example_01/index.html">単純形状モデルによる検証</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../05_example/example_02/index.html">弾性静解析用実モデル例題</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../05_example/example_03/index.html">固有値解析用実モデル例題</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../05_example/example_04/index.html">熱伝導解析用実モデル例題</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../05_example/example_05/index.html">線形動的解析用実モデル例題</a>
+                        </li>
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">付録 <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        <li >
+                            <a href="../../06_release_note/00_release_note/index.html">リリースノート</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../07_cheat_sheet/00_cheat_sheet/index.html">チートシート (コマンド早見表)</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../08_quick_guide/00_FrontISTR_install_quickguide_ubuntu/index.html">FrontISTR ver. 4.6のインストール (ubuntu 16.04 LTS)</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../08_quick_guide/01_FrontISTR_install_quickguide_windows/index.html">FrontISTR ver. 4.6のインストール (Windows10 - MinGW-w64)</a>
+                        </li>
+                    
+                    </ul>
+                </li>
+            
+            
+            </ul>
+
+            <!-- Search, Navigation and Repo links -->
+            <ul class="nav navbar-nav navbar-right">
+                    <li >
+                        <a rel="next" href="../theory_02/index.html">
+                            <i class="fa fa-arrow-left"></i> Previous
+                        </a>
+                    </li>
+                    <li >
+                        <a rel="prev" href="../theory_04/index.html">
+                            Next <i class="fa fa-arrow-right"></i>
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+</div>
+
+        <div class="container">
+                <div class="row">
+                    <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+      
+    
+        <li class="main active"><a href="#_1">動的解析手法</a></li>
+        
+            <li><a href="#_2">陰解法の定式化について</a></li>
+        
+            <li><a href="#_5">陽解法の定式化について</a></li>
+        
+    
+    
+    </ul>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    processEscapes: true
+  },
+  CommonHTML: { matchFontHeight: true },
+  displayAlign: "center"
+});
+</script>
+
+<script async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML"></script>
+
+<h2 id="_1">動的解析手法</h2>
+<p>本節では直接時間積分法を適用した動的問題解析手法について示す。以下に示すように、本開発コードでは、陰解法及び陽解法による時刻歴応答解析が可能である。</p>
+<h3 id="_2">陰解法の定式化について</h3>
+<p>動的問題を対象として、下式に示す運動方程式の解法に直接時間積分法を適用した。</p>
+<p>$$
+M( t + \Delta t ) \ddot{U} (t + \Delta t) + C( t + \Delta t ) \dot{U}(t + \Delta t) + Q( t + \Delta t ) = F( t + \Delta t )
+\tag{2.5.1}$$</p>
+<p>ここでは、$M$は質量マトリクス，$C$は減衰マトリクス、$Q$は内力ベクトル，$F$は外力ベクトルである。
+なお、本ソフトは質量の変化を考慮せず、質量マトリクスは非線形において変形によらず一定となる。</p>
+<p>時間増分$\Delta t$内での変位、速度及び加速度の変化は、Newmark-$\beta$法を用いて式(2.5.2)及び式(2.5.3)に示すように近似している。</p>
+<p>$$
+\dot{U}(t + \Delta t) =
+\frac{\gamma}{\beta \Delta t} \Delta U( t + \Delta t ) - \frac{\gamma - \beta}{\beta} \dot{U}( t ) - \Delta t \frac{\gamma - 2\beta}{2\beta} \ddot{U}(t)
+\tag{2.5.2}$$</p>
+<p>$$
+\ddot{U}(t + \Delta t) = \frac{1}{\beta \Delta t^2}\Delta U(t + \Delta t) - \frac{1}{\beta \Delta t} \dot{U}(t) - \frac{1 - 2\beta}{2\beta} \ddot {U}(t)
+\tag{2.5.3}$$</p>
+<p>ここで、$\gamma$，$\beta$はNewmark-$\beta$法のパラメータである．</p>
+<p>よく知られているように、$\gamma$及び$\beta$を以下の値にした場合、線形加速度法あるいは台形則に一致する。</p>
+<p>$\gamma = \frac{1}{2}$，$\gamma = \frac{1}{6}$（線形加速度法）</p>
+<p>$\gamma = \frac{1}{2}$，$\gamma = \frac{1}{4}$（台形則）</p>
+<p>式(2.5.2)、式(2.5.3)を式(2.5.1)に代入すると次式が得られる。</p>
+<p>$$
+( \frac{1}{\beta \Delta t^2} \mathbf{M} + \frac{\gamma}{\beta \Delta t} C + K ) \Delta U ( t + \Delta t ) = F ( t + \Delta t )
+- Q ( t + \Delta t )
++ \frac{1}{\beta \Delta t} M \dot{U} ( t )
++ \frac{1 - 2\beta}{2\beta} M \ddot{U} ( t )
++ \frac{\gamma - \beta}{\beta} C \dot{U} (t)
++ \Delta t \frac{\gamma - 2\beta}{2 \beta} C \ddot{U}(t)
+\tag{2.5.4}$$</p>
+<p>特に、線形問題に対しては$K_L$は線形剛性マトリクスとし、$Q ( t + \Delta t ) = K_L U (t + \Delta t)$となり、この式を上式に代入すると次式が得られる。</p>
+<p>$$
+ M ( -\frac{1}{\beta \Delta t^2} U(t) -\frac{1}{\beta \Delta t}\dot U(t) - \frac{2\beta}{1-2\beta} \ddot U(t)) + C( - \frac{\gamma}{\beta \Delta t} U(t) + (1 - \frac{\gamma}{\beta}) \dot U(t) + \Delta{t}\frac{ 2\beta-\gamma}{2\beta}\ddot U(t)) + \frac{1}{\beta \Delta{t}^2} M + \frac{\gamma}{\beta \Delta{t}} C + K_L U(t+\Delta{t}) = F(t+\Delta{t})
+\tag{2.5.5}$$</p>
+<p>なお、幾何学的境界条件として加速度が指定されている箇所では、式(2.5.2)から次式の変位を得る。</p>
+<p>$$
+u_{is} (t+\Delta{t}) = u_{is} (t) + \Delta t \dot{u}(t) + \Delta t^2 (\frac{1}{2} -\beta ) {\ddot{u}}_{is} (t + \Delta t)
+\tag{2.5.6}$$</p>
+<p>同様に、速度が指定されている箇所では、式(2.76)から次式の変位を得る。</p>
+<p>$$
+u_{is}(t+\Delta{t})= u_{is}(t)+\Delta t
+\frac{ \gamma - \beta}{ \gamma}\dot{u_{is}}(t)
++(\Delta{t})^2 \frac{ \gamma - 2\beta}{ 2\gamma}
+\ddot{u_{is}}(t)
++\Delta t \frac{\beta}{ \gamma}\dot{u_{is}}(t+\Delta{t})
+\tag{2.5.7}$$</p>
+<p>ここで、
+$u_{is}(t+\Delta{t})$は時刻$t+\Delta{t}$における節点変位、$\dot{u_{is}}(t+\Delta{t})$は時刻$t+\Delta{t}$の節点速度、
+$\ddot{u_{is}}(t+\Delta{t})$は時刻$t+\Delta{t}$の節点加速度、$i$は節点自由度番号、$s$は節点番号である．
+また、質量項及び減衰項の取り扱いは次のとおりとした。</p>
+<h5 id="_3">質量項の取り扱い</h5>
+<p>質量マトリックスについては原則として集中質量マトリックスとして扱っている。</p>
+<h5 id="_4">減衰項の取り扱い</h5>
+<p>減衰項については式(2.5.8)で表されるRayleigh減衰として扱っている。</p>
+<p>$$
+C = R_m M + R_k K_L
+\tag{2.5.8}$$</p>
+<p>ここで、$R_m$、$R_k$はRayleigh減衰のパラメータである。</p>
+<h3 id="_5">陽解法の定式化について</h3>
+<p>陽解法では下式に示す時刻tにおける運動方程式を基にする。</p>
+<p>$$
+M \ddot{U}(t) + C (t) \dot{U}(t) + Q(t) = F(t)
+\tag{2.5.9}$$</p>
+<p>ここでは、時刻$t + \Delta t$及び時刻$t - \Delta t$における変位を時刻$t$におけるTaylor展開により表し、$\Delta t$に関する2次項までとると、次のようになる。</p>
+<p>$$
+U(t+\Delta{t}) = U(t)+\dot{U}(t)(\Delta{t})
++\frac{1}{2!}\ddot{U}(\Delta{t})^2
+\tag{2.5.10}$$</p>
+<p>$$
+U(t-\Delta{t})=U(t)-\dot{U}(t)(\Delta{t})
++\frac{1}{2!}\ddot{U}(\Delta{t})^2
+\tag{2.5.11}$$</p>
+<p>式(2.83)、式(2.84)の差及び和から次式が得られる。</p>
+<p>$$
+\dot{U}(t)=\frac{1}{2\Delta{t}}
+(U(t+\Delta{t})-U(t-\Delta{t}))
+\tag{2.5.12}$$</p>
+<p>$$
+\ddot{U}=
+\frac{1}{(2\Delta{t})^2}
+(U(t+\Delta{t})-2U(t)+U(t-\Delta{t}))
+\tag{2.5.13}$$</p>
+<p>式(2.5.12)、式(2.5.13)を式(2.5.9)に代入すると次式が得られる。</p>
+<p>$$
+( \frac{1}{\Delta t^{2}} M + \frac{1}{2\Delta t} C ) U ( t + \Delta t ) = F(t) - Q(t) - \frac{1}{\Delta t^{2}} 2 U(t) - U( t - \Delta t) - \frac{1}{2\Delta t} C U(t - \Delta t)
+\tag{2.5.14}$$</p>
+<p>特に、線形問題に対しては$Q(t) = K_L U(t)$となり、上式は以下になる</p>
+<p>$$
+( \frac{1}{\Delta t^{2}} M + \frac{1}{2\Delta t} C ) U( t + \Delta t ) = F(t) - K_L U(t) - \frac{1}{\Delta t^{2}} M U(t) - U(t - \Delta t) - \frac{1}{2\Delta t} C U (t - \Delta t)
+\tag{2.5.15}$$</p>
+<p>ここで、質量マトリックス$M$を集中質量マトリックス、減衰マトリックスを比例減衰マトリックス $C = R_m M$のようにおくと、式(2.5.15)は連立方程式の求解操作を不要とする。</p>
+<p>従って、式(2.5.15)から$U(t+\Delta t)$は次式により求めることができる。</p>
+<p>$$
+U( t + \Delta t ) = \frac{1}{( \frac{1}{\Delta t^{2}} M + \frac{1}{2\Delta t} C )} { F(t) - Q(t) - \frac{1}{\Delta t^{2}} M U(t) - U(t - \Delta t) - \frac{1}{2\Delta t} C U(t - \Delta t) }
+\tag{2.5.17}$$</p></div>
+                </div>
+        </div>
+
+    <hr>
+    <footer class="container">
+        
+        <center>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</center>
+    </footer>
+        <script src="../../js/base.js"></script>
+        <script src="../../search/require.js"></script>
+        <script src="../../search/search.js"></script>
+    </body>
+</html>

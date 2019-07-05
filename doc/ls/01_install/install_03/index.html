@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <title>インストール - FrontISTR ver. 5.0</title>
+        <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="../../css/highlight.css">
+        <link href="../../css/base.css" rel="stylesheet">
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.3/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+        <script src="../../js/jquery-1.10.2.min.js"></script>
+        <script src="../../js/bootstrap-3.3.7.min.js"></script>
+        <script src="../../js/highlight.pack.js"></script>
+         
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../../index.html">FrontISTR ver. 5.0</a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+            <!-- Main navigation -->
+            <ul class="nav navbar-nav">
+            
+            
+                <li >
+                    <a href="../../index.html">ホーム</a>
+                </li>
+            
+            
+            
+                <li class="dropdown active">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">導入 <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        <li >
+                            <a href="../install_00/index.html">はじめに</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../install_01/index.html">動作環境</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../install_02/index.html">アーカイブファイルの解凍・展開</a>
+                        </li>
+                    
+                        <li class="active">
+                            <a href="index.html">インストール</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../install_04/index.html">付録</a>
+                        </li>
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">理論 <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        <li >
+                            <a href="../../02_theory/theory_00/index.html">はじめに</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../02_theory/theory_01/index.html">微小変形線形弾性静解析</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../02_theory/theory_02/index.html">非線形静解析手法</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../02_theory/theory_03/index.html">動的解析手法</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../02_theory/theory_04/index.html">熱伝導解析</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../02_theory/theory_05/index.html">固有値解析</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../02_theory/theory_06/index.html">周波数応答解析</a>
+                        </li>
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">解析 <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        <li >
+                            <a href="../../03_analysis/analysis_00/index.html">はじめに</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../03_analysis/analysis_01/index.html">解析の流れと入出力ファイル</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../03_analysis/analysis_02/index.html">要素ライブラリおよび材料データ</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../03_analysis/analysis_03/index.html">全体制御データ</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../03_analysis/analysis_04/index.html">単一領域メッシュデータ</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../03_analysis/analysis_05/index.html">解析制御データ</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../03_analysis/analysis_06/index.html">ユーザーサブルーチン</a>
+                        </li>
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">例題 <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        <li >
+                            <a href="../../04_tutorial/tutorial_00/index.html">はじめに</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../04_tutorial/tutorial_02/index.html">解析手順</a>
+                        </li>
+                    
+                        <li >
+                            <a href="">解析例</a>
+                        </li>
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">検証 <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        <li >
+                            <a href="../../05_example/example_00/index.html">はじめに</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../05_example/example_01/index.html">単純形状モデルによる検証</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../05_example/example_02/index.html">弾性静解析用実モデル例題</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../05_example/example_03/index.html">固有値解析用実モデル例題</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../05_example/example_04/index.html">熱伝導解析用実モデル例題</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../05_example/example_05/index.html">線形動的解析用実モデル例題</a>
+                        </li>
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">付録 <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        <li >
+                            <a href="../../06_release_note/00_release_note/index.html">リリースノート</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../07_cheat_sheet/00_cheat_sheet/index.html">チートシート (コマンド早見表)</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../08_quick_guide/00_FrontISTR_install_quickguide_ubuntu/index.html">FrontISTR ver. 4.6のインストール (ubuntu 16.04 LTS)</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../08_quick_guide/01_FrontISTR_install_quickguide_windows/index.html">FrontISTR ver. 4.6のインストール (Windows10 - MinGW-w64)</a>
+                        </li>
+                    
+                    </ul>
+                </li>
+            
+            
+            </ul>
+
+            <!-- Search, Navigation and Repo links -->
+            <ul class="nav navbar-nav navbar-right">
+                    <li >
+                        <a rel="next" href="../install_02/index.html">
+                            <i class="fa fa-arrow-left"></i> Previous
+                        </a>
+                    </li>
+                    <li >
+                        <a rel="prev" href="../install_04/index.html">
+                            Next <i class="fa fa-arrow-right"></i>
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+</div>
+
+        <div class="container">
+                <div class="row">
+                    <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+      
+    
+        <li class="main active"><a href="#_1">インストール</a></li>
+        
+            <li><a href="#makefileconf">Makefile.confの編集</a></li>
+        
+            <li><a href="#setupsh">setup.shの実行</a></li>
+        
+            <li><a href="#make">makeの実行</a></li>
+        
+            <li><a href="#make-install">make installの実行</a></li>
+        
+            <li><a href="#windows">Windows環境へのインストール</a></li>
+        
+    
+    
+    </ul>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="_1">インストール</h1>
+<p>以下の手順で、本ソフトウェアをインストールします。</p>
+<h2 id="makefileconf">Makefile.confの編集</h2>
+<p><code>${FSTRBUILDDIR}</code> にあるMakefile.conf.orgを、本ソフトウェアをインストールする計算機環境に合わせて編集し、Makefile.confを作成します。
+定義できる変数は数多くありますが、ほとんどの変数については既定値をそのまま利用できます。
+多くの環境では、下記の変数以外を変更する必要はないと思われます。</p>
+<table>
+<thead>
+<tr>
+<th align="left">変数名</th>
+<th align="left">説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">MPIDIR</td>
+<td align="left">MPIがインストールされているディレクトリ</td>
+</tr>
+<tr>
+<td align="left">PREFIX</td>
+<td align="left">本ソフトウェアの実行モジュールをインストールするディレクトリ</td>
+</tr>
+<tr>
+<td align="left">METISDIR</td>
+<td align="left">METISがインストールされているディレクトリ</td>
+</tr>
+<tr>
+<td align="left">PARMETISDIR</td>
+<td align="left">ParMETISがインストールされているディレクトリ</td>
+</tr>
+<tr>
+<td align="left">REFINERDIR</td>
+<td align="left">REVOCAP_Refinerがインストールされているディレクトリ</td>
+</tr>
+<tr>
+<td align="left">REVOCAPDIR</td>
+<td align="left">REVOCAP_Couplerがインストールされているディレクトリ</td>
+</tr>
+<tr>
+<td align="left">MUMPSDIR</td>
+<td align="left">MUMPSがインストールされているディレクトリ</td>
+</tr>
+<tr>
+<td align="left">CC</td>
+<td align="left">Cコンパイラー起動コマンド</td>
+</tr>
+<tr>
+<td align="left">CPP</td>
+<td align="left">C++コンパイラー起動コマンド</td>
+</tr>
+<tr>
+<td align="left">F90</td>
+<td align="left">Fortran90コンパイラー起動コマンド</td>
+</tr>
+</tbody>
+</table>
+<p>すべての変数の詳細については、「付録1 Makefile.confの変数一覧」をご参照ください。
+また、「付録2 Makefile.confの設定例」にMakefile.confの一例を記載します。</p>
+<h2 id="setupsh">setup.shの実行</h2>
+<p><code>${FSTRBUILDDIR}</code> にて、シェルスクリプトsetup.shを以下のように実行し、
+Makefileを作成します。</p>
+<pre><code class="txt">$ ./setup.sh
+</code></pre>
+
+<p>並列計算用のライブラリを生成する場合などは、下記のオプションを指定してsetup.sh
+を実行してください。</p>
+<h3 id="setupsh_1">setup.sh 実行時オプション</h3>
+<table>
+<thead>
+<tr>
+<th align="left">オプション</th>
+<th align="left">意味</th>
+<th align="left">備考</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">-g または --debug</td>
+<td align="left">デバック用ライブラリの生成</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">-p または --parallel</td>
+<td align="left">並列実行用ライブラリの生成</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">--with-tools</td>
+<td align="left">パーティショナーなどのツール生成</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">--with-refiner</td>
+<td align="left">REVOCAP_Refinerの組み込み</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">--with-revocap</td>
+<td align="left">REVOCAP_Couplerの組み込み</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">--with-metis</td>
+<td align="left">METISの使用</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">--with-parmetis</td>
+<td align="left">ParMETISの使用</td>
+<td align="left">現時点では無効</td>
+</tr>
+<tr>
+<td align="left">--with-mkl</td>
+<td align="left">Intel MKLの使用</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">--with-mumps</td>
+<td align="left">MUMPSの使用</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">--with-paracon</td>
+<td align="left">並列接触解析用実行モジュールの生成</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">--with-lapack</td>
+<td align="left">Lapackルーチンの使用</td>
+<td align="left">条件数推定機能を利用する場合に必要</td>
+</tr>
+<tr>
+<td align="left">--with-ml</td>
+<td align="left">MLの使用</td>
+<td align="left"></td>
+</tr>
+</tbody>
+</table>
+<p>以下では、setup.sh 実行の例を示します。</p>
+<h3 id="_2">並列処理用にコンパイルする場合</h3>
+<p>MPIがインストールされている並列実行環境で本ソフトウェアを使用する場合、以下のように<strong> -p </strong>または<strong> --parallel </strong>オプションを付けてsetup.shを起動します。</p>
+<pre><code class="txt">$ ./setup.sh –p
+</code></pre>
+
+<h3 id="_3">パーティショナーなどのツールを生成する場合</h3>
+<p>パーティショナー（RCB）やビジュアライザーなどのプリ・ポスト処理用ツールが必要な場合、以下のように<strong> -with-tools </strong>オプションを付けてsetup.shを実行すると、各種ツールが生成されます。</p>
+<pre><code class="txt">$ ./setup.sh –p --with-tools
+</code></pre>
+
+<h3 id="metis">METISを使用する場合</h3>
+<p>METISがインストールされている環境では、さらに以下のように<strong> --with-metis </strong>オプションを付けてsetup.shを実行すると、パーティショナーにおいてMETISの使用が可能となります。</p>
+<pre><code class="txt">$ ./setup.sh –p --with-tools --with-metis
+</code></pre>
+
+<h3 id="_4">接触解析用にコンパイルする場合</h3>
+<p>接触解析用にコンパイルする場合、並列なしの場合と並列ありの場合の2通りの方法があります。並列なしの場合は、Intel MKLまたはMUMPSの利用が必要となります。</p>
+<pre><code class="txt">$ ./setup.sh --with-mkl
+</code></pre>
+
+<p>または、</p>
+<pre><code class="txt">$ ./setup.sh --with-mumps
+</code></pre>
+
+<p>並列ありで接触解析を行う場合は、<strong> -p </strong>、<strong> --with-metis  </strong>オプションも必要となります。また並列ありの場合はIntel MKLは使えません。</p>
+<pre><code class="txt">$ ./setup.sh –p --with-metis --with_mumps --with_paracon
+</code></pre>
+
+<h2 id="make">makeの実行</h2>
+<p><code>${FSTRBUILDDIR}</code> にて、以下のようにmakeを実行します。</p>
+<pre><code class="txt">$ make 2 &gt; &amp; 1 | tee make.log
+</code></pre>
+
+<p>makeの実行には、計算機環境によっては数十分かかる場合があります。実行中にエラーが生じた場合は、Makefile.confの設定の見直し等を行なってください。</p>
+<h2 id="make-install">make installの実行</h2>
+<p>makeの実行が正常に終了した後、Makefile.confで指定したディレクトリに本ソフトウェアをインストールするために、
+以下のようにmake installを実行します。</p>
+<pre><code class="txt">$ make install
+</code></pre>
+
+<h2 id="windows">Windows環境へのインストール</h2>
+<p>Windows環境では、以下のUNIXライク環境を用いることにより、上記の手順でインストールが可能です。</p>
+<ul>
+<li>
+<p>逐次処理版：MinGW</p>
+</li>
+<li>
+<p>並列処理版：Cygwin</p>
+</li>
+</ul></div>
+                </div>
+        </div>
+
+    <hr>
+    <footer class="container">
+        
+        <center>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</center>
+    </footer>
+        <script src="../../js/base.js"></script>
+        <script src="../../search/require.js"></script>
+        <script src="../../search/search.js"></script>
+    </body>
+</html>

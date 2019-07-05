@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <title>全体制御データ - FrontISTR ver. 5.0</title>
+        <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="../../css/highlight.css">
+        <link href="../../css/base.css" rel="stylesheet">
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.3/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+        <script src="../../js/jquery-1.10.2.min.js"></script>
+        <script src="../../js/bootstrap-3.3.7.min.js"></script>
+        <script src="../../js/highlight.pack.js"></script>
+         
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../../index.html">FrontISTR ver. 5.0</a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+            <!-- Main navigation -->
+            <ul class="nav navbar-nav">
+            
+            
+                <li >
+                    <a href="../../index.html">ホーム</a>
+                </li>
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">導入 <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        <li >
+                            <a href="../../01_install/install_00/index.html">はじめに</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../01_install/install_01/index.html">動作環境</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../01_install/install_02/index.html">アーカイブファイルの解凍・展開</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../01_install/install_03/index.html">インストール</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../01_install/install_04/index.html">付録</a>
+                        </li>
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">理論 <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        <li >
+                            <a href="../../02_theory/theory_00/index.html">はじめに</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../02_theory/theory_01/index.html">微小変形線形弾性静解析</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../02_theory/theory_02/index.html">非線形静解析手法</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../02_theory/theory_03/index.html">動的解析手法</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../02_theory/theory_04/index.html">熱伝導解析</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../02_theory/theory_05/index.html">固有値解析</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../02_theory/theory_06/index.html">周波数応答解析</a>
+                        </li>
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li class="dropdown active">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">解析 <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        <li >
+                            <a href="../analysis_00/index.html">はじめに</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../analysis_01/index.html">解析の流れと入出力ファイル</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../analysis_02/index.html">要素ライブラリおよび材料データ</a>
+                        </li>
+                    
+                        <li class="active">
+                            <a href="index.html">全体制御データ</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../analysis_04/index.html">単一領域メッシュデータ</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../analysis_05/index.html">解析制御データ</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../analysis_06/index.html">ユーザーサブルーチン</a>
+                        </li>
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">例題 <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        <li >
+                            <a href="../../04_tutorial/tutorial_00/index.html">はじめに</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../04_tutorial/tutorial_02/index.html">解析手順</a>
+                        </li>
+                    
+                        <li >
+                            <a href="">解析例</a>
+                        </li>
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">検証 <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        <li >
+                            <a href="../../05_example/example_00/index.html">はじめに</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../05_example/example_01/index.html">単純形状モデルによる検証</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../05_example/example_02/index.html">弾性静解析用実モデル例題</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../05_example/example_03/index.html">固有値解析用実モデル例題</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../05_example/example_04/index.html">熱伝導解析用実モデル例題</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../05_example/example_05/index.html">線形動的解析用実モデル例題</a>
+                        </li>
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">付録 <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        <li >
+                            <a href="../../06_release_note/00_release_note/index.html">リリースノート</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../07_cheat_sheet/00_cheat_sheet/index.html">チートシート (コマンド早見表)</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../08_quick_guide/00_FrontISTR_install_quickguide_ubuntu/index.html">FrontISTR ver. 4.6のインストール (ubuntu 16.04 LTS)</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../08_quick_guide/01_FrontISTR_install_quickguide_windows/index.html">FrontISTR ver. 4.6のインストール (Windows10 - MinGW-w64)</a>
+                        </li>
+                    
+                    </ul>
+                </li>
+            
+            
+            </ul>
+
+            <!-- Search, Navigation and Repo links -->
+            <ul class="nav navbar-nav navbar-right">
+                    <li >
+                        <a rel="next" href="../analysis_02/index.html">
+                            <i class="fa fa-arrow-left"></i> Previous
+                        </a>
+                    </li>
+                    <li >
+                        <a rel="prev" href="../analysis_04/index.html">
+                            Next <i class="fa fa-arrow-right"></i>
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+</div>
+
+        <div class="container">
+                <div class="row">
+                    <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+      
+    
+        <li class="main active"><a href="#_1">全体制御データ</a></li>
+        
+            <li><a href="#_2">全体制御データ概要</a></li>
+        
+            <li><a href="#_3">入力規則</a></li>
+        
+            <li><a href="#_12">ヘッダー一覧</a></li>
+        
+    
+    
+    </ul>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="_1">全体制御データ</h1>
+<h2 id="_2">全体制御データ概要</h2>
+<p>全体制御データは、FrontISTRに対する入出力ファイルのファイル名を定義するものである。</p>
+<p>全体制御データファイルの特徴は以下のとおりである。</p>
+<ul>
+<li>自由書式に基づくASCII形式のファイルである。</li>
+<li>「!」で始まるヘッダーとそれに続くデータから構成されている。</li>
+<li>ヘッダーの記述の順番は基本的に自由である。</li>
+<li>データの区切り記号には「,」を使用する。</li>
+</ul>
+<h2 id="_3">入力規則</h2>
+<p>全体制御データファイルは、ヘッダー行、データ行、コメント行から構成される。</p>
+<p>ヘッダー行には必ず一つのヘッダーが含まれる。</p>
+<h4 id="_4">ヘッダー</h4>
+<p>全体制御データファイル内で、データの意味とデータブロックを特定する。
+行頭が「!」で始まる場合、ヘッダーであるとみなされる。</p>
+<h4 id="_5">ヘッダー行</h4>
+<p>ヘッダーとそれに伴うパラメータを記述する。
+ヘッダー行はヘッダーで始まっていなければならない。
+パラメータが必要な場合は、「,」を用いてその後に続けなければならない。
+パラメータが値をとる場合は、パラメータの後に「=」が続き、その後に値を記述する。
+ヘッダー行を複数行にわたって記述することはできない。</p>
+<h4 id="_6">データ行</h4>
+<p>ヘッダー行の次の行から開始され、必要なデータを記述する。
+データ行は複数行にわたる可能性があるが、それは各ヘッダーで定義されるデータ記述の規則により決定される。
+データ行は必要ない場合もある。</p>
+<h4 id="_7">区切り文字</h4>
+<p>データの区切り文字にはカンマ「,」を用いる。</p>
+<h4 id="_8">空白の扱い</h4>
+<p>空白は無視される。</p>
+<h4 id="_9">名前</h4>
+<p>名前に使用可能な文字は、アンダースコア「_」、ハイフン「-」、英数字「a-z　A-Z　0-9」であるが、
+最初の一文字は「_」または英字「a-z　A-Z」で始まっていなければならない。
+大文字小文字の区別はなく、内部的にはすべて大文字として扱われる。
+また、名前の最大長は63文字である。</p>
+<h4 id="_10">ファイル名</h4>
+<p>ファイル名に使用可能な文字は、アンダースコア「_」、ハイフン「-」、ピリオド「.」、スラッシュ「/」、英数字「a-z　A-Z　0-9」である。
+ファイル名は、特に記述がない限りパスを含んでもよい。相対パス、絶対パスのいずれも指定可能である。
+また、ファイル名の最大長は1023文字である。</p>
+<h4 id="_11">浮動小数点データ</h4>
+<p>指数はあってもなくてもよい。指数の前には、「E」または「e」の記号をつけなければならない。
+「E」または「e」どちらを使用してもかまわない。「D」または「ｄ」は使用不可。</p>
+<h4 id="35">!!, # コメント行</h4>
+<p>行頭が「!!」または「#」で始まる行はコメント行とみなされ、無視される。
+コメント行はファイル中の任意の位置に挿入でき、その数に制限はない。</p>
+<h2 id="_12">ヘッダー一覧</h2>
+<p>全体制御データは以下のヘッダーによって構成されている。</p>
+<table>
+<thead>
+<tr>
+<th align="left">ヘッダー名</th>
+<th align="left">内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">!CONTROL</td>
+<td align="left">解析制御データ定義</td>
+</tr>
+<tr>
+<td align="left">!MESH</td>
+<td align="left">メッシュデータ定義</td>
+</tr>
+<tr>
+<td align="left">!RESTART</td>
+<td align="left">リスタートデータ定義</td>
+</tr>
+<tr>
+<td align="left">!RESULT</td>
+<td align="left">解析結果データ定義</td>
+</tr>
+<tr>
+<td align="left">!SUBDIR</td>
+<td align="left">サブディレクトリ分割指示</td>
+</tr>
+</tbody>
+</table>
+<p>各ヘッダーには，パラメータとそれぞれのヘッダーに対応したデータの項目がある。
+以下，上記各ヘッダーについてデータ作成例とともに説明する。</p>
+<hr />
+<h3 id="control">!CONTROL</h3>
+<p>解析制御データファイルを指定する。</p>
+<pre><code>!CONTROL, NAME=&lt;name&gt;
+file
+
+#使用例
+!CONTROL, NAME=fstrCNT
+myctrl.cnt
+</code></pre>
+
+<table>
+<thead>
+<tr>
+<th align="left">パラメータ</th>
+<th align="left"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">NAME</td>
+<td align="left">識別子（必須）</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th align="left">パラメータ名</th>
+<th align="left">パラメータ値</th>
+<th align="left">内 容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">NAME</td>
+<td align="left">fstrCNT</td>
+<td align="left">解析制御データ</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th align="left">変数名</th>
+<th align="left">内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">file</td>
+<td align="left">解析制御データファイル名（相対パス、絶対パス共に指定可能。相対パスの場合はカレントディレクトリからのパスとなる）</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="mesh">!MESH</h3>
+<p>メッシュデータファイルを指定する。</p>
+<pre><code>!MESH, NAME=&lt;name&gt;, TYPE=&lt;type&gt; [,optional parameter]
+fileheader
+
+#使用例
+!MESH, NAME=fstrMSH, TYPE=HECMW-DIST, REFINE=1
+Mesh.in
+</code></pre>
+
+<table>
+<thead>
+<tr>
+<th align="left">パラメータ</th>
+<th align="left"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">NAME</td>
+<td align="left">識別子（必須）</td>
+</tr>
+<tr>
+<td align="left">TYPE</td>
+<td align="left">メッシュタイプ（必須）</td>
+</tr>
+<tr>
+<td align="left">IO</td>
+<td align="left">入出力指定（省略可）</td>
+</tr>
+<tr>
+<td align="left">REFINE</td>
+<td align="left">メッシュ細分化指定（任意）</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th align="left">パラメータ名</th>
+<th align="left">パラメータ値</th>
+<th align="left">内 容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">NAME</td>
+<td align="left">fstrMSH</td>
+<td align="left">Solver入力データ</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left">part_in</td>
+<td align="left">Partitioner入力データ</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left">part_out</td>
+<td align="left">Partitioner出力データ</td>
+</tr>
+<tr>
+<td align="left">TYPE</td>
+<td align="left">HECMW-DIST</td>
+<td align="left">HEC-MW分散メッシュデータ</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left">HECMW-ENTIRE</td>
+<td align="left">HEC-MW単一領域メッシュデータ</td>
+</tr>
+<tr>
+<td align="left">IO</td>
+<td align="left">IN</td>
+<td align="left">入力用（デフォルト）</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left">OUT</td>
+<td align="left">出力用</td>
+</tr>
+<tr>
+<td align="left">REFINE</td>
+<td align="left">&lt;integer&gt;</td>
+<td align="left">メッシュ細分化回数</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th align="left">変数名</th>
+<th align="left">内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">fileheader</td>
+<td align="left">メッシュデータファイル名のヘッダー（相対パス、絶対パス共に指定可能。相対パスの場合はカレントディレクトリからのパスとなる）</td>
+</tr>
+</tbody>
+</table>
+<p>注意</p>
+<p>IOパラメータの有無、パラメータ値は動作に何も影響を与えない。</p>
+<p>TYPEがHECMW-DISTの場合、データ行に指定するfileheaderはファイル名末尾の「.&lt;rank&gt;」を除いたものである。</p>
+<hr />
+<h3 id="restrat">!RESTRAT</h3>
+<p>リスタートデータファイルを指定する。</p>
+<pre><code>!RESTART, NAME=&lt;name&gt;, IO=&lt;io&gt;
+fileheader
+
+#使用例
+!RESTART, NAME=restart-in, IO=IN
+restart.in
+</code></pre>
+
+<table>
+<thead>
+<tr>
+<th align="left">パラメータ</th>
+<th align="left"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">NAME</td>
+<td align="left">識別子（必須）</td>
+</tr>
+<tr>
+<td align="left">IO</td>
+<td align="left">入出力指定（必須）</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th align="left">パラメータ名</th>
+<th align="left">パラメータ値</th>
+<th align="left">内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">NAME</td>
+<td align="left">&lt;name&gt;</td>
+<td align="left">ユーザー識別子</td>
+</tr>
+<tr>
+<td align="left">IO</td>
+<td align="left">IN</td>
+<td align="left">入力用</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left">OUT</td>
+<td align="left">出力用</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left">INOUT</td>
+<td align="left">入出力兼用</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th align="left">変数名</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">fileheader</td>
+<td>リスタートデータファイル名のヘッダー（相対パス、絶対パス共に指定可能。相対パスの場合はカレントディレクトリからのパスとなる）</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>注意
+この定義によって生成されるファイル名は、fileheader+.&lt;rank&gt;となる。</li>
+</ul>
+<hr />
+<h3 id="result">!RESULT</h3>
+<p>解析結果データファイルを指定する。</p>
+<pre><code>!RESULT, NAME=&lt;name&gt; [,optional parameter]
+fileheader
+
+#使用例
+!RESULT, NAME=fstrRES, IO=OUT, TYPE=BINARY
+result.out
+</code></pre>
+
+<p>!RESULT, NAME=&lt;name&gt; [,optional parameter]</p>
+<table>
+<thead>
+<tr>
+<th align="left">パラメータ</th>
+<th align="left"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">NAME</td>
+<td align="left">識別子（必須）</td>
+</tr>
+<tr>
+<td align="left">IO</td>
+<td align="left">入出力指定（省略可）</td>
+</tr>
+<tr>
+<td align="left">TYPE</td>
+<td align="left">出力形式（省略可）</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th align="left">パラメータ名</th>
+<th align="left">パラメータ値</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">NAME</td>
+<td align="left">fstrRES</td>
+<td>Solver出力データ、Visualizer入力データ</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left">fstrTEMP</td>
+<td>温度入力データ（熱伝導解析結果）</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left">vis_out</td>
+<td>Visualizer出力データ</td>
+</tr>
+<tr>
+<td align="left">IO</td>
+<td align="left">IN</td>
+<td>入力用</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left">OUT</td>
+<td>出力用</td>
+</tr>
+<tr>
+<td align="left">TYPE</td>
+<td align="left">TEXT</td>
+<td>テキスト形式（デフォルト）</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left">BINARY</td>
+<td>バイナリー形式</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th align="left">変数名</th>
+<th align="left">内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">fileheader</td>
+<td align="left">解析結果データファイル名のヘッダー（相対パス、絶対パス共に指定可能。相対パスの場合はカレントディレクトリからのパスとなる）</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>注意
+この定義によって生成されるファイル名は、fileheader+.&lt;rank&gt;となる。</li>
+</ul>
+<hr />
+<h3 id="subdir">!SUBDIR</h3>
+<p>ファイル格納のサブディレクトリ分割を指定する。</p>
+<pre><code>!SUBDIR, ON [,optional parameter]
+
+#使用例
+!SUBDIR, ON, LIMIT=8000
+</code></pre>
+
+<p>!SUBDIR, ON [,optional parameter]</p>
+<table>
+<thead>
+<tr>
+<th align="left">パラメータ</th>
+<th align="left"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">ON</td>
+<td align="left">有効（必須）</td>
+</tr>
+<tr>
+<td align="left">LIMIT</td>
+<td align="left">ファイル数（省略可）</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th align="left">パラメータ名</th>
+<th align="left">パラメータ値</th>
+<th align="left">内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">ON</td>
+<td align="left">なし</td>
+<td align="left">　</td>
+</tr>
+<tr>
+<td align="left">LIMIT</td>
+<td align="left">&lt;integer&gt;</td>
+<td align="left">１ディレクトリあたり最大ファイル数（デフォルト：5000）</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>注意
+この定義によって、複数ファイルで構成される入出力データは自動的にサブディレクトリ配下となる。
+並列数がLIMITを超える場合、さらにTRUNK0、TRUNK1、・・・・のサブディレクトリ配下となる。</li>
+</ul></div>
+                </div>
+        </div>
+
+    <hr>
+    <footer class="container">
+        
+        <center>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</center>
+    </footer>
+        <script src="../../js/base.js"></script>
+        <script src="../../search/require.js"></script>
+        <script src="../../search/search.js"></script>
+    </body>
+</html>

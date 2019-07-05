@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <title>チートシート (コマンド早見表) - FrontISTR ver. 5.0</title>
+        <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="../../css/highlight.css">
+        <link href="../../css/base.css" rel="stylesheet">
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.3/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+        <script src="../../js/jquery-1.10.2.min.js"></script>
+        <script src="../../js/bootstrap-3.3.7.min.js"></script>
+        <script src="../../js/highlight.pack.js"></script>
+         
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../../index.html">FrontISTR ver. 5.0</a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+            <!-- Main navigation -->
+            <ul class="nav navbar-nav">
+            
+            
+                <li >
+                    <a href="../../index.html">ホーム</a>
+                </li>
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">導入 <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        <li >
+                            <a href="../../01_install/install_00/index.html">はじめに</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../01_install/install_01/index.html">動作環境</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../01_install/install_02/index.html">アーカイブファイルの解凍・展開</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../01_install/install_03/index.html">インストール</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../01_install/install_04/index.html">付録</a>
+                        </li>
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">理論 <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        <li >
+                            <a href="../../02_theory/theory_00/index.html">はじめに</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../02_theory/theory_01/index.html">微小変形線形弾性静解析</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../02_theory/theory_02/index.html">非線形静解析手法</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../02_theory/theory_03/index.html">動的解析手法</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../02_theory/theory_04/index.html">熱伝導解析</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../02_theory/theory_05/index.html">固有値解析</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../02_theory/theory_06/index.html">周波数応答解析</a>
+                        </li>
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">解析 <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        <li >
+                            <a href="../../03_analysis/analysis_00/index.html">はじめに</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../03_analysis/analysis_01/index.html">解析の流れと入出力ファイル</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../03_analysis/analysis_02/index.html">要素ライブラリおよび材料データ</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../03_analysis/analysis_03/index.html">全体制御データ</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../03_analysis/analysis_04/index.html">単一領域メッシュデータ</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../03_analysis/analysis_05/index.html">解析制御データ</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../03_analysis/analysis_06/index.html">ユーザーサブルーチン</a>
+                        </li>
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">例題 <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        <li >
+                            <a href="../../04_tutorial/tutorial_00/index.html">はじめに</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../04_tutorial/tutorial_02/index.html">解析手順</a>
+                        </li>
+                    
+                        <li >
+                            <a href="">解析例</a>
+                        </li>
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">検証 <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        <li >
+                            <a href="../../05_example/example_00/index.html">はじめに</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../05_example/example_01/index.html">単純形状モデルによる検証</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../05_example/example_02/index.html">弾性静解析用実モデル例題</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../05_example/example_03/index.html">固有値解析用実モデル例題</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../05_example/example_04/index.html">熱伝導解析用実モデル例題</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../05_example/example_05/index.html">線形動的解析用実モデル例題</a>
+                        </li>
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li class="dropdown active">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">付録 <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        <li >
+                            <a href="../../06_release_note/00_release_note/index.html">リリースノート</a>
+                        </li>
+                    
+                        <li class="active">
+                            <a href="index.html">チートシート (コマンド早見表)</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../08_quick_guide/00_FrontISTR_install_quickguide_ubuntu/index.html">FrontISTR ver. 4.6のインストール (ubuntu 16.04 LTS)</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../08_quick_guide/01_FrontISTR_install_quickguide_windows/index.html">FrontISTR ver. 4.6のインストール (Windows10 - MinGW-w64)</a>
+                        </li>
+                    
+                    </ul>
+                </li>
+            
+            
+            </ul>
+
+            <!-- Search, Navigation and Repo links -->
+            <ul class="nav navbar-nav navbar-right">
+                    <li >
+                        <a rel="next" href="../../06_release_note/00_release_note/index.html">
+                            <i class="fa fa-arrow-left"></i> Previous
+                        </a>
+                    </li>
+                    <li >
+                        <a rel="prev" href="../../08_quick_guide/00_FrontISTR_install_quickguide_ubuntu/index.html">
+                            Next <i class="fa fa-arrow-right"></i>
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+</div>
+
+        <div class="container">
+                <div class="row">
+                    <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+      
+    
+        <li class="main active"><a href="#_1">チートシート</a></li>
+        
+            <li><a href="#_2">インストール</a></li>
+        
+            <li><a href="#_3">並列実行</a></li>
+        
+            <li><a href="#_4">入出力</a></li>
+        
+            <li><a href="#_5">全体制御ファイル</a></li>
+        
+            <li><a href="#_6">領域分割制御データ</a></li>
+        
+            <li><a href="#_7">メッシュファイル</a></li>
+        
+            <li><a href="#_8">解析制御ファイル（共通）</a></li>
+        
+            <li><a href="#_9">解析制御ファイル（静解析）</a></li>
+        
+            <li><a href="#_10">解析制御ファイル（接触）</a></li>
+        
+            <li><a href="#_11">解析制御ファイル（熱応力）</a></li>
+        
+            <li><a href="#_12">解析制御ファイル（固有値）</a></li>
+        
+            <li><a href="#_13">解析制御ファイル（熱伝導）</a></li>
+        
+            <li><a href="#_14">解析制御ファイル（動解析共通）</a></li>
+        
+            <li><a href="#_15">解析制御ファイル（時刻歴応答）</a></li>
+        
+            <li><a href="#_16">解析制御ファイル（周波数応答）</a></li>
+        
+            <li><a href="#_17">解析ステップ</a></li>
+        
+            <li><a href="#_18">材料物性値</a></li>
+        
+            <li><a href="#_19">ソルバー制御</a></li>
+        
+            <li><a href="#avs">ポスト処理（AVS用データ出力）</a></li>
+        
+            <li><a href="#bmp">ポスト処理（BMP画像出力）</a></li>
+        
+            <li><a href="#_20">非線形解析</a></li>
+        
+    
+    
+    </ul>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="_1">チートシート</h1>
+<h2 id="_2">インストール</h2>
+<pre><code>$ ./setup.sh -p --with-tools --with-metis
+$ make
+$ make install
+</code></pre>
+
+<h2 id="_3">並列実行</h2>
+<pre><code>$ hecmw_part1
+$ mpirun -np &lt;4&gt; fistr1
+</code></pre>
+
+<h2 id="_4">入出力</h2>
+<table>
+<thead>
+<tr>
+<th align="left">ファイルの種類</th>
+<th align="left">ファイル名</th>
+<th align="left">入出力</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">全体制御ファイル</td>
+<td align="left">hecmw_ctrl.dat</td>
+<td align="left">入</td>
+</tr>
+<tr>
+<td align="left">メッシュデータ</td>
+<td align="left">\&lt;ModelName>.msh</td>
+<td align="left">入</td>
+</tr>
+<tr>
+<td align="left">解析制御データ</td>
+<td align="left">\&lt;ModelName>.cnt</td>
+<td align="left">入</td>
+</tr>
+<tr>
+<td align="left">領域分割制御データ</td>
+<td align="left">hecmw_part_ctrl.dat</td>
+<td align="left">入</td>
+</tr>
+<tr>
+<td align="left">ログファイル</td>
+<td align="left">\&lt;0>.log</td>
+<td align="left">出</td>
+</tr>
+<tr>
+<td align="left">解析結果ファイル</td>
+<td align="left">\&lt;ModelName>.res</td>
+<td align="left">出</td>
+</tr>
+</tbody>
+</table>
+<h2 id="_5">全体制御ファイル</h2>
+<h3 id="hecmw_ctrldat">（hecmw_ctrl.dat）</h3>
+<pre><code>!MESH, NAME=part_in, TYPE=HECMW-ENTIRE
+ &lt;ModelName&gt;.msh
+!MESH, NAME=part_out, TYPE=HECMW-DIST
+ &lt;ModelName_p4&gt;
+!MESH, NAME=fstrMSH, TYPE=HECMW-DIST
+ &lt;ModelName_p4&gt;
+!CONTROL, NAME=fstrCNT
+ &lt;ModelName&gt;.cnt
+!RESULT, NAME=fstrRES, IO=OUT
+ &lt;ModelName&gt;.res
+</code></pre>
+
+<h2 id="_6">領域分割制御データ</h2>
+<h3 id="hecmw_part_ctrldat">(hecmw_part_ctrl.dat)</h3>
+<pre><code>!PARTITION, TYPE=NODE-BASED, METHOD=PMETIS, DOMAIN=&lt;4&gt;
+</code></pre>
+
+<h2 id="_7">メッシュファイル</h2>
+<pre><code>!HEADER
+&lt;TITLE&gt;
+!NODE
+ NODE_ID, x, y, z
+!ELEMENT, TYPE=&lt;341&gt;
+ ELEM_ID, node1, node2, node3, ...
+!SECTION, TYPE=&lt;SOLID&gt;, EGRP=&lt;EG1&gt;, MATERIAL=&lt;MAT1&gt;
+!NGROUP, NGRP=&lt;NG1&gt;
+ node1, node2, ...
+!SGROUP, SGRP=&lt;SG1&gt;
+ elem1, localsurf1, elem2, localsurf2, ...
+!EGROUP, EGRP=&lt;EG1&gt;
+ elem1, elem2, ...
+!CONTACT PAIR, NAME=&lt;CP1&gt;
+ &lt;Slave_NodeGroup&gt;, &lt;Master_SurfaceGroup&gt;
+!AMPLITUDE, NAME=&lt;AMP1&gt;, VALUE=&lt;RELATIVE|ABSOLUTE&gt;
+ value1, time1, value2, time2, ...
+!INITIAL CONDITION, TYPE=TEMPERATURE
+ NODE_ID, value
+!EQUATION
+ &lt;項数&gt;, &lt;右辺値&gt;
+ NODE_ID, &lt;dof&gt;, &lt;係数&gt;, ...
+!ZERO
+!END
+</code></pre>
+
+<h2 id="_8">解析制御ファイル（共通）</h2>
+<pre><code>!VERSION
+ 3.7
+!WRITE, VISUAL, FREQUENCY=&lt;出力間隔&gt;
+!WRITE, RESULT, FREQUENCY=&lt;出力間隔&gt;
+!OUTPUT_VIS
+ &lt;出力変数名&gt;, &lt;ON|OFF&gt;
+!OUTPUT_RES
+ &lt;出力変数名&gt;, &lt;ON|OFF&gt;
+!RESTART, FREQUENCY=&lt;出力間隔&gt;
+!END
+</code></pre>
+
+<table>
+<thead>
+<tr>
+<th align="left">変数名</th>
+<th align="left">物理量</th>
+<th align="left">対象</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">DISP</td>
+<td align="left">変位</td>
+<td align="left">VIS,RES</td>
+</tr>
+<tr>
+<td align="left">ROT</td>
+<td align="left">回転</td>
+<td align="left">VIS,RES</td>
+</tr>
+<tr>
+<td align="left">REACTION</td>
+<td align="left">節点反力</td>
+<td align="left">VIS,RES</td>
+</tr>
+<tr>
+<td align="left">NSTRAIN</td>
+<td align="left">節点ひずみ</td>
+<td align="left">VIS,RES</td>
+</tr>
+<tr>
+<td align="left">NSTRESS</td>
+<td align="left">節点応力</td>
+<td align="left">VIS,RES</td>
+</tr>
+<tr>
+<td align="left">NMISES</td>
+<td align="left">節点Mises応力</td>
+<td align="left">VIS,RES</td>
+</tr>
+<tr>
+<td align="left">ESTRAIN</td>
+<td align="left">要素ひずみ</td>
+<td align="left">RES</td>
+</tr>
+<tr>
+<td align="left">ESTRESS</td>
+<td align="left">要素応力</td>
+<td align="left">RES</td>
+</tr>
+<tr>
+<td align="left">EMISES</td>
+<td align="left">要素Mises応力</td>
+<td align="left">RES</td>
+</tr>
+<tr>
+<td align="left">ISTRAIN</td>
+<td align="left">積分点ひずみ</td>
+<td align="left">RES</td>
+</tr>
+<tr>
+<td align="left">ISTRESS</td>
+<td align="left">積分点応力</td>
+<td align="left">RES</td>
+</tr>
+<tr>
+<td align="left">PL_ISTRAIN</td>
+<td align="left">積分点塑性ひずみ</td>
+<td align="left">RES</td>
+</tr>
+<tr>
+<td align="left">VEL</td>
+<td align="left">速度</td>
+<td align="left">VIS,RES</td>
+</tr>
+<tr>
+<td align="left">ACC</td>
+<td align="left">加速度</td>
+<td align="left">VIS,RES</td>
+</tr>
+</tbody>
+</table>
+<h2 id="_9">解析制御ファイル（静解析）</h2>
+<pre><code>!SOLUTION, TYPE=&lt;STATIC|NLSTATIC&gt;
+!STATIC
+!BOUNDARY,GRPID=&lt;1&gt;
+ NODE_ID, &lt;開始自由度&gt;, &lt;終了自由度&gt;, &lt;拘束値&gt;
+!CLOAD,GRPID=&lt;1&gt;
+ NODE_ID, &lt;自由度&gt;, &lt;荷重値&gt;
+!DLOAD,GRPID=&lt;1&gt;
+ SGRP, &lt;荷重タイプ&gt;, &lt;荷重パラメータ&gt;
+!SPRING,GRPID=&lt;1&gt;
+ NODE_ID, &lt;拘束自由度&gt;, &lt;ばね定数&gt;
+</code></pre>
+
+<h2 id="_10">解析制御ファイル（接触）</h2>
+<pre><code>!CONTACT_ALGO, TYPE=&lt;SLAGRANGE|ALAGRANGE&gt;
+!CONTACT, GRPID=&lt;1&gt;, NTOL=&lt;法線方向閾値&gt;, TTOL=&lt;接線方向閾値&gt;, NPENALTY=&lt;法線方向ペナルティ&gt;, TPENALTY=&lt;接線方向ペナルティ&gt;
+ &lt;接触ペア名&gt;, &lt;摩擦係数&gt;, &lt;摩擦のペナルティ剛性&gt;
+</code></pre>
+
+<h2 id="_11">解析制御ファイル（熱応力）</h2>
+<pre><code>!REFTEMP
+ &lt;温度&gt;
+!TEMPERATURE, READRESULT=&lt;結果ステップ数&gt;, SSTEP=&lt;開始ステップ&gt;, INTERVAL=&lt;ステップ間隔&gt;
+</code></pre>
+
+<h2 id="_12">解析制御ファイル（固有値）</h2>
+<pre><code>!EIGEN
+ &lt;固有値数&gt;, &lt;許容差&gt;, &lt;最大反復数&gt;
+!BOUNDARY
+</code></pre>
+
+<h2 id="_13">解析制御ファイル（熱伝導）</h2>
+<pre><code>!HEAT
+ &lt;DT&gt;, &lt;計算時間&gt;, &lt;時間増分&gt;, &lt;許容変化&gt;, &lt;最大反復&gt;, &lt;判定値&gt;
+!FIXTEMP
+ NODE_ID, &lt;温度&gt;
+!CFLUX
+ NODE_ID, &lt;熱流束&gt;
+!DFLUX
+ ELEMENT_ID, &lt;荷重タイプ&gt;, &lt;熱流束&gt;
+!SFLUX
+ SGRP, &lt;熱流束&gt;
+!FILM
+ ELEMENT_ID, &lt;荷重タイプ&gt;, &lt;熱伝達係数&gt;, &lt;雰囲気温度&gt;
+!SFLIM
+ SGRP, &lt;熱伝達係数&gt;, &lt;雰囲気温度&gt;
+!RADIATE
+ ELEMENT_ID, &lt;荷重タイプ&gt;, &lt;輻射係数&gt;, &lt;雰囲気温度&gt;
+!SRADIATE
+ SGRP, &lt;輻射係数&gt;, &lt;雰囲気温度&gt;
+</code></pre>
+
+<h2 id="_14">解析制御ファイル（動解析共通）</h2>
+<pre><code>!BOUNDARY
+!CLOAD
+!VELOCITY, TYPE=&lt;INITIAL|TRANSIT&gt;, AMP=&lt;NAME&gt;
+ Node_ID, &lt;自由度&gt;, &lt;自由度&gt;, &lt;拘束値&gt;
+!ACCELERATION, TYPE=&lt;INITIAL|TRANSIT&gt;, AMP=&lt;NAME&gt;
+ Node_ID, &lt;自由度&gt;, &lt;自由度&gt;, &lt;拘束値&gt;
+</code></pre>
+
+<h2 id="_15">解析制御ファイル（時刻歴応答）</h2>
+<pre><code>!DYNAMIC, TYPE=NONLINEAR
+ &lt;陰解法1|陽解法11&gt;, &lt;時刻歴1&gt;
+ &lt;開始時刻&gt;, &lt;終了時刻&gt;, &lt;全ステップ数&gt;, &lt;時間増分&gt;
+ &lt;γ&gt;, &lt;β&gt;
+ &lt;集中質量|consistent質量2&gt;, 1, &lt;Rm&gt;, &lt;Rk&gt;
+ 1, &lt;モニタリング節点&gt;, &lt;モニタリング出力間隔&gt;
+ &lt;変位&gt;, &lt;速度&gt;, &lt;加速度&gt;, &lt;反力&gt;, &lt;ひずみ&gt;, &lt;応力&gt;
+</code></pre>
+
+<h2 id="_16">解析制御ファイル（周波数応答）</h2>
+<pre><code>!DYNAMIC, TYPE=NONLINEAR
+ &lt;陰解法1|陽解法11&gt;, &lt;周波数2&gt;
+ &lt;下限周波数&gt;, &lt;上限周波数&gt;, &lt;応答計算点数&gt;, &lt;変位測定周波数&gt;
+ &lt;振動開始時刻&gt;, &lt;振動終了時刻&gt;
+ &lt;集中質量1&gt;, 1, &lt;Rm&gt;, &lt;Rk&gt;
+ &lt;サンプリング数&gt;, &lt;モード空間1|物理空間2&gt;, &lt;モニタリング節点&gt;
+ &lt;変位&gt;, &lt;速度&gt;, &lt;加速度&gt;, 0, 0, 0
+!EIGENREAD
+ &lt;固有値解析のログファイル&gt;
+ &lt;モード始点&gt;, &lt;モード終点&gt;
+!FLOAD
+ NODE_ID, &lt;自由度&gt;, &lt;荷重値&gt;
+</code></pre>
+
+<h2 id="_17">解析ステップ</h2>
+<pre><code>!STEP, TYPE=&lt;STATIC|VISCO&gt;, SUBSTEPS=&lt;分割数&gt;, CONVERG=&lt;判定値&gt;
+ &lt;時間増分値&gt;, &lt;時間増分終値&gt;
+ BOUNDARY, &lt;GRPID&gt;
+ LOAD, &lt;GRPID&gt;
+ CONTACT, &lt;GRPID&gt;
+</code></pre>
+
+<table>
+<thead>
+<tr>
+<th align="left">境界条件種類</th>
+<th align="left">属するカード</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">BOUNDARY</td>
+<td align="left">!BOUNDARY, !SPRING</td>
+</tr>
+<tr>
+<td align="left">LOAD</td>
+<td align="left">!CLOAD, !DLOAD, !TEMPERATURE</td>
+</tr>
+<tr>
+<td align="left">CONTACT</td>
+<td align="left">!CONTACT</td>
+</tr>
+</tbody>
+</table>
+<h2 id="_18">材料物性値</h2>
+<pre><code>!MATERIAL, NAME=&lt;材料名&gt;
+!ELASTIC, TYPE=&lt;ISOTROPIC|ORTHOTROPIC&gt;, DEPENDENCIES=&lt;0&gt;
+ &lt;ヤング率&gt;, &lt;ポアソン比&gt;
+!DENSITY
+ &lt;質量密度&gt;
+!EXPANSION_COEFF, TYPE=&lt;ISOTROPIC|ORTHOTROPIC&gt;, DEPENDENCIES=&lt;0&gt;
+ &lt;線膨張係数&gt;
+</code></pre>
+
+<pre><code>!PLASTIC, YIELD=MISES, HARDEN=BILINEAR, DEPENDENCIES=&lt;0&gt;
+ &lt;初期降伏応力&gt;, &lt;硬化係数&gt;
+</code></pre>
+
+<pre><code>!PLASTIC, YIELD=MISES, HARDEN=MULTILINEAR, DEPENDENCIES=&lt;0&gt;
+ &lt;降伏応力&gt;, &lt;塑性ひずみ&gt;
+ &lt;降伏応力&gt;, &lt;塑性ひずみ&gt;
+ ...
+</code></pre>
+
+<pre><code>!PLASTIC, YIELD=MISES, HARDEN=SWIFT, DEPENDENCIES=&lt;0&gt;
+ &lt;ε0&gt;, &lt;K&gt;, &lt;n&gt;
+</code></pre>
+
+<pre><code>!PLASTIC, YIELD=&lt;Mohr-Coulomb|Drucker-Prager&gt;, HARDEN=BILIENAR, DEPENDENCIES=&lt;0&gt;
+ &lt;粘着力&gt;, &lt;内部摩擦角&gt;, &lt;硬化係数&gt;
+</code></pre>
+
+<pre><code>!HYPERELASTIC, TYPE=NEOHOOKE
+ &lt;C10&gt;, &lt;D&gt;
+</code></pre>
+
+<pre><code>!VISCOELASTIC
+ &lt;せん断緩和弾性率&gt;, &lt;緩和時間&gt;
+</code></pre>
+
+<pre><code>!CREEP, TYPE=Norton, DEPENDENCIES=&lt;0&gt;
+ &lt;A&gt;, &lt;n&gt;, &lt;m&gt;
+</code></pre>
+
+<h2 id="_19">ソルバー制御</h2>
+<pre><code>!SOLVER, METHOD=&lt;CG&gt;, PRECOND=&lt;1&gt;, MPCMETHOD=&lt;3&gt;
+ &lt;反復回数&gt;, &lt;前処理繰り返し数&gt;, &lt;クリロフ&gt;, &lt;目標色数&gt;
+ &lt;打切り誤差&gt;, &lt;対角成分倍率&gt;, 0.0
+</code></pre>
+
+<table>
+<thead>
+<tr>
+<th align="left">解法</th>
+<th align="left">備考</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">CG</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">BiCGSTAB</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">GMRES</td>
+<td align="left">クリロフ部分空間数を設定すること</td>
+</tr>
+<tr>
+<td align="left">GPBiCG</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">DIRECT</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">DIRECTmkl</td>
+<td align="left">接触解析で使う</td>
+</tr>
+<tr>
+<td align="left">MUMPS</td>
+<td align="left"></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th align="left">値</th>
+<th align="left">前処理</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">1,2</td>
+<td align="left">SSOR</td>
+</tr>
+<tr>
+<td align="left">3</td>
+<td align="left">Diagonal Scaling</td>
+</tr>
+<tr>
+<td align="left">5</td>
+<td align="left">AMG</td>
+</tr>
+<tr>
+<td align="left">10</td>
+<td align="left">Block ILU(0)</td>
+</tr>
+<tr>
+<td align="left">11</td>
+<td align="left">Block ILU(1)</td>
+</tr>
+<tr>
+<td align="left">12</td>
+<td align="left">Block ILU(2)</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th align="left">値</th>
+<th align="left">MPC手法</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">1</td>
+<td align="left">ペナルティ法</td>
+</tr>
+<tr>
+<td align="left">2</td>
+<td align="left">MPC-CG法</td>
+</tr>
+<tr>
+<td align="left">3</td>
+<td align="left">陽的自由度消去法</td>
+</tr>
+</tbody>
+</table>
+<h2 id="avs">ポスト処理（AVS用データ出力）</h2>
+<pre><code>!VISUAL
+!output_type=COMPLETE_REORDER_AVS
+</code></pre>
+
+<h2 id="bmp">ポスト処理（BMP画像出力）</h2>
+<pre><code>!VISUAL, method=PSR
+!surface_num=1
+!surface
+!surface_style=1
+!display_method=1
+!color_comp_name=STRESS
+!color_comp=7
+!x_resolution=800
+!y_resolution=600
+!output_type=BMP
+</code></pre>
+
+<h2 id="_20">非線形解析</h2>
+<table>
+<thead>
+<tr>
+<th align="left">解析の種類</th>
+<th align="left">関連するカード</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">静解析</td>
+<td align="left">!SOLUTION, TYPE=NLSTATIC<BR>!STEP</td>
+</tr>
+<tr>
+<td align="left">動解析</td>
+<td align="left">!DYNAMIC, TYPE=NONLINEAR<BR>!STEP</td>
+</tr>
+<tr>
+<td align="left">材料非線形</td>
+<td align="left">!MATERIAL<BR>!PLASTIC<BR>!HYPERELASTIC<BR>!VISCOELASTIC<BR>!CREEP</td>
+</tr>
+</tbody>
+</table></div>
+                </div>
+        </div>
+
+    <hr>
+    <footer class="container">
+        
+        <center>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</center>
+    </footer>
+        <script src="../../js/base.js"></script>
+        <script src="../../search/require.js"></script>
+        <script src="../../search/search.js"></script>
+    </body>
+</html>

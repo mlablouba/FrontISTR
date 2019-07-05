@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <title>FrontISTR ver. 4.6のインストール (ubuntu 16.04 LTS) - FrontISTR ver. 5.0</title>
+        <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="../../css/highlight.css">
+        <link href="../../css/base.css" rel="stylesheet">
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.3/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+        <script src="../../js/jquery-1.10.2.min.js"></script>
+        <script src="../../js/bootstrap-3.3.7.min.js"></script>
+        <script src="../../js/highlight.pack.js"></script>
+         
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../../index.html">FrontISTR ver. 5.0</a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+            <!-- Main navigation -->
+            <ul class="nav navbar-nav">
+            
+            
+                <li >
+                    <a href="../../index.html">ホーム</a>
+                </li>
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">導入 <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        <li >
+                            <a href="../../01_install/install_00/index.html">はじめに</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../01_install/install_01/index.html">動作環境</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../01_install/install_02/index.html">アーカイブファイルの解凍・展開</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../01_install/install_03/index.html">インストール</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../01_install/install_04/index.html">付録</a>
+                        </li>
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">理論 <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        <li >
+                            <a href="../../02_theory/theory_00/index.html">はじめに</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../02_theory/theory_01/index.html">微小変形線形弾性静解析</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../02_theory/theory_02/index.html">非線形静解析手法</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../02_theory/theory_03/index.html">動的解析手法</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../02_theory/theory_04/index.html">熱伝導解析</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../02_theory/theory_05/index.html">固有値解析</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../02_theory/theory_06/index.html">周波数応答解析</a>
+                        </li>
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">解析 <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        <li >
+                            <a href="../../03_analysis/analysis_00/index.html">はじめに</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../03_analysis/analysis_01/index.html">解析の流れと入出力ファイル</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../03_analysis/analysis_02/index.html">要素ライブラリおよび材料データ</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../03_analysis/analysis_03/index.html">全体制御データ</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../03_analysis/analysis_04/index.html">単一領域メッシュデータ</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../03_analysis/analysis_05/index.html">解析制御データ</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../03_analysis/analysis_06/index.html">ユーザーサブルーチン</a>
+                        </li>
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">例題 <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        <li >
+                            <a href="../../04_tutorial/tutorial_00/index.html">はじめに</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../04_tutorial/tutorial_02/index.html">解析手順</a>
+                        </li>
+                    
+                        <li >
+                            <a href="">解析例</a>
+                        </li>
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">検証 <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        <li >
+                            <a href="../../05_example/example_00/index.html">はじめに</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../05_example/example_01/index.html">単純形状モデルによる検証</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../05_example/example_02/index.html">弾性静解析用実モデル例題</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../05_example/example_03/index.html">固有値解析用実モデル例題</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../05_example/example_04/index.html">熱伝導解析用実モデル例題</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../05_example/example_05/index.html">線形動的解析用実モデル例題</a>
+                        </li>
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li class="dropdown active">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">付録 <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        <li >
+                            <a href="../../06_release_note/00_release_note/index.html">リリースノート</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../07_cheat_sheet/00_cheat_sheet/index.html">チートシート (コマンド早見表)</a>
+                        </li>
+                    
+                        <li class="active">
+                            <a href="index.html">FrontISTR ver. 4.6のインストール (ubuntu 16.04 LTS)</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../01_FrontISTR_install_quickguide_windows/index.html">FrontISTR ver. 4.6のインストール (Windows10 - MinGW-w64)</a>
+                        </li>
+                    
+                    </ul>
+                </li>
+            
+            
+            </ul>
+
+            <!-- Search, Navigation and Repo links -->
+            <ul class="nav navbar-nav navbar-right">
+                    <li >
+                        <a rel="next" href="../../07_cheat_sheet/00_cheat_sheet/index.html">
+                            <i class="fa fa-arrow-left"></i> Previous
+                        </a>
+                    </li>
+                    <li >
+                        <a rel="prev" href="../01_FrontISTR_install_quickguide_windows/index.html">
+                            Next <i class="fa fa-arrow-right"></i>
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+</div>
+
+        <div class="container">
+                <div class="row">
+                    <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+      
+    
+        <li class="main active"><a href="#frontistr-v46">FrontISTR v4.6のインストール</a></li>
+        
+            <li><a href="#ubuntu-1604-lts">(ubuntu 16.04 LTS)</a></li>
+        
+            <li><a href="#_1">はじめに</a></li>
+        
+            <li><a href="#_2">準備</a></li>
+        
+            <li><a href="#_3">ダウンロード</a></li>
+        
+            <li><a href="#_4">必要なライブラリの導入</a></li>
+        
+            <li><a href="#frontistr">FrontISTRの構築</a></li>
+        
+            <li><a href="#_6">【参考】ライブラリを自力で構築する方法</a></li>
+        
+    
+    
+    </ul>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="frontistr-v46">FrontISTR v4.6のインストール</h1>
+<h2 id="ubuntu-1604-lts">(ubuntu 16.04 LTS)</h2>
+<p>ここでは、FrontISTRをUbuntu 16.04 LTSで手軽に構築する方法を紹介します。</p>
+<p>FrontISTRを構築するには、様々なライブラリが必要になりますが、バイナリパッケージを利用することで手間を省きます。</p>
+<p>ここに書かれている方法は、Ubuntu 16.04 LTSに対応します。</p>
+<p>ライブラリをソースから構築する場合は、<a href="#build-from-source">【参考】ライブラリを自力で構築する方法</a>を参考にしてください。</p>
+<h2 id="_1">はじめに</h2>
+<p>FrontISTRは<a href="http://www.multi.k.u-tokyo.ac.jp/">東京大学 奥田研究室</a>で開発されている、本格的な構造解析プログラムです。<a href="http://www.multi.k.u-tokyo.ac.jp/FrontISTR/">FrontISTR研究会</a>から、研究会の案内や資料、ソフトウェアが入手できます。
+スパコンからWindowsパソコンまで動かすことが出来る点が特徴の一つです。</p>
+<h2 id="_2">準備</h2>
+<p>予めubuntu 16.04 LTSをインストールし、OSが動作可能な状態にしてください。</p>
+<h2 id="_3">ダウンロード</h2>
+<p>以下のソフトを入手してください。</p>
+<table>
+<thead>
+<tr>
+<th>ソフトウェア</th>
+<th>入手先</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>FrontISTR_V46.tar.gz</td>
+<td><a href="http://www.multi.k.u-tokyo.ac.jp/FrontISTR">http://www.multi.k.u-tokyo.ac.jp/FrontISTR</a></td>
+</tr>
+<tr>
+<td>REVOCAP_Refiner-1.1.04</td>
+<td><a href="http://www.multi.k.u-tokyo.ac.jp/FrontISTR">http://www.multi.k.u-tokyo.ac.jp/FrontISTR</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="_4">必要なライブラリの導入</h2>
+<h3 id="_5">バイナリパッケージの導入</h3>
+<p>上記以外のソフトはバイナリパッケージから導入します。</p>
+<pre><code class="txt">% sudo apt install build-essensial
+% sudo apt install libtrilinos-ml-dev
+% sudo apt install libtrilinos-aztecoo-dev libtrilinos-zoltan-dev
+% sudo apt install libopenblas-dev libmumps-dev libmetis-dev
+</code></pre>
+
+<h3 id="revocap_refiner">REVOCAP_Refinerの構築</h3>
+<p>REVOCAP_Refinerをコンパイルします。</p>
+<pre><code class="txt">% tar xvf REVOCAP_Refiner-1.1.04.tar.gz
+% cd REVOCAP_Refiner-1.1.04
+% make
+</code></pre>
+
+<h2 id="frontistr">FrontISTRの構築</h2>
+<p>必要なライブラリの導入が済んだらFrontISTRを構築します。</p>
+<p>FrontISTRで有効にする機能は</p>
+<ul>
+<li>hecmw_part1領域分割ツールなどのツール群生成</li>
+<li>REVOCAP_Refiner (メッシュの細分化機能)</li>
+<li>MPI (PCクラスタ等の並列実行環境）</li>
+<li>OpenMP (マルチコアCPUを利用)</li>
+<li>METIS (メッシュの領域分割のために必要)</li>
+<li>MUMPS (直接法ソルバー)</li>
+<li>LAPACK （CG法やGMRES法を用いた前処理適用後の条件数推定機能を利用）</li>
+<li>Trilinos-ML （代数マルチグリッド法に基づく前処理）</li>
+</ul>
+<p>です。これらの機能を有効にしたバイナリを作成します。</p>
+<pre><code class="txt">% tar xvf FrontISTR_V46.tar.gz
+% cd FrontISTR-4.6
+</code></pre>
+
+<p>さらに<code>Makefile.am</code>を編集し構築する必要のない部分を除外します。</p>
+<pre><code class="txt">% vi Makefile.am
+PREFIX     = @prefix@
+BINDIR     = @bindir@
+LIBDIR     = @libdir@
+INCLUDEDIR = @includedir@
+
+MAKE       = @make@
+AR         = @ar@
+CP         = @cp@
+RM         = @rm@
+MV         = @mv@
+RANLIB     = @ranlib@
+MKDIR      = @mkdir@
+
+all:
+        @cd hecmw1 &amp;&amp; $(MAKE)
+        @cd fistr1 &amp;&amp; $(MAKE)
+#       @cd hecmw2 &amp;&amp; $(MAKE)
+#       @cd fistr2 &amp;&amp; $(MAKE)
+        @cd fistr  &amp;&amp; $(MAKE)
+
+clean:
+        @cd hecmw1 &amp;&amp; $(MAKE) clean
+        @cd fistr1 &amp;&amp; $(MAKE) clean
+#       @cd hecmw2 &amp;&amp; $(MAKE) clean
+#       @cd fistr2 &amp;&amp; $(MAKE) clean
+        @cd fistr  &amp;&amp; $(MAKE) clean
+
+distclean:
+        @cd hecmw1 &amp;&amp; $(MAKE) distclean
+        @cd fistr1 &amp;&amp; $(MAKE) distclean
+#       @cd hecmw2 &amp;&amp; $(MAKE) distclean
+#       @cd fistr2 &amp;&amp; $(MAKE) distclean
+        @cd fistr  &amp;&amp; $(MAKE) distclean
+        - $(RM) ./bin/*
+
+install:
+        if [ ! -d $(PREFIX) ]; then \
+                $(MKDIR) $(PREFIX); \
+        fi
+        if [ ! -d $(BINDIR) ]; then \
+                $(MKDIR) $(BINDIR); \
+        fi
+        @cd hecmw1 &amp;&amp; $(MAKE) install
+        @cd fistr1 &amp;&amp; $(MAKE) install
+#       @cd hecmw2 &amp;&amp; $(MAKE) install
+#       @cd fistr2 &amp;&amp; $(MAKE) install
+        @cd fistr  &amp;&amp; $(MAKE) install
+</code></pre>
+
+<p><code>hecmw2</code>および<code>fistr2</code>は構築しませんので、コメントアウトしてください。</p>
+<h3 id="makefileconf">Makefile.confの編集</h3>
+<pre><code class="txt">% cp Makefile.conf.org Makefile.conf
+% vi Makefile.conf
+</code></pre>
+
+<p>以下の内容で<code>Makefile.conf</code>を編集してください。</p>
+<pre><code class="txt">##################################################
+#                                                #
+#     Setup Configulation File for FrontISTR     #
+#                                                #
+##################################################
+
+# MPI
+MPIDIR         = /usr/lib/openmpi
+MPIBINDIR      = /usr/bin
+MPILIBDIR      = $(MPIDIR)/lib
+MPIINCDIR      = $(MPIDIR)/include
+MPILIBS        = -lmpi -lmpi_mpifh -lmpi_cxx
+
+# for install option only
+PREFIX         = $(HOME)/FrontISTR
+BINDIR         = $(PREFIX)/bin
+LIBDIR         = $(PREFIX)/lib
+INCLUDEDIR     = $(PREFIX)/include
+
+# Metis
+METISDIR       = /usr/lib/x86_64-linux-gnu
+METISLIBDIR    = $(METISDIR)
+METISINCDIR    = /usr/include
+HECMW_METIS_VER= 5
+
+# ParMetis
+PARMETISDIR    = $(HOME)/ParMetis-3.1
+PARMETISLIBDIR = $(PARMETISDIR)
+PARMETISINCDIR = $(PARMETISDIR)/ParMETISLib
+
+# Refiner
+REFINERDIR     = $(HOME)/Software/REVOCAP_Refiner-1.1.04
+REFINERINCDIR  = $(REFINERDIR)/Refiner
+REFINERLIBDIR  = $(REFINERDIR)/lib/x86_64-linux
+
+# Coupler
+REVOCAPDIR     = $(HOME)/REVOCAP_Coupler
+REVOCAPINCDIR  = $(REVOCAPDIR)/librcap
+REVOCAPLIBDIR  = $(REVOCAPDIR)/librcap
+
+# MUMPS
+MUMPSDIR       = /usr
+MUMPSINCDIR    = $(MUMPSDIR)/include
+MUMPSLIBDIR    = $(MUMPSDIR)/lib
+
+# MKL PARDISO
+MKLDIR     = $(HOME)/
+MKLINCDIR  = $(MKLDIR)/include
+MKLLIBDIR  = $(MKLDIR)/lib
+
+# ML
+MLDIR          = /usr
+MLINCDIR       = $(MLDIR)/include/trilinos
+MLLIBDIR       = $(MLDIR)/lib/x86_64-linux-gnu
+MLLIBS         = -ltrilinos_ml -ltrilinos_zoltan
+
+# C compiler settings
+CC             = mpicc -fopenmp
+CFLAGS         =
+LDFLAGS        = -lstdc++ -lm
+OPTFLAGS       = -O3
+
+# C++ compiler settings
+CPP            = mpic++ -fopenmp
+CPPFLAGS       =
+CPPLDFLAGS     =
+CPPOPTFLAGS    = -O3
+
+# Fortran compiler settings
+F90            = mpif90 -fopenmp
+F90FLAGS       =
+F90LDFLAGS     = -lstdc++ -lopenblas
+F90OPTFLAGS    = -O2
+F90FPP         = -cpp
+F90LINKER      = mpif90 -fopenmp
+
+MAKE           = make
+AR             = ar ruv
+MV             = mv -f
+CP             = cp -f
+RM             = rm -f
+MKDIR          = mkdir -p
+</code></pre>
+
+<p>この手順で用いるMETISはVersion5.1.0です。<code>HECMW_METIS_VER = 5</code>を指定してください。</p>
+<p>gfortranのプリプロセッサ指定は <code>-cpp</code>です。<code>F90FPP = -cpp</code>を指定してください。</p>
+<p>編集が出来たら<code>setup.sh</code>を実行してください。</p>
+<pre><code class="txt">% ./setup.sh -p --with-tools --with-refiner --with-metis --with-mumps --with-lapack --with-ml
+</code></pre>
+
+<p><code>setup.sh</code>の実行が済んだらコンパイルしてバイナリを作成します。</p>
+<pre><code class="txt">% make
+% make install
+</code></pre>
+
+<p>構築したバイナリをインストールをすると、<code>$(HOME)/FrontISTR/bin</code>以下に</p>
+<pre><code class="txt">% ls $HOME/FrontISTR/bin
+fistr1  hec2rcap  hecmw_part1  hecmw_vis1  neu2fstr  rconv  rmerge
+</code></pre>
+
+<p>などのバイナリがコピーされ実行できる状態になります。</p>
+<p>通常はここまでの手順で十分です。</p>
+<hr />
+<!-- <a name="build-from-source"> -->
+
+<h2 id="_6">【参考】ライブラリを自力で構築する方法</h2>
+<p>FrontISTRを構築するのに必要なライブラリは</p>
+<ul>
+<li>OpenMPI (MPI)</li>
+<li>OpenBLAS (LAPACK）</li>
+<li>Metis</li>
+<li>MUMPS</li>
+<li>Scalapack</li>
+<li>Trilinos ML</li>
+</ul>
+<p>です。 Ubuntu-16.04上で構築する例を示します。</p>
+<p>ただし、MPIの構築方法については省きます。OS付属のMPIを利用することをおすすめします。</p>
+<h3 id="_7">ダウンロード</h3>
+<table>
+<thead>
+<tr>
+<th>ライブラリ名</th>
+<th>ダウンロード先</th>
+<th>備考</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>OpenBLAS-0.2.19</td>
+<td><a href="http://www.openblas.net">http://www.openblas.net</a></td>
+<td>リファレンスのLAPACKよりも速い</td>
+</tr>
+<tr>
+<td>metis-5.1.0</td>
+<td><a href="http://glaros.dtc.umn.edu/gkhome/metis/metis/download">http://glaros.dtc.umn.edu/gkhome/metis/metis/download</a></td>
+<td>scotch-metisも利用可</td>
+</tr>
+<tr>
+<td>scalapack-2.0.2</td>
+<td><a href="http://www.netlib.org/scalapack/">http://www.netlib.org/scalapack/</a></td>
+<td>MUMPSで利用</td>
+</tr>
+<tr>
+<td>MUMPS_5.1.1</td>
+<td><a href="http://mumps.enseeiht.fr/">http://mumps.enseeiht.fr/</a></td>
+<td>要ユーザ登録</td>
+</tr>
+<tr>
+<td>trilinos-12.10.1</td>
+<td><a href="https://trilinos.org/download/">https://trilinos.org/download/</a></td>
+<td>要ユーザ登録</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_8">ライブラリのインストール先</h3>
+<p>ライブラリは <code>$HOME/local</code> にインストールするものとします。また、<code>$HOME/local/bin</code> へ<code>PATH</code>を通しておくと便利です。</p>
+<pre><code class="txt">% mkdir -p $HOME/local/bin
+% cd $HOME/local/bin
+% export PATH=`pwd`:$PATH
+</code></pre>
+
+<h3 id="openblas">OpenBLASの構築</h3>
+<p>OpenBLASは、高速なLAPACK/BLASのフリーの実装です。</p>
+<p>OpenMPを有効にしたライブラリを構築します。</p>
+<pre><code class="txt">% tar xvf OpenBLAS-0.2.19.tar.gz
+% cd OpenBLAS-0.2.19
+% make BINARY=64 NO_SHARED=1 USE_OPENMP=1
+% make PREFIX=$HOME/local install
+</code></pre>
+
+<p>OpenBLASをLAPACKとして利用する場合、<code>-llapack</code>の代わりに<code>-lopenblas</code>と指定してください。</p>
+<h3 id="metis">METISの構築</h3>
+<p>グラフパーティショナのライブラリです。この他、Scotchに同梱されるmetis互換層も利用できます。</p>
+<p>OpenMPを有効にしたライブラリを構築します。</p>
+<p>METISの構築には<code>cmake</code>が必要ですので、予めインストールしておいてください。</p>
+<pre><code class="txt">% tar xvf metis-5.1.0.tar.gz
+% cd metis-5.1.0
+% make config prefix=$HOME/local cc=gcc openmp=1
+% make
+% make install
+</code></pre>
+
+<h3 id="scalapack">Scalapackの構築</h3>
+<p>scalapackは、この後説明をするMUMPSの構築に必要となります。</p>
+<p>また、scalapackの構築には、予めMPIがインストールされている必要があります。</p>
+<pre><code class="txt">% tar xvf scalapack-2.0.2.tgz
+% cd scalapack-2.0.2
+% mkdir build
+% cd build
+% cmake -DCMAKE_INSTALL_PREFIX=$HOME/local \
+  -DCMAKE_EXE_LINKER_FLAGS=-fopenmp \
+  -DLAPACK_LIBRARIES=$HOME/local/lib/libopenmp.a \
+  -DBLAS_LIBRARIES=$HOME/local/lib/libopenmp.a \
+   ..
+% make
+% make install
+</code></pre>
+
+<h3 id="mumps">MUMPSの構築</h3>
+<p>MUMPSは直接法のソルバです。</p>
+<pre><code class="txt">% tar xvf MUMPS_5.0.1.tar.gz
+% cd MUMPS_5.0.1
+</code></pre>
+
+<p><code>Make.inc</code>ディレクトリにある、<code>Makefile.inc.generic</code>を元に<code>Makefile.inc</code>を環境に合わせた内容へ書き換えます。</p>
+<pre><code class="txt">% cp Make.inc/Makefile.inc.generic Makefile.inc
+% vi Makefile.inc
+LMETISDIR = $(HOME)/local
+IMETIS    = -I$(LMETISDIR)/include
+LMETIS    = -L$(LMETISDIR)/lib -lmetis
+
+ORDERINGSF  = -Dmetis -Dpord
+
+CC      = gcc -fopenmp
+FC      = gfortran -fopenmp
+FL      = gfortran -fopenmp
+
+SCALAP  = -L$(HOME)/local/lib -lscalapack
+
+INCPAR = -I/usr/lib/openmpi/include
+
+LIBPAR  = $(SCALAP) -L/usr/lib/openmpi -lmpi -lmpi_mpifh
+
+OPTF    = -O
+OPTC    = -O -I.
+OPTL    = -O
+</code></pre>
+
+<p>ファイルの修正が済んだらライブラリを構築します。</p>
+<pre><code class="txt">% make
+</code></pre>
+
+<p><code>make</code>ライブラリの構築が終了したら、ファイルをコピーします。</p>
+<pre><code class="txt">% cp lib/*.a $HOME/local/lib
+% cp include/*.h $HOME/local/include
+</code></pre>
+
+<h3 id="trilinos-ml">Trilinos MLの構築</h3>
+<p>Trilinosには多くのライブラリ含まれていますが、FrontISTRに必要なのは<code>ML</code>と<code>zoltan</code>だけです。</p>
+<pre><code class="txt">% tar xvf trilinos-12.10.1-Source.tar.gz
+% cd trilinos-12.10.1-Source
+% mkdir build
+% cd build
+% cmake \
+  -DCMAKE_INSTALL_PREFIX=$HOME/local \
+  -DTrilinos_ENABLE_ML=ON \
+  -DTrilinos_ENABLE_Zoltan=ON \
+  -DTrilinos_ENABLE_OpenMP=ON \
+  -DTrilinos_ENABLE_ALL_OPTIONAL_PACKAGES=OFF \
+  -DTPL_BLAS_LIBRARIES=$HOME/local/lib/libopenblas.a \
+  -DTPL_LAPACK_LIBRARIES=$HOME/local/lib/libopenblas.a \
+  -DTPL_ENABLE_MPI=ON \
+  ..
+% make
+% make install
+</code></pre>
+
+<p>ここで示した手順では、ライブラリを<code>$HOME/local</code>以下にインストールをしました。Ubuntu以外のOSでも基本的には同様に構築することができます。</p></div>
+                </div>
+        </div>
+
+    <hr>
+    <footer class="container">
+        
+        <center>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</center>
+    </footer>
+        <script src="../../js/base.js"></script>
+        <script src="../../search/require.js"></script>
+        <script src="../../search/search.js"></script>
+    </body>
+</html>

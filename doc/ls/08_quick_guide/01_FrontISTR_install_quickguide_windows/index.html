@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <title>FrontISTR ver. 4.6のインストール (Windows10 - MinGW-w64) - FrontISTR ver. 5.0</title>
+        <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="../../css/highlight.css">
+        <link href="../../css/base.css" rel="stylesheet">
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.3/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+        <script src="../../js/jquery-1.10.2.min.js"></script>
+        <script src="../../js/bootstrap-3.3.7.min.js"></script>
+        <script src="../../js/highlight.pack.js"></script>
+         
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../../index.html">FrontISTR ver. 5.0</a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+            <!-- Main navigation -->
+            <ul class="nav navbar-nav">
+            
+            
+                <li >
+                    <a href="../../index.html">ホーム</a>
+                </li>
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">導入 <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        <li >
+                            <a href="../../01_install/install_00/index.html">はじめに</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../01_install/install_01/index.html">動作環境</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../01_install/install_02/index.html">アーカイブファイルの解凍・展開</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../01_install/install_03/index.html">インストール</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../01_install/install_04/index.html">付録</a>
+                        </li>
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">理論 <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        <li >
+                            <a href="../../02_theory/theory_00/index.html">はじめに</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../02_theory/theory_01/index.html">微小変形線形弾性静解析</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../02_theory/theory_02/index.html">非線形静解析手法</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../02_theory/theory_03/index.html">動的解析手法</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../02_theory/theory_04/index.html">熱伝導解析</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../02_theory/theory_05/index.html">固有値解析</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../02_theory/theory_06/index.html">周波数応答解析</a>
+                        </li>
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">解析 <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        <li >
+                            <a href="../../03_analysis/analysis_00/index.html">はじめに</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../03_analysis/analysis_01/index.html">解析の流れと入出力ファイル</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../03_analysis/analysis_02/index.html">要素ライブラリおよび材料データ</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../03_analysis/analysis_03/index.html">全体制御データ</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../03_analysis/analysis_04/index.html">単一領域メッシュデータ</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../03_analysis/analysis_05/index.html">解析制御データ</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../03_analysis/analysis_06/index.html">ユーザーサブルーチン</a>
+                        </li>
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">例題 <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        <li >
+                            <a href="../../04_tutorial/tutorial_00/index.html">はじめに</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../04_tutorial/tutorial_02/index.html">解析手順</a>
+                        </li>
+                    
+                        <li >
+                            <a href="">解析例</a>
+                        </li>
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">検証 <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        <li >
+                            <a href="../../05_example/example_00/index.html">はじめに</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../05_example/example_01/index.html">単純形状モデルによる検証</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../05_example/example_02/index.html">弾性静解析用実モデル例題</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../05_example/example_03/index.html">固有値解析用実モデル例題</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../05_example/example_04/index.html">熱伝導解析用実モデル例題</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../05_example/example_05/index.html">線形動的解析用実モデル例題</a>
+                        </li>
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li class="dropdown active">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">付録 <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        <li >
+                            <a href="../../06_release_note/00_release_note/index.html">リリースノート</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../07_cheat_sheet/00_cheat_sheet/index.html">チートシート (コマンド早見表)</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../00_FrontISTR_install_quickguide_ubuntu/index.html">FrontISTR ver. 4.6のインストール (ubuntu 16.04 LTS)</a>
+                        </li>
+                    
+                        <li class="active">
+                            <a href="index.html">FrontISTR ver. 4.6のインストール (Windows10 - MinGW-w64)</a>
+                        </li>
+                    
+                    </ul>
+                </li>
+            
+            
+            </ul>
+
+            <!-- Search, Navigation and Repo links -->
+            <ul class="nav navbar-nav navbar-right">
+                    <li >
+                        <a rel="next" href="../00_FrontISTR_install_quickguide_ubuntu/index.html">
+                            <i class="fa fa-arrow-left"></i> Previous
+                        </a>
+                    </li>
+                    <li class="disabled">
+                        <a rel="prev" >
+                            Next <i class="fa fa-arrow-right"></i>
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+</div>
+
+        <div class="container">
+                <div class="row">
+                    <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+      
+    
+        <li class="main active"><a href="#frontistr-v46">FrontISTR v4.6のインストール</a></li>
+        
+            <li><a href="#windows10-mingw-w64">(Windows10 - MinGW-w64)</a></li>
+        
+            <li><a href="#git-for-windows-sdk-msys2">Git for windows SDK を用いたMSYS2のインストール</a></li>
+        
+            <li><a href="#microsoft-mpi">Microsoft MPIのインストール</a></li>
+        
+            <li><a href="#_1">ライブラリの構築</a></li>
+        
+            <li><a href="#frontistr">FrontISTRの構築</a></li>
+        
+    
+    
+    </ul>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="frontistr-v46">FrontISTR v4.6のインストール</h1>
+<h2 id="windows10-mingw-w64">(Windows10 - MinGW-w64)</h2>
+<p>ここでは、Windowsで動くFrontISTRの構築方法を紹介します。</p>
+<p>Windowsの場合、開発環境を整えるところから始める必要があります。また、FrontISTRを構築するのに必要な各種ライブラリがバイナリで提供されていない事が多いため、これらライブラリもソースから構築する必要があります。</p>
+<p>比較的面倒なため、FrontISTRを直ぐに使いたい方は <a href="http://www.multi.k.u-tokyo.ac.jp/FrontISTR/">FrontISTR研究会</a> から提供されている <strong>バイナリ版</strong> または <strong>REVOCAP_PrePost</strong> をダウンロードしてください。</p>
+<p>REVOCAP_PrePost は、FrontISTR等で使えるプリポスト用のソフトウェアでFrontISTRが同梱されています。</p>
+<h2 id="git-for-windows-sdk-msys2">Git for windows SDK を用いたMSYS2のインストール</h2>
+<p>windows用の開発環境として、Git for windows SDKのMinGW-w64を用います。</p>
+<p><a href="https://github.com/git-for-windows/build-extra/releases">https://github.com/git-for-windows/build-extra/releases</a></p>
+<p>から <code>git-sdk-installer-1.0.3-64.7z.exe</code> をダウンロードして、インストールしてください。</p>
+<p>インストールの最後に</p>
+<pre><code class="txt">Generating catalog po/ru.msg
+msgfmt --statistics --tcl po/ru.po -l ru -d po/
+307 ﾂﾌ|bZ[W.
+make[1]: *** [Makefile:76: po/ru.msg] エラー 1
+make: *** [Makefile:1656: all] エラー 2
+続行するには何かキーを押してください . . .
+</code></pre>
+
+<p>というエラーが出ますが、これは無視して構いません。</p>
+<p>インストールが終了すると、デスクトップに「Git SDK 64-bit」というアイコンが現れます。</p>
+<p>以前は、MSYS2を直接インストールする方法を書いていましたが、Git for windows SDKを使った方が簡単に環境整備が出来ることが分かりました。</p>
+<p>次に、コンパイルに必要なパッケージをインストールします。</p>
+<pre><code class="txt">(MSYS) pacman -S mingw-w64-x86_64-cmake mingw-w64-x86_64-qt5
+</code></pre>
+
+<p><code>cmake-gui</code>を使う場合、<code>mingw-w64-x86_64-qt5</code>パッケージもインストールしてください。</p>
+<p>Tips : <code>mingw-w64-x86_64-qt5</code> のインストールは必ずしも必要ありませんが、<code>cmake</code>でライブラリが見つからないなどのトラブルがあるとき、<code>cmake-gui</code>が役立ちます。</p>
+<p>これでコンパイラなどがインストールされますので、念のため確認をして下さい。</p>
+<pre><code class="txt">(MSYS) gcc -v
+(MSYS) gfortran -v
+(MSYS) cmake --version
+</code></pre>
+
+<p>作業に先立ち、ディレクトリを作成してください。 作業ディレクトリは<code>$HOME/work</code>とし、ライブラリは<code>$HOME/local</code>以下にインストールします。</p>
+<pre><code class="txt">(MSYS) mkdir $HOME/work
+(MSYS) mkdir -p $HOME/local/lib
+(MSYS) mkdir $HOME/local/include
+</code></pre>
+
+<h2 id="microsoft-mpi">Microsoft MPIのインストール</h2>
+<p>MPIにはMicrosoft MPIを使います。</p>
+<p><a href="https://www.microsoft.com/en-us/download/details.aspx?id=55494">Download Microsoft MPI v8.1 from Official Microsoft Download Center</a></p>
+<p>から、SDKの<code>msmpisdk.msi</code>とランタイムの<code>MSMpiSetup.exe</code>をダウンロードしインストールをしてください。</p>
+<h3 id="microsoft-mpi_1">Microsoft MPIをリンクするための準備</h3>
+<p>Microsoft MPIをMinGW-w64の<code>gcc</code>や<code>gfortran</code>でリンクするための作業をします。</p>
+<pre><code class="txt">(MINGW64) cd $HOME/local/lib/
+(MINGW64) gendef /c/Windows/System32/msmpi.dll
+(MINGW64) dlltool -d msmpi.def -l libmsmpi.a -D /c/Windows/System32/msmpi.dll
+(MINGW64) ls
+libmsmpi.a  msmpi.def
+</code></pre>
+
+<p>MinGW-w64環境でリンクできるMicrosoft MPIのライブラリが作成されました。</p>
+<p>次にヘッダファイルをコピーします。</p>
+<pre><code class="txt">(MINGW64) cd $HOME/local/include
+(MINGW64) cp /c/Program\ Files\ \(x86\)/Microsoft\ SDKs/MPI/Include/*.h .
+(MINGW64) cp /c/Program\ Files\ \(x86\)/Microsoft\ SDKs/MPI/Include/x64/*.h .
+(MINGW64) ls
+mpi.h  mpif.h  mpifptr.h  mpio.h  mspms.h  pmidbg.h
+</code></pre>
+
+<p><code>mpi.h</code>に変更を加えます。</p>
+<pre><code class="txt">(MINGW64) vi mpi.h
+
+#ifndef MPI_INCLUDED
+#define MPI_INCLUDED
+のすぐ下に
+#include &lt;stdint.h&gt;
+を追加する。
+</code></pre>
+
+<p>更に<code>mpif.h</code>に変更を加えます。</p>
+<pre><code class="txt">(MINGW64) vi mpif.h
+
+407行目
+PARAMETER (MPI_ADDRESS_KIND=INT_PTR_KIND())
+を
+PARAMETER (MPI_ADDRESS_KIND=8)
+へ変更する。
+</code></pre>
+
+<p>以上でMicrosoft MPIをMinGW-w64でリンクする準備が出来ました。</p>
+<h2 id="_1">ライブラリの構築</h2>
+<p>FrontISTRで有効にする機能は</p>
+<ul>
+<li>hecmw_part1領域分割ツールなどのツール群生成</li>
+<li>REVOCAP_Refiner (メッシュの細分化機能)</li>
+<li>MPI (PCクラスタ等の並列実行環境）</li>
+<li>OpenMP (マルチコアCPUを利用)</li>
+<li>METIS (メッシュの領域分割のために必要)</li>
+<li>MUMPS (直接法ソルバー)</li>
+<li>LAPACK （CG法やGMRES法を用いた前処理適用後の条件数推定機能を利用）</li>
+<li>Trilinos-ML （代数マルチグリッド法に基づく前処理）</li>
+</ul>
+<p>です。</p>
+<h3 id="_2">ダウンロード</h3>
+<p>FrontISTRと必要なライブラリをダウンロードしてください。</p>
+<table>
+<thead>
+<tr>
+<th>ライブラリ名</th>
+<th>ダウンロード先</th>
+<th>備考</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>FrontISTR_V46.tar.gz</td>
+<td><a href="http://www.multi.k.u-tokyo.ac.jp/FrontISTR">http://www.multi.k.u-tokyo.ac.jp/FrontISTR</a></td>
+<td>要ユーザ登録</td>
+</tr>
+<tr>
+<td>REVOCAP_Refiner-1.1.04</td>
+<td><a href="http://www.multi.k.u-tokyo.ac.jp/FrontISTR">http://www.multi.k.u-tokyo.ac.jp/FrontISTR</a></td>
+<td>要ユーザ登録</td>
+</tr>
+<tr>
+<td>OpenBLAS-0.2.19</td>
+<td><a href="http://www.openblas.net">http://www.openblas.net</a></td>
+<td>ソースをダウンロード</td>
+</tr>
+<tr>
+<td>metis-5.1.0</td>
+<td><a href="http://glaros.dtc.umn.edu/gkhome/metis/metis/download">http://glaros.dtc.umn.edu/gkhome/metis/metis/download</a></td>
+<td>scotch-metisも利用可</td>
+</tr>
+<tr>
+<td>scalapack-2.0.2</td>
+<td><a href="http://www.netlib.org/scalapack/">http://www.netlib.org/scalapack/</a></td>
+<td>MUMPSで利用</td>
+</tr>
+<tr>
+<td>MUMPS_5.1.1</td>
+<td><a href="http://mumps.enseeiht.fr/">http://mumps.enseeiht.fr/</a></td>
+<td>要ユーザ登録</td>
+</tr>
+<tr>
+<td>trilinos-12.10.1</td>
+<td><a href="https://trilinos.org/download/">https://trilinos.org/download/</a></td>
+<td>要ユーザ登録</td>
+</tr>
+</tbody>
+</table>
+<p>ダウンロードしたファイルは<code>$HOME/work</code>に置いてください。</p>
+<p>「MinGW-w64 Win64 Shell」上で構築していきます。</p>
+<h3 id="openblas">OpenBLASの構築</h3>
+<p>OpenBLASは、高速なLAPACK/BLASのフリーの実装です。OpenMPを有効にしたライブラリを構築します。</p>
+<pre><code class="txt">(MINGW64) cd $HOME/work
+(MINGW64) tar xvf OpenBLAS-0.2.18.tar.gz
+(MINGW64) cd OpenBLAS-0.2.18
+(MINGW64) make BINARY=64 NO_SHARED=1 USE_OPENMP=1
+(MINGW64) make PREFIX=$HOME/local install
+</code></pre>
+
+<p><code>make install</code>をすると、</p>
+<pre><code class="txt">cp: cannot stat 'libopenblas.dll': No such file or directory
+make[1]: [Makefile.install:52: install] Error 1 (ignored)
+cp: cannot stat 'libopenblas.dll.a': No such file or directory
+make[1]: [Makefile.install:53: install] Error 1 (ignored)
+</code></pre>
+
+<p>というエラーが表示されますが、今回はDLLを作成していないので無視してください。</p>
+<p>OpenBLASにはLAPACKも含まれます。リンクするには <code>-llapack</code>の代わりに<code>-lopenblas</code>を指定してください。</p>
+<h3 id="metis">METISの構築</h3>
+<p>グラフパーティショナのライブラリです。この他、Scotchに同梱されるmetis互換層も利用できます。</p>
+<p>OpenMPを有効にしたライブラリを構築します。</p>
+<pre><code class="txt">(MINGW64) tar xvf metis-5.1.0.tar.gz
+(MINGW64) cd metis-5.1.0
+</code></pre>
+
+<h4 id="_3">ファイルの修正</h4>
+<p>コンパイルをする前に</p>
+<ul>
+<li>CMakeLists.txt</li>
+<li>GKlib/gk_arch.h</li>
+<li>GKlib/gk_getopt.h</li>
+</ul>
+<p>をMinGW-w64用の修正をします。</p>
+<h5 id="cmakeliststxt">CMakeLists.txt</h5>
+<pre><code class="txt">(MINGW64) vi CMakeLists.txt
+set(GKLIB_PATH &quot;GKlib&quot; CACHE PATH &quot;path to GKlib&quot;)
+と書かれている部分を
+set(GKLIB_PATH &quot;${CMAKE_SOUCE_DIR}/GKlib&quot; CACHE PATH &quot;path to GKlib&quot;)
+に修正
+</code></pre>
+
+<h5 id="gklibgk_archh">GKlib/gk_arch.h</h5>
+<pre><code class="txt">(MINGW64) vi GKlib/gk_arch.h
+#include &lt;sys/resource.h&gt;
+を削除
+</code></pre>
+
+<h5 id="gklibgk_getopth">GKlib/gk_getopt.h</h5>
+<pre><code class="txt">/* Function prototypes */
+extern int gk_getopt(int __argc, char **__argv, char *__shortopts);
+extern int gk_getopt_long(int __argc, char **__argv, char *__shortopts,
+              struct gk_option *__longopts, int *__longind);
+extern int gk_getopt_long_only (int __argc, char **__argv,
+              char *__shortopts, struct gk_option *__longopts, int *__longind);
+を削除
+</code></pre>
+
+<h4 id="_4">コンパイル</h4>
+<p>ファイルを修正したら<code>cmake</code>を実行してライブラリを構築します。</p>
+<pre><code class="txt">(MINGW64) cd build
+(MINGW64) cmake -G &quot;MSYS Makefiles&quot; -DCMAKE_INSTALL_PREFIX=$HOME/local \
+            -DCMAKE_BUILD_TYPE=&quot;Release&quot; -DOPENMP=ON ..
+(MINGW64) make
+(MINGW64) make install
+</code></pre>
+
+<h3 id="scalapack">Scalapackの構築</h3>
+<p>scalapackは、この後説明をするMUMPSの構築に必要となります。</p>
+<pre><code class="txt">(MINGW64) cd $HOME/work
+(MINGW64) tar xvf scalapack-2.0.2.tgz
+(MINGW64) cd scalapack-2.0.2
+</code></pre>
+
+<p>サンプルの<code>SLmake.inc.example</code>を<code>SLmake.inc</code>としてコピーして書き換えます。</p>
+<pre><code class="txt">(MINGW64) cp SLmake.inc.example SLmake.inc
+(MINGW64) vi SLmake.inc
+
+#
+#  The fortran and C compilers, loaders, and their flags
+#
+
+FC            = gfortran -fno-range-check
+CC            = gcc
+NOOPT         = -O0
+FCFLAGS       = -O3 -I$(HOME)/local/include
+CCFLAGS       = -O3 -I$(HOME)/local/include
+FCLOADER      = $(FC)
+CCLOADER      = $(CC)
+FCLOADFLAGS   = $(FCFLAGS) -L$(HOME)/local/lib -lmsmpi
+CCLOADFLAGS   = $(CCFLAGS) -L$(HOME)/local/lib -lmsmpi
+
+#
+#  BLAS, LAPACK (and possibly other) libraries needed for linking test programs
+#
+
+BLASLIB       = -L$(HOME)/local/lib -lopenblas
+LAPACKLIB     =
+LIBS          = $(LAPACKLIB) $(BLASLIB)
+</code></pre>
+
+<p>書き換えが済んだらライブラリを構築します。</p>
+<pre><code class="txt">(MINGW64) make
+</code></pre>
+
+<p><code>make</code>をするとエラーが出ますが、<code>BLACS/TESTING</code>のエラーなので無視します。</p>
+<pre><code class="txt">(MINGW64) cp libscalapack.a $HOME/local/lib
+</code></pre>
+
+<h3 id="mumps">MUMPSの構築</h3>
+<p>MUMPSは直接法のソルバです。</p>
+<pre><code class="txt">(MINGW64) cd $HOME/work
+(MINGW64) tar xvf MUMPS_5.0.1.tar.gz
+(MINGW64) cd MUMPS_5.0.1
+</code></pre>
+
+<p><code>Make.inc</code>ディレクトリにある、<code>Makefile.inc.generic</code>を元に<code>Makefile.inc</code>を環境に合わせた内容へ書き換えます。</p>
+<pre><code class="txt">(MINGW64) cp Make.inc/Makefile.inc.generic Makefile.inc
+(MINGW64) vi Makefile.inc
+
+LMETISDIR = $(HOME)/local
+IMETIS    = -I$(LMETISDIR)/include
+LMETIS    = -L$(LMETISDIR)/lib -lmetis
+
+ORDERINGSF  = -Dmetis -Dpord
+
+CC      = gcc -fopenmp
+FC      = gfortran -fopenmp -fno-range-check
+FL      = gfortran -fopenmp
+
+SCALAP  = -L$(HOME)/local/lib -lscalapack
+
+INCPAR = -I$(HOME)/local/include
+
+LIBPAR  = $(SCALAP) -L$(HOME)/local/lib -lmsmpi
+
+LIBBLAS = -L$(HOME)/local/lib -lopenblas
+
+LIBOTHERS = -lpthread -fopenmp
+
+OPTF    = -O -DMUMPS_OPENMP
+OPTC    = -O -I. -DMUMPS_OPENMP
+OPTL    = -O
+</code></pre>
+
+<p>ファイルの修正が済んだらライブラリを構築します。</p>
+<pre><code class="txt">(MINGW64) make
+</code></pre>
+
+<h3 id="trilinos-ml">Trilinos MLの構築</h3>
+<p>Trilinosには多くのライブラリ含まれていますが、FrontISTRに必要なのは<code>ML</code>と<code>zoltan</code>だけです。</p>
+<pre><code class="txt">(MINGW64) cd $HOME/work
+(MINGW64) tar xvf trilinos-12.10.1-Source.tar.gz
+(MINGW64) cd trilinos-12.10.1-Source
+(MINGW64) mkdir build
+(MINGW64) cd build
+(MINGW64) cmake \
+            -G &quot;MSYS Makefiles&quot; \
+            -DCMAKE_INSTALL_PREFIX=$HOME/local \
+            -DCMAKE_C_FLAGS=&quot;-DNO_TIMES&quot; \
+            -DCMAKE_CXX_FLAGS=&quot;-DNO_TIMES&quot; \
+            -DTrilinos_ENABLE_ML=ON \
+            -DTrilinos_ENABLE_Zoltan=ON \
+            -DTrilinos_ENABLE_OpenMP=ON \
+            -DTrilinos_ENABLE_ALL_OPTIONAL_PACKAGES=OFF \
+            -DTPL_BLAS_LIBRARIES=$HOME/local/lib/libopenblas.a \
+            -DTPL_LAPACK_LIBRARIES=$HOME/local/lib/libopenblas.a \
+            -DTPL_ENABLE_MPI=ON \
+            -DML_ENABLE_MPI=ON \
+            -DMPI_CXX_COMPILER=g++ \
+            -DMPI_CXX_INCLUDE_PATH=$HOME/local/include \
+            -DMPI_CXX_LIBRARIES=$HOME/local/lib/libmsmpi.a \
+            -DMPI_C_COMPILER=gcc \
+            -DMPI_C_INCLUDE_PATH=$HOME/local/include \
+            -DMPI_C_LIBRARIES=$HOME/local/lib/libmsmpi.a \
+            ..
+(MINGW64) make
+(MINGW64) make install
+</code></pre>
+
+<h3 id="revocap_refiner">REVOCAP_Refinerの構築</h3>
+<p>REVOCAP_Refinerをコンパイルします。</p>
+<pre><code class="txt">(MINGW64) cd $HOME/work
+(MINGW64) tar xvf REVOCAP_Refiner-1.1.04.tar.gz
+(MINGW64) cd REVOCAP_Refiner-1.1.04
+(MINGW64) make
+</code></pre>
+
+<h2 id="frontistr">FrontISTRの構築</h2>
+<p>必要なライブラリの導入が済んだらFrontISTRを構築します。</p>
+<pre><code class="txt">(MINGW64) cd $HOME/work
+(MINGW64) tar xvf FrontISTR_V46.tar.gz
+(MINGW64) cd FrontISTR-4.6
+</code></pre>
+
+<p>サンプルの<code>Makefile.conf.org</code>を<code>Makefile.conf</code>としてコピーして書き換えます。</p>
+<pre><code class="txt">(MINGW64) cp Makefile.conf.org Makefile.conf
+(MINGW64) vi Makefile.conf
+</code></pre>
+
+<p>以下の内容で<code>Makefile.conf</code>を編集してください。</p>
+<pre><code>(MINGW64) vi Makefile.conf
+
+##################################################
+#                                                #
+#     Setup Configulation File for FrontISTR     #
+#                                                #
+##################################################
+
+# MPI
+MPIDIR         = $(HOME)/local
+MPIBINDIR      = &quot;/c/Program\ Files/Microsoft\ MPI/Bin/&quot;
+MPILIBDIR      = $(MPIDIR)/lib
+MPIINCDIR      = $(MPIDIR)/include
+MPILIBS        = -lmsmpi
+
+# for install option only
+PREFIX         = $(HOME)/FrontISTR
+BINDIR         = $(PREFIX)/bin
+LIBDIR         = $(PREFIX)/lib
+INCLUDEDIR     = $(PREFIX)/include
+
+# Metis
+METISDIR       = $(HOME)/local
+METISLIBDIR    = $(METISDIR)/lib
+METISINCDIR    = $(METISDIR)/include
+HECMW_METIS_VER= 5
+
+# ParMetis
+PARMETISDIR    = $(HOME)/ParMetis-3.1
+PARMETISLIBDIR = $(PARMETISDIR)
+PARMETISINCDIR = $(PARMETISDIR)/ParMETISLib
+
+# Refiner
+REFINERDIR     = $(HOME)/work/REVOCAP_Refiner-1.1.04
+REFINERINCDIR  = $(REFINERDIR)/Refiner
+REFINERLIBDIR  = $(REFINERDIR)/lib/x86_64-linux
+
+# Coupler
+REVOCAPDIR     = $(HOME)/REVOCAP_Coupler
+REVOCAPINCDIR  = $(REVOCAPDIR)/librcap
+REVOCAPLIBDIR  = $(REVOCAPDIR)/librcap
+
+# MUMPS
+MUMPSDIR       = $(HOME)/work/MUMPS_5.0.1
+MUMPSINCDIR    = $(MUMPSDIR)/include
+MUMPSLIBDIR    = $(MUMPSDIR)/lib
+MUMPSLIBS      = -ldmumps -lmumps_common -lpord -L$(HOME)/local/lib -lscalapack
+
+# MKL PARDISO
+MKLDIR     = $(HOME)/
+MKLINCDIR  = $(MKLDIR)/include
+MKLLIBDIR  = $(MKLDIR)/lib
+
+# ML
+MLDIR          = $(HOME)/local
+MLINCDIR       = $(MLDIR)/include
+MLLIBDIR       = $(MLDIR)/lib
+MLLIBS         = -lml -lzoltan -lws2_32
+
+# C compiler settings
+CC             = gcc -fopenmp
+CFLAGS         = -D_WINDOWS
+LDFLAGS        = -lstdc++ -lm
+OPTFLAGS       = -O3
+
+# C++ compiler settings
+CPP            = g++ -fopenmp
+CPPFLAGS       = -D_WINDOWS
+CPPLDFLAGS     =
+CPPOPTFLAGS    = -O3
+
+# Fortran compiler settings
+F90            = gfortran -fopenmp -fno-range-check
+F90FLAGS       = -D_WINDOWS
+F90LDFLAGS     = -lstdc++ -L$(HOME)/local/lib -lopenblas
+F90OPTFLAGS    = -O2
+F90FPP         = -cpp
+F90LINKER      = gfortran -fopenmp
+
+MAKE           = make
+AR             = ar ruv
+MV             = mv -f
+CP             = cp -f
+RM             = rm -f
+MKDIR          = mkdir -p
+</code></pre>
+
+<ul>
+<li>この手順で用いるMETISはVersion5.1.0です。<code>HECMW_METIS_VER = 5</code>を指定してください。</li>
+<li>gfortranのプリプロセッサ指定は <code>-cpp</code>です。<code>F90FPP = -cpp</code>を指定してください。</li>
+<li><code>REFINERLIBDIR</code>に<code>x86_64-linux</code>と書かれていますが、間違いではありません?</li>
+</ul>
+<p>さらに<code>Makefile.am</code>を編集し構築する必要のない部分を除外します。</p>
+<pre><code class="txt">(MINGW64) vi Makefile.am
+
+PREFIX     = @prefix@
+BINDIR     = @bindir@
+LIBDIR     = @libdir@
+INCLUDEDIR = @includedir@
+
+MAKE       = @make@
+AR         = @ar@
+CP         = @cp@
+RM         = @rm@
+MV         = @mv@
+RANLIB     = @ranlib@
+MKDIR      = @mkdir@
+
+all:
+        @cd hecmw1 &amp;&amp; $(MAKE)
+        @cd fistr1 &amp;&amp; $(MAKE)
+#       @cd hecmw2 &amp;&amp; $(MAKE)
+#       @cd fistr2 &amp;&amp; $(MAKE)
+        @cd fistr  &amp;&amp; $(MAKE)
+
+clean:
+        @cd hecmw1 &amp;&amp; $(MAKE) clean
+        @cd fistr1 &amp;&amp; $(MAKE) clean
+#       @cd hecmw2 &amp;&amp; $(MAKE) clean
+#       @cd fistr2 &amp;&amp; $(MAKE) clean
+        @cd fistr  &amp;&amp; $(MAKE) clean
+
+distclean:
+        @cd hecmw1 &amp;&amp; $(MAKE) distclean
+        @cd fistr1 &amp;&amp; $(MAKE) distclean
+#       @cd hecmw2 &amp;&amp; $(MAKE) distclean
+#       @cd fistr2 &amp;&amp; $(MAKE) distclean
+        @cd fistr  &amp;&amp; $(MAKE) distclean
+        - $(RM) ./bin/*
+
+install:
+        if [ ! -d $(PREFIX) ]; then \
+                $(MKDIR) $(PREFIX); \
+        fi
+        if [ ! -d $(BINDIR) ]; then \
+                $(MKDIR) $(BINDIR); \
+        fi
+        @cd hecmw1 &amp;&amp; $(MAKE) install
+        @cd fistr1 &amp;&amp; $(MAKE) install
+#       @cd hecmw2 &amp;&amp; $(MAKE) install
+#       @cd fistr2 &amp;&amp; $(MAKE) install
+        @cd fistr  &amp;&amp; $(MAKE) install
+</code></pre>
+
+<p><code>hecmw2</code>および<code>fistr2</code>は構築しませんので、コメントアウトしてください。</p>
+<p>編集が出来たら<code>setup.sh</code>を実行してください。</p>
+<pre><code class="txt">(MINGW64) ./setup.sh -p --with-tools --with-refiner --with-metis --with-mumps --with-lapack --with-ml
+</code></pre>
+
+<p><code>setup.sh</code>の実行が住んだらコンパイルしてバイナリを作成します。</p>
+<pre><code class="txt">(MINGW64) make
+(MINGW64) make install
+</code></pre>
+
+<p>構築したバイナリをインストールをすると、<code>$(HOME)/FrontISTR/bin</code>以下に</p>
+<pre><code class="txt">(MINGW64) ls $HOME/FrontISTR/bin
+fistr1.exe    hecmw_part1.exe  neu2fstr.exe  rmerge.exe
+hec2rcap.exe  hecmw_vis1.exe   rconv.exe
+</code></pre>
+
+<p>などのバイナリがコピーされます。</p>
+<p>作成されたバイナリは、MSYS2やMinGWが無くても動作しますが、各種DLLをコピーして<code>PATH</code>を通しておく必要があります。</p>
+<p>必要なDLLは</p>
+<pre><code class="txt">libwinpthread-1.dll
+libgfortran-3.dll
+libgcc_s_seh-1.dll
+libgomp-1.dll
+libstdc++-6.dll
+libquadmath-0.dll
+</code></pre>
+
+<p>と<code>msmpi.dll</code>および<code>mpiexec.exe</code>になりますが、これらはインストーラで<code>MSMpiSetup.exe</code> を実行した時点で<code>PATH</code>が通っています。</p></div>
+                </div>
+        </div>
+
+    <hr>
+    <footer class="container">
+        
+        <center>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</center>
+    </footer>
+        <script src="../../js/base.js"></script>
+        <script src="../../search/require.js"></script>
+        <script src="../../search/search.js"></script>
+    </body>
+</html>
