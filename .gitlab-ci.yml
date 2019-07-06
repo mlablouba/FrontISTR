@@ -26,14 +26,14 @@ pages:
     stage: deploy
     script:
         - yum install -y doxygen python wget git 
+        - mkdir -p public
+        - cd build/; ls; cd doc; ls; doxygen ./Doxyfile; cd -
+        - mv build/doc/doc/html public/function_reference
         - wget https://bootstrap.pypa.io/get-pip.py; python get-pip.py
         - pip install mkdocs
         - pip install mkdocs-bootstrap
         - pip install mkdocs-windmill
         - pip install python-markdown-math
-        - mkdir -p public
-        - cd build/; ls; cd doc; ls; doxygen ./Doxyfile; cd -
-        - mv build/doc/doc/html public/function_reference
         - git submodule update -i
         - cd doc; ./create_docs.sh; cd ..
         - cp -r doc/manuals/* public/
