@@ -11,7 +11,7 @@ stages:
 make:
     stage: build
     script:
-        - yum install -y cmake make gcc-gfortran libgfortran  gcc-c++
+        - yum install -y cmake make gcc-gfortran libgfortran gcc-c++ doxygen
         - mkdir -p build
         - cd build;
         - cmake .. -DWITH_DOC=1
