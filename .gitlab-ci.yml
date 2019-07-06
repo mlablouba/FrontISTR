@@ -38,7 +38,7 @@ pages:
             - public
         expire_in: 20min
     only:
-        - ci_master
+        - ci-master
 
 
 # ruby_test:
