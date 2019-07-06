@@ -1,5 +1,5 @@
 #!/bin/bash
-cd ..; git submodule update -i; cd -
+mkdir -p doc/
 rm -rf doc/*
 
 echo "create manual ja"
