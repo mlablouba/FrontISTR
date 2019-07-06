@@ -32,11 +32,11 @@ pages:
         - pip install mkdocs-windmill
         - pip install python-markdown-math
         - mkdir -p public
+        - cd build/; ls; cd doc; ls; doxygen ./Doxyfile; cd -
+        - mv build/doc/doc/html public/function_reference
         - git submodule update -i
         - cd doc; ./create_docs.sh; cd ..
         - cp -r doc/manuals/* public/
-        - cd build/; ls; cd doc; ls; doxygen ./Doxyfile; cd -
-        - mv build/doc/doc/html public/function_reference
     artifacts:
         paths:
             - public
@@ -123,5 +123,4 @@ pages:
 #                                         - build_p/Testing/Temporary/LastTestsFailed.log
 #                                     expire_in: 1 month
 #                                     when: on_failure
-#
 #
