@@ -25,7 +25,7 @@ make:
 pages:
     stage: deploy
     script:
-        - yum install -y doxygen python wget git 
+        - yum install -y doxygen python wget git graphviz
         - mkdir -p public
         - cd build/; ls; cd doc; ls; doxygen ./Doxyfile; cd -
         - mv build/doc/doc/html public/function_reference
