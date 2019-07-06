@@ -34,8 +34,8 @@ pages:
         - mkdir -p public
         - git submodule update -i
         - cd doc; ./create_docs.sh; cd ..
-        - cp -r doc/doc/* public/
-        - cd build; make -j doc; mv doc/html ../public/function_reference; cd ..
+        - cp -r doc/manuals/* public/
+        - cd build; ls; make doc; mv doc/html ../public/function_reference; cd ..
     artifacts:
         paths:
             - public
