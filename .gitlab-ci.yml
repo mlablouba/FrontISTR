@@ -35,7 +35,7 @@ pages:
         - git submodule update -i
         - cd doc; ./create_docs.sh; cd ..
         - cp -r doc/manuals/* public/
-        - cd build/doc; doxygen ./Doxyfile; cd -
+        - cd build/; ls; cd doc; ls; doxygen ./Doxyfile; cd -
         - mv build/doc/doc/html public/function_reference
     artifacts:
         paths:
