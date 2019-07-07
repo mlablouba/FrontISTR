@@ -28,7 +28,7 @@ pages:
         - yum install -y doxygen python wget git graphviz
         - mkdir -p public
         - cd build/doc/; doxygen ./Doxyfile; cd -
-        - mv build/doc/doc/html public/function_reference
+          #- mv build/doc/doc/html public/function_reference
         - wget https://bootstrap.pypa.io/get-pip.py; python get-pip.py
         - pip install mkdocs
         - pip install mkdocs-bootstrap
