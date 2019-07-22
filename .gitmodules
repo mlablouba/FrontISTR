@@ -1,3 +1,3 @@
 [submodule "doc/FrontISTR_manuals"]
 	path = doc/FrontISTR_manuals
-	url = https://github.com/FrontISTR/FrontISTR_manuals.git
+	url = https://gitlab.com/FrontISTR-Commons/FrontISTR_manual.git
