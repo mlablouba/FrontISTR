@@ -6,6 +6,7 @@ cache:
 
 stages:
     - build
+    - test
     - deploy
 
 make:
@@ -21,7 +22,15 @@ make:
         paths:
             - build/
         expire_in: 20min
-
+    only:
+        - ci-master
+test:
+    stage: test
+    script:
+        - yum install -y ruby
+        - cd build;
+        - make test
+        - cd ..
 pages:
     stage: deploy
     script:
@@ -45,13 +54,6 @@ pages:
         - ci-master
 
 
-# ruby_test:
-#     stage: test
-#     script:
-#         - yum install -y ruby
-#         - cd build;
-#         - make test
-#         - cd ..
 
 ############################################################
 #     build_serial:
@@ -123,4 +125,3 @@ pages:
 #                                         - build_p/Testing/Temporary/LastTestsFailed.log
 #                                     expire_in: 1 month
 #                                     when: on_failure
-#
