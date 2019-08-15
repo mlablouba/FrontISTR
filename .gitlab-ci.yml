@@ -13,9 +13,10 @@ make:
     stage: build
     script:
         - yum install -y cmake make gcc-gfortran libgfortran gcc-c++ doxygen
+        - yum install -y MUMPS
         - mkdir -p build
         - cd build;
-        - cmake .. -DWITH_DOC=1
+        - cmake .. -DWITH_DOC=ON -DWITH_MUMPS=ON 
         - make -j
         -  cd ..
     artifacts:
