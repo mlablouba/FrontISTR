@@ -1,4 +1,4 @@
-image: centos:latest
+image: fedora:latest
 
 cache:
     paths:
