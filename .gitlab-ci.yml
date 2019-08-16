@@ -1,9 +1,5 @@
 image: yuih/frontistr_libs:latest
 
-# cache:
-#     paths:
-#         - build/
-
 stages:
     - build
     - test
@@ -14,13 +10,13 @@ make:
     script:
         - mkdir -p build
         - cd build;
-        - cmake .. 
+        - cmake .. -DWITH_DOCS
         - make -j
-        -  cd ..
+        - cd ..
     artifacts:
         paths:
             - build/
-        expire_in: 20min
+        expire_in: 100min
     only:
         - ci-master
 test:
@@ -36,7 +32,6 @@ pages:
         - apt install -y doxygen python wget git graphviz
         - mkdir -p public
         - cd build/doc/; doxygen ./Doxyfile; cd -
-          #- mv build/doc/doc/html public/function_reference
         - wget https://bootstrap.pypa.io/get-pip.py; python get-pip.py
         - pip install mkdocs
         - pip install mkdocs-bootstrap
