@@ -35,6 +35,7 @@ test_fragile:
 pages:
     stage: deploy
     script:
+        - apt update
         - apt install -y doxygen python wget git graphviz
         - mkdir -p public
         - cd build/doc/; doxygen ./Doxyfile; cd -
