@@ -10,7 +10,7 @@ make:
     script:
         - mkdir -p build
         - cd build;
-        - cmake .. -DWITH_DOCS
+        - cmake .. -DWITH_DOCS=ON
         - make -j
         - cd ..
     artifacts:
