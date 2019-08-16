@@ -54,6 +54,8 @@ doxygen:
     script:
         - cmake -Bbuild_doc -H. -DWITH_DOC=ON
         - make -C build_doc doc
+        - rm -rf public
+        - mkdir -p public
         - mv build_doc/doc/html public/doxygen
     artifacts:
         paths:
