@@ -2,6 +2,9 @@
 
 set -eux
 
+export LC_ALL=C.UTF-8
+export LANG=C.UTF-8
+
 script_dir=$(cd $(dirname $0); pwd)
 manual_dir=${script_dir}/manuals
 
