@@ -4,8 +4,8 @@ LABEL maintainer="yu"
 RUN apt-get update \
  && apt-get -y install \
     build-essential    \
-    cmake              \
     ccache             \
+    cmake              \
     curl               \
     gfortran           \
     git                \
@@ -19,3 +19,5 @@ RUN apt-get update \
     trilinos-all-dev   \
  && apt-get clean      \
  && rm -rf /var/lib/apt/lists/*
+
+COPY ninja /usr/bin/
