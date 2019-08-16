@@ -8,10 +8,8 @@ stages:
 make:
     stage: build
     script:
-        - mkdir -p build
-        - cd build
-        - cmake .. -DWITH_DOCS=ON
-        - make -j $(nproc)
+        - cmake -Bbuild -H. -DWITH_DOCS=ON -G Ninja
+        - cmake --build build
     artifacts:
         paths:
             - build/
