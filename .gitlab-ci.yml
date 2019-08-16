@@ -1,8 +1,8 @@
 image: yuih/frontistr_libs:latest
 
-cache:
-    paths:
-        - build/
+# cache:
+#     paths:
+#         - build/
 
 stages:
     - build
