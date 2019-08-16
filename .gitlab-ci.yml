@@ -9,23 +9,35 @@ make:
     stage: build
     script:
         - mkdir -p build
-        - cd build;
+        - cd build
         - cmake .. -DWITH_DOCS=ON
-        - make -j
-        - cd ..
+        - make -j $(nproc)
     artifacts:
         paths:
             - build/
         expire_in: 100min
-    only:
-        - ci-master
-test:
+
+test_static:
     stage: test
-    script:
+    dependencies:
+        - make
+    before_script:
         - apt install -y ruby
-        - cd build;
-        - make test
-        - cd ..
+    script:
+        - cd build
+        - ctest -L static --output-on-failure
+
+test_fragile:
+    stage: test
+    dependencies:
+        - make
+    before_script:
+        - apt install -y ruby
+    allow_failure: true
+    script:
+        - cd build
+        - ctest -L "(eigen|heat|dynamic)" --output-on-failure
+
 pages:
     stage: deploy
     script:
