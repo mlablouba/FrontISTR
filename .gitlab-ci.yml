@@ -3,7 +3,6 @@ image: registry.ritc.jp/ricos/frontistr/build:latest
 stages:
     - build
     - test
-    - document
     - deploy
 
 make:
@@ -35,13 +34,11 @@ test_fragile:
 
 document:
     image: registry.ritc.jp/ricos/frontistr/document:latest
-    stage: document
-    dependencies:
-        - make
+    stage: build
     before_script:
         - pip3 install -r doc/requirements.txt
     script:
-        - ./create_docs.sh
+        - ./doc/create_docs.sh
     artifacts:
         paths:
             - doc/
