@@ -1,4 +1,4 @@
-image: fedora:latest
+image: ubuntu:latest
 
 cache:
     paths:
@@ -12,9 +12,10 @@ stages:
 make:
     stage: build
     script:
-        - yum install -y cmake make gcc-gfortran libgfortran gcc-c++ doxygen
-        - yum install -y "scalapack*"
-        - yum install -y MUMPS
+        - apt update
+        - apt install build-essential cmake gfortran git curl ruby libopenmpi-dev 
+        - apt install libmetis5 libopenblas-dev libmumps-dev libmetis-dev 
+        - apt install trilinos-all-dev libptscotch-dev
         - mkdir -p build
         - cd build;
         - cmake .. -DWITH_DOC=ON -DWITH_MUMPS=ON 
@@ -29,14 +30,14 @@ make:
 test:
     stage: test
     script:
-        - yum install -y ruby
+        - apt install -y ruby
         - cd build;
         - make test
         - cd ..
 pages:
     stage: deploy
     script:
-        - yum install -y doxygen python wget git graphviz
+        - apt install -y doxygen python wget git graphviz
         - mkdir -p public
         - cd build/doc/; doxygen ./Doxyfile; cd -
           #- mv build/doc/doc/html public/function_reference
