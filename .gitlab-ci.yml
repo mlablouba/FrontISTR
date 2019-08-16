@@ -8,7 +8,7 @@ stages:
 make:
     stage: build
     script:
-        - cmake -Bbuild -H. -DWITH_DOCS=ON -G Ninja
+        - cmake -Bbuild -H. -DWITH_DOCS=ON
         - cmake --build build
     artifacts:
         paths:

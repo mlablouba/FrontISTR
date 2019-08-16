@@ -19,5 +19,3 @@ RUN apt-get update \
     trilinos-all-dev   \
  && apt-get clean      \
  && rm -rf /var/lib/apt/lists/*
-
-COPY ninja /usr/bin/
