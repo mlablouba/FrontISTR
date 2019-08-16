@@ -54,7 +54,7 @@ doxygen:
     script:
         - cmake -Bbuild_doc -H. -DWITH_DOC=ON
         - make -C build_doc doc
-        - mv build/doc/html public/doxygen
+        - mv build_doc/doc/html public/doxygen
     artifacts:
         paths:
             - public
