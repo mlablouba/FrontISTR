@@ -13,12 +13,12 @@ make:
     stage: build
     script:
         - apt update
-        - apt install build-essential cmake gfortran git curl ruby libopenmpi-dev 
-        - apt install libmetis5 libopenblas-dev libmumps-dev libmetis-dev 
-        - apt install trilinos-all-dev libptscotch-dev
+        - apt install -y build-essential cmake gfortran git curl ruby libopenmpi-dev 
+        - apt install -y libmetis5 libopenblas-dev libmumps-dev libmetis-dev 
+        - apt install -y trilinos-all-dev libptscotch-dev
         - mkdir -p build
         - cd build;
-        - cmake .. -DWITH_DOC=ON -DWITH_MUMPS=ON 
+        - cmake .. 
         - make -j
         -  cd ..
     artifacts:
