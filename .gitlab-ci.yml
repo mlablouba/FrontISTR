@@ -3,6 +3,7 @@ image: registry.ritc.jp/ricos/frontistr/build:latest
 stages:
     - build
     - test
+    - document
     - deploy
 
 make:
@@ -32,20 +33,31 @@ test_fragile:
         - cd build
         - ctest -L "(eigen|heat|dynamic)" --output-on-failure
 
+document:
+    image: registry.ritc.jp/ricos/frontistr/document:latest
+    stage: document
+    dependencies:
+        - make
+    before_script:
+        - pip3 install -r doc/requirements.txt
+        - git submodule update -i
+    script:
+        - cd build/doc
+        - doxygen ./Doxyfile
+        - cd ${CI_PROJECT_DIR}/doc
+        - ./create_docs.sh
+    artifacts:
+        paths:
+            - doc/
+        expire_in: 100min
+
 pages:
     stage: deploy
+    dependencies:
+        - make
     script:
-        - apt update
-        - apt install -y doxygen python wget git graphviz
+        - rm -rf public
         - mkdir -p public
-        - cd build/doc/; doxygen ./Doxyfile; cd -
-        - wget https://bootstrap.pypa.io/get-pip.py; python get-pip.py
-        - pip install mkdocs
-        - pip install mkdocs-bootstrap
-        - pip install mkdocs-windmill
-        - pip install python-markdown-math
-        - git submodule update -i
-        - cd doc; ./create_docs.sh; cd ..
         - cp -r doc/manuals/* public/
     artifacts:
         paths:
