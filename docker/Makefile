@@ -1,12 +1,16 @@
 REGISTORY := registry.ritc.jp/ricos/frontistr
 
-all: image
+all: build document
 
 login:
 	docker login $(REGISTORY)
 
-image:
-	docker build -t $(REGISTORY)/build .
+build:
+	docker build -t $(REGISTORY)/build . --target build
 
-push: image
+document:
+	docker build -t $(REGISTORY)/document . --target document
+
+push: build document
 	docker push $(REGISTORY)/build
+	docker push $(REGISTORY)/document

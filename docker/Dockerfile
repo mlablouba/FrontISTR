@@ -1,4 +1,4 @@
-FROM ubuntu:18.04
+FROM ubuntu:18.04 AS build
 LABEL maintainer="yu"
 
 RUN apt-get update \
@@ -17,5 +17,14 @@ RUN apt-get update \
     libptscotch-dev    \
     ruby               \
     trilinos-all-dev   \
+ && apt-get clean      \
+ && rm -rf /var/lib/apt/lists/*
+
+FROM build AS document
+RUN apt-get update \
+ && apt-get install -y \
+    doxygen            \
+    python             \
+    graphviz           \
  && apt-get clean      \
  && rm -rf /var/lib/apt/lists/*
