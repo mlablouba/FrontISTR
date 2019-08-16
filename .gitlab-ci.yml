@@ -8,7 +8,7 @@ stages:
 make:
     stage: build
     script:
-        - cmake -Bbuild -H. -DWITH_DOC=ON
+        - cmake -Bbuild -H.
         - cmake --build build
     artifacts:
         paths:
@@ -39,21 +39,34 @@ document:
         - pip3 install -r doc/requirements.txt
     script:
         - ./doc/create_docs.sh
+        - rm -rf public
+        - mv doc/manuals public
     artifacts:
         paths:
-            - doc/
+            - public
         expire_in: 100min
     variables:
         GIT_SUBMODULE_STRATEGY: recursive
 
+doxygen:
+    image: registry.ritc.jp/ricos/frontistr/document:latest
+    stage: build
+    script:
+        - cmake -Bbuild_doc -H. -DWITH_DOC=ON
+        - make -C build_doc doc
+        - mv build/doc/html public/doxygen
+    artifacts:
+        paths:
+            - public
+        expire_in: 100min
+
 pages:
     stage: deploy
     dependencies:
-        - make
+        - document
+        - doxygen
     script:
-        - rm -rf public
-        - mkdir -p public
-        - cp -r doc/manuals/* public/
+        - ls public
     artifacts:
         paths:
             - public
