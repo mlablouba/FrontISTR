@@ -1,0 +1,3 @@
+[submodule "doc/FrontISTR_manual"]
+	path = doc/FrontISTR_manual
+	url = https://gitlab.ritc.jp/ricos/FrontISTR_manual
