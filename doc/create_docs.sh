@@ -1,15 +1,19 @@
 #!/bin/bash
-mkdir -p manuals/
-rm -rf manuals/*
 
-echo "create manual ja"
-cd ./FrontISTR_manuals/markdown_files/ja/
-mkdocs build --clean
-mv site ../../../manuals/manual_ja/
+set -eux
+
+script_dir=$(cd $(dirname $0); pwd)
+manual_dir=${script_dir}/manuals
+
+rm -rf $manual_dir
+mkdir -p $manual_dir
+
+cd $script_dir/FrontISTR_manual/markdown_files/ja/
+  mkdocs build --clean
+  mv site $manual_dir/manual_ja
 cd -
 
-echo "create manual en"
-cd ./FrontISTR_manuals/markdown_files/en/
-mkdocs build --clean
-mv site ../../../manuals/manual_en/
+cd $script_dir/FrontISTR_manual/markdown_files/en/
+  mkdocs build --clean
+  mv site $manual_dir/manual_en
 cd -

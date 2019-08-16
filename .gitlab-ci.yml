@@ -41,9 +41,6 @@ document:
     before_script:
         - pip3 install -r doc/requirements.txt
     script:
-        - cd build/doc
-        - doxygen ./Doxyfile
-        - cd ${CI_PROJECT_DIR}/doc
         - ./create_docs.sh
     artifacts:
         paths:
