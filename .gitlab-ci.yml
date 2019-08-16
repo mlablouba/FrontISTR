@@ -43,8 +43,8 @@ document:
         - pip3 install -r doc/requirements.txt
     script:
         - ./doc/create_docs.sh
-        - rm -rf public
-        - mv doc/manuals public
+        - rm -rf public/manual*
+        - mv doc/manuals/* public/
     artifacts:
         paths:
             - public
@@ -58,8 +58,7 @@ doxygen:
     script:
         - cmake -Bbuild_doc -H. -DWITH_DOC=ON
         - make -C build_doc doc
-        - rm -rf public
-        - mkdir -p public
+        - rm -rf public/doxygen
         - mv build_doc/doc/html public/doxygen
     artifacts:
         paths:
