@@ -33,6 +33,7 @@ test_fragile:
         - make
     before_script:
         - apt install -y ruby
+    allow_failure: true
     script:
         - cd build
         - ctest -L "(eigen|heat|dynamic)" --output-on-failure
