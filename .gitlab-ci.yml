@@ -1,4 +1,4 @@
-image: yuih/frontistr_libs:latest
+image: registry.ritc.jp/ricos/frontistr/build:latest
 
 stages:
     - build
@@ -21,8 +21,6 @@ test_static:
     stage: test
     dependencies:
         - make
-    before_script:
-        - apt install -y ruby
     script:
         - cd build
         - ctest -L static --output-on-failure
@@ -31,8 +29,6 @@ test_fragile:
     stage: test
     dependencies:
         - make
-    before_script:
-        - apt install -y ruby
     allow_failure: true
     script:
         - cd build
