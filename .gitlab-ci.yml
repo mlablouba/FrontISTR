@@ -1,4 +1,4 @@
-image: ubuntu:latest
+image: yuih/frontistr_libs:latest
 
 cache:
     paths:
@@ -12,10 +12,6 @@ stages:
 make:
     stage: build
     script:
-        - apt update
-        - apt install -y build-essential cmake gfortran git curl ruby libopenmpi-dev 
-        - apt install -y libmetis5 libopenblas-dev libmumps-dev libmetis-dev 
-        - apt install -y trilinos-all-dev libptscotch-dev
         - mkdir -p build
         - cd build;
         - cmake .. 
