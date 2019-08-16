@@ -1,15 +1,15 @@
 #!/bin/bash
-cd ..; git submodule update -i; cd -
-rm -rf doc/*
+mkdir -p manuals/
+rm -rf manuals/*
 
 echo "create manual ja"
 cd ./FrontISTR_manuals/markdown_files/ja/
 mkdocs build --clean
-mv site ../../../doc/manual_ja/
+mv site ../../../manuals/manual_ja/
 cd -
 
 echo "create manual en"
 cd ./FrontISTR_manuals/markdown_files/en/
 mkdocs build --clean
-mv site ../../../doc/manual_en/
+mv site ../../../manuals/manual_en/
 cd -

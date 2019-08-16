@@ -1,53 +1,58 @@
-image: centos:latest
+image: yuih/frontistr_libs:latest
 
-cache:
-    paths:
-        - build/
+# cache:
+#     paths:
+#         - build/
 
 stages:
     - build
+    - test
     - deploy
 
 make:
     stage: build
     script:
-        - yum install -y cmake make gcc-gfortran libgfortran  gcc-c++
         - mkdir -p build
         - cd build;
-        - cmake .. -DWITH_DOC=1
+        - cmake .. 
         - make -j
         -  cd ..
     artifacts:
         paths:
             - build/
         expire_in: 20min
-
+    only:
+        - ci-master
+test:
+    stage: test
+    script:
+        - apt install -y ruby
+        - cd build;
+        - make test
+        - cd ..
 pages:
     stage: deploy
     script:
-        - yum install -y doxygen python wget git
-        - wget https://bootstrap.pypa.io/get-pip.py; python get-pip.py
-        - pip install mkdocs mkdocs-bootstrap mkdocs-windmillpython-markdown-math
+        - apt install -y doxygen python wget git graphviz
         - mkdir -p public
+        - cd build/doc/; doxygen ./Doxyfile; cd -
+          #- mv build/doc/doc/html public/function_reference
+        - wget https://bootstrap.pypa.io/get-pip.py; python get-pip.py
+        - pip install mkdocs
+        - pip install mkdocs-bootstrap
+        - pip install mkdocs-windmill
+        - pip install python-markdown-math
         - git submodule update -i
         - cd doc; ./create_docs.sh; cd ..
-        - cp -r doc/doc/* public/
-        - cd build; make doc; mv doc/html ../public/function_reference; cd ..
+        - cp -r doc/manuals/* public/
     artifacts:
         paths:
             - public
         expire_in: 20min
     only:
-        - master
+        - ci-master
 
 
-# ruby_test:
-#     stage: test
-#     script:
-#         - yum install -y ruby
-#         - cd build;
-#         - make test
-#         - cd ..
 
 ############################################################
 #     build_serial:
@@ -119,5 +124,3 @@ pages:
 #                                         - build_p/Testing/Temporary/LastTestsFailed.log
 #                                     expire_in: 1 month
 #                                     when: on_failure
-#
-#
