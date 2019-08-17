@@ -1,5 +1,9 @@
 image: registry.ritc.jp/ricos/frontistr/build:latest
 
+variables:
+  AWS_DEFAULT_REGION: ap-northeast-1
+  BUCKET_NAME: ricos-frontistr-manual-preview
+
 stages:
     - build
     - test
@@ -8,7 +12,7 @@ stages:
 make:
     stage: build
     script:
-        - cmake -Bbuild -H. -DWITH_DOCS=ON
+        - cmake -Bbuild -H.
         - cmake --build build
     artifacts:
         paths:
@@ -32,20 +36,42 @@ test_fragile:
         - cd build
         - ctest -L "(eigen|heat|dynamic)" --output-on-failure
 
+document:
+    image: registry.ritc.jp/ricos/frontistr/document:latest
+    stage: build
+    before_script:
+        - pip3 install -r doc/requirements.txt
+    script:
+        - ./doc/create_docs.sh
+        - rm -rf public/manual*
+        - mv doc/manuals/* public/
+    artifacts:
+        paths:
+            - public
+        expire_in: 100min
+    variables:
+        GIT_SUBMODULE_STRATEGY: recursive
+
+doxygen:
+    image: registry.ritc.jp/ricos/frontistr/document:latest
+    stage: build
+    script:
+        - cmake -Bbuild_doc -H. -DWITH_DOC=ON
+        - make -C build_doc doc
+        - rm -rf public/doxygen
+        - mv build_doc/doc/html public/doxygen
+    artifacts:
+        paths:
+            - public
+        expire_in: 100min
+
 pages:
     stage: deploy
+    dependencies:
+        - document
+        - doxygen
     script:
-        - apt install -y doxygen python wget git graphviz
-        - mkdir -p public
-        - cd build/doc/; doxygen ./Doxyfile; cd -
-        - wget https://bootstrap.pypa.io/get-pip.py; python get-pip.py
-        - pip install mkdocs
-        - pip install mkdocs-bootstrap
-        - pip install mkdocs-windmill
-        - pip install python-markdown-math
-        - git submodule update -i
-        - cd doc; ./create_docs.sh; cd ..
-        - cp -r doc/manuals/* public/
+        - ls public
     artifacts:
         paths:
             - public
@@ -53,7 +79,32 @@ pages:
     only:
         - ci-master
 
+deploy-s3:
+  image: python
+  stage: deploy
+  dependencies:
+    - doxygen
+    - document
+  before_script:
+    - pip install awscli
+  script:
+    - aws s3 cp public s3://${BUCKET_NAME}/${CI_COMMIT_REF_SLUG} --recursive --acl public-read
+  environment:
+    name: ${CI_COMMIT_REF_SLUG}
+    url: http://${BUCKET_NAME}.s3-website.${AWS_DEFAULT_REGION}.amazonaws.com/${CI_COMMIT_REF_SLUG}
+    on_stop: clean-s3
 
+clean-s3:
+  image: python
+  stage: deploy
+  before_script:
+    - pip install awscli
+  script:
+    - aws s3 rm s3://${BUCKET_NAME}/${CI_COMMIT_REF_SLUG} --recursive
+  environment:
+    name: ${CI_COMMIT_REF_SLUG}
+    action: stop
+  when: manual
 
 ############################################################
 #     build_serial:
