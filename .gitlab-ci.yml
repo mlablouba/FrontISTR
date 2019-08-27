@@ -1,4 +1,4 @@
-image: registry.ritc.jp/ricos/frontistr/build:latest
+image: registry.gitlab.com/frontistr-commons/frontistr/build:latest
 
 stages:
     - build
@@ -33,7 +33,7 @@ test_fragile:
         - ctest -L "(eigen|heat|dynamic)" --output-on-failure
 
 document:
-    image: registry.ritc.jp/ricos/frontistr/document:latest
+    image: registry.gitlab.com/frontistr-commons/frontistr/document:latest
     stage: build
     before_script:
         - pip3 install -r doc/requirements.txt
@@ -49,7 +49,7 @@ document:
         GIT_SUBMODULE_STRATEGY: recursive
 
 doxygen:
-    image: registry.ritc.jp/ricos/frontistr/document:latest
+    image: registry.gitlab.com/frontistr-commons/frontistr/document:latest
     stage: build
     script:
         - cmake -Bbuild_doc -H. -DWITH_DOC=ON
