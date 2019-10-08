@@ -37,6 +37,7 @@ contains
     real(kind=kreal)   :: RESID, SIGMA_DIAG, THRESH, FILTER, resid2
     real(kind=kreal)   :: TIME_setup, TIME_comm, TIME_sol, TR
     real(kind=kreal)   :: time_Ax, time_precond
+    real(kind=kreal)   :: matrixsize, bw, flops 
 
     integer(kind=kint) :: NREST
     real(kind=kreal)   :: SIGMA
@@ -156,6 +157,7 @@ contains
     time_Ax = hecmw_matvec_get_timer()
     time_precond = hecmw_precond_get_timer()
 
+    nsize = real((hecMAT%N+hecMAT%NPL+hecMAT%NPU)*hecMAT%NDOF**2)
     if (hecMESH%my_rank.eq.0 .and. TIMElog.ge.1) then
       TR= (TIME_sol-TIME_comm)/(TIME_sol+1.d-24)*100.d0
       write (*,'(/a)')          '### summary of linear solver'
@@ -164,6 +166,26 @@ contains
       write (*,'(a, 1pe16.6 )') '    solver time      : ', TIME_sol
       write (*,'(a, 1pe16.6 )') '    solver/comm time : ', TIME_comm
       write (*,'(a, 1pe16.6 )') '    solver/matvec    : ', time_Ax
+      write (*,'(a, i0      )') '    N                : ', hecMAT%N
+      write (*,'(a, i0      )') '    NPL              : ', hecMAT%NPL
+      write (*,'(a, i0      )') '    NPU              : ', hecMAT%NPU
+      write (*,'(a, i0      )') '    NDOF             : ', hecMAT%NDOF
+      write (*,'(a, i0      )') '    NDOF2            : ', hecMAT%NDOF*hecMAT%NDOF
+      write (*,'(a          )') '    MatrixSize       : '      
+      write (*,'(a, f14.3," MB")') '      - index        : ', real(kint*(hecMAT%N))/1024**2
+      write (*,'(a, f14.3," MB")') '      - item         : ', real(kint*(hecMAT%NPL+hecMAT%NPU))/1024**2
+      write (*,'(a, f14.3," MB")') '      - LDU          : ', kreal*nsize/1024**2
+      write (*,'(a, f14.3," - ")') '      - LDU(kosuu)   : ', nsize
+      write (*,'(a, f14.3," MB")') '      - ALL          : ', 1.0d0/1024**2 * &
+        & (kreal*nsize + kint*(hecMAT%NPL+hecMAT%NPU+hecMAT%N))
+      write (*,'(a          )') '    Bandwidth        : '
+      write (*,'(a, f14.3, " GB/s")') '      - Matrix       : ', 1.0d0/1024**3 * ITER*real(kint*(hecMAT%N+hecMAT%NPL+hecMAT%NPU) & 
+        & + kreal*(hecMAT%N+hecMAT%NPL+hecMAT%NPU)*hecMAT%NDOF**2)/time_Ax
+      write (*,'(a, f14.3, " GB/s")') '      - MatrixVector : ', 1.0d0/1024**3 * ITER*real(2*kreal*hecMAT%N*hecMAT%NDOF & 
+        & + kint*(hecMAT%N+hecMAT%NPL+hecMAT%NPU) + kreal*(hecMAT%N+hecMAT%NPL+hecMAT%NPU)*hecMAT%NDOF**2)/time_Ax
+      write (*,'(a          )') '    FLOPS        : '
+      write (*,'(a, f14.3, " GFLOPS")') '      - Matrix       : ', 1.0d0/1024**3/time_Ax * & 
+        & ITER*real(2*(hecMAT%N+hecMAT%NPL+hecMAT%NPU)*hecMAT%NDOF**2)
       write (*,'(a, 1pe16.6 )') '    solver/precond   : ', time_precond
       if (ITER > 0) &
         write (*,'(a, 1pe16.6 )') '    solver/1 iter    : ', TIME_sol / ITER
