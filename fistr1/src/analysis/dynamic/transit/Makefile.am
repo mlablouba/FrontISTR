@@ -90,7 +90,6 @@ OBJSF = \
 	dynamic_mat_ass_couple.@f90objfilepostfix@ \
 	dynamic_var_init.@f90objfilepostfix@ \
 	dynamic_make_result.@f90objfilepostfix@ \
-	dynamic_output.@f90objfilepostfix@ \
 	fstr_dynamic_nlexplicit.@f90objfilepostfix@ \
 	fstr_dynamic_nlimplicit.@f90objfilepostfix@ \
 	fstr_solve_dynamic.@f90objfilepostfix@
