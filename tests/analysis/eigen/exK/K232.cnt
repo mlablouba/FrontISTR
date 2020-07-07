@@ -3,7 +3,7 @@
 !!
 !SOLUTION, TYPE=EIGEN
 !EIGEN
- 3, 1.0E-8, 60
+ 3 , 1.0E-12, 60
 !BOUNDARY
   FIX, 1, 2,     0.0
 !!
@@ -13,4 +13,9 @@
  10000, 1
  1.0e-8, 1.0, 0.0
 !WRITE,RESULT
+!WRITE,VISUAL
+!VISUAL,metod=PSR
+!surface_num=1
+!surface 1
+!output_type=VTK
 !END
