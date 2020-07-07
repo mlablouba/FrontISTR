@@ -17,7 +17,6 @@ foreach my $key(sort keys(%r)){
   }else{
     $res = ($r{$key} - $t{$key})/$r{$key};
   }
-  next if (exists $r{"EIGENVALUE"} and $key ne "EIGENVALUE");
   if (abs($res) < 1e-4){
     print "    $key: \n";
     print "      result:   success\n";
