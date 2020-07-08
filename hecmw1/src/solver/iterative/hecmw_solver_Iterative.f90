@@ -37,7 +37,8 @@ contains
     real(kind=kreal)   :: RESID, SIGMA_DIAG, THRESH, FILTER, resid2
     real(kind=kreal)   :: TIME_setup, TIME_comm, TIME_sol, TR
     real(kind=kreal)   :: time_Ax, time_precond
-    real(kind=kreal)   :: matrixsize, bw, flops 
+    real(kind=kreal)   :: matrixsize, bw, flops, nsize
+    integer(kind=kint) :: N, NP
 
     integer(kind=kint) :: NREST
     real(kind=kreal)   :: SIGMA
@@ -114,7 +115,7 @@ contains
           hecMAT%symmetric = .false.
           call hecmw_solve_GPBiCG( hecMESH,hecMAT, ITER, RESID, error, TIME_setup, TIME_sol, TIME_comm )
         case default
-          error = HECMW_SOLVER_ERROR_INCONS_PC  !!未定義なMETHOD!!
+          error = HECMW_SOLVER_ERROR_INCONS_PC  !!譛ｪ螳夂ｾｩ縺ｪMETHOD!!
           call hecmw_solve_error (hecMESH, error)
       end select
 
@@ -157,7 +158,11 @@ contains
     time_Ax = hecmw_matvec_get_timer()
     time_precond = hecmw_precond_get_timer()
 
-    nsize = real((hecMAT%N+hecMAT%NPL+hecMAT%NPU)*hecMAT%NDOF**2)
+    NP=hecMAT%NPL+hecMAT%NPU
+    call hecmw_allreduce_I1 (hecMESH, N , hecmw_sum)
+    call hecmw_allreduce_I1 (hecMESH, NP, hecmw_sum)
+    nsize = real((N+NP)*hecMAT%NDOF**2)
+
     if (hecMESH%my_rank.eq.0 .and. TIMElog.ge.1) then
       TR= (TIME_sol-TIME_comm)/(TIME_sol+1.d-24)*100.d0
       write (*,'(/a)')          '### summary of linear solver'
@@ -166,18 +171,14 @@ contains
       write (*,'(a, 1pe16.6 )') '    solver time      : ', TIME_sol
       write (*,'(a, 1pe16.6 )') '    solver/comm time : ', TIME_comm
       write (*,'(a, 1pe16.6 )') '    solver/matvec    : ', time_Ax
-      write (*,'(a, i0      )') '    N                : ', hecMAT%N
-      write (*,'(a, i0      )') '    NPL              : ', hecMAT%NPL
-      write (*,'(a, i0      )') '    NPU              : ', hecMAT%NPU
-      write (*,'(a, i0      )') '    NDOF             : ', hecMAT%NDOF
-      write (*,'(a, i0      )') '    NDOF2            : ', hecMAT%NDOF*hecMAT%NDOF
-      write (*,'(a          )') '    MatrixSize       : '      
-      write (*,'(a, f14.3," MB")') '      - index        : ', real(kint*(hecMAT%N))/1024**2
-      write (*,'(a, f14.3," MB")') '      - item         : ', real(kint*(hecMAT%NPL+hecMAT%NPU))/1024**2
+      write (*,'(a, i0      )') '    N                : ', N
+      write (*,'(a, i0      )') '    NP               : ', NP
+      write (*,'(a          )') '    MatrixSize       : '
+      write (*,'(a, f14.3," MB")') '      - index        : ', real(kint*(N))/1024**2
+      write (*,'(a, f14.3," MB")') '      - item         : ', real(kint*(NP))/1024**2
       write (*,'(a, f14.3," MB")') '      - LDU          : ', kreal*nsize/1024**2
       write (*,'(a, f14.3," - ")') '      - LDU(kosuu)   : ', nsize
-      write (*,'(a, f14.3," MB")') '      - ALL          : ', 1.0d0/1024**2 * &
-        & (kreal*nsize + kint*(hecMAT%NPL+hecMAT%NPU+hecMAT%N))
+      write (*,'(a, f14.3," MB")') '      - ALL          : ', 1.0d0/1024**2 * (kreal*nsize + kint*(NP+N))
       write (*,'(a          )') '    Bandwidth        : '
       write (*,'(a, f14.3, " GB/s")') '      - Matrix       : ', 1.0d0/1024**3 * ITER*real(kint*(hecMAT%N+hecMAT%NPL+hecMAT%NPU) & 
         & + kreal*(hecMAT%N+hecMAT%NPL+hecMAT%NPU)*hecMAT%NDOF**2)/time_Ax
