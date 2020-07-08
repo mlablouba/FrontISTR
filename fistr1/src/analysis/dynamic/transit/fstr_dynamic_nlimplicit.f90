@@ -42,7 +42,9 @@ contains
     type(fstr_couple)                    :: fstrCPL !for COUPLE
 
     !C-- local variable
+    type(hecmwST_local_mesh), pointer :: hecMESHmpc
     type(hecmwST_matrix), pointer :: hecMATmpc
+    type(hecmwST_matrix), pointer :: hecMAT0
     integer(kind=kint) :: nnod, ndof, numnp, nn
     integer(kind=kint) :: i, j, ids, ide, ims, ime, kk, idm, imm
     integer(kind=kint) :: iter
@@ -51,6 +53,7 @@ contains
     integer(kind=kint) :: kkk0, kkk1
     integer(kind=kint) :: restrt_step_num
     integer(kind=kint) :: n_node_global
+    integer(kind=kint) :: ierr
 
     real(kind=kreal) :: a1, a2, a3, b1, b2, b3, c1, c2
     real(kind=kreal) :: bsize, res, resb
@@ -61,7 +64,8 @@ contains
     iexit = 0
     resb = 0.0d0
 
-    call hecmw_mpc_mat_init(hecMESH, hecMAT, hecMATmpc)
+    call hecmw_mpc_mat_init(hecMESH, hecMAT, hecMESHmpc, hecMATmpc)
+    nullify(hecMAT0)
 
     ! sum of n_node among all subdomains (to be used to calc res)
     n_node_global = hecMESH%nn_internal
@@ -149,7 +153,19 @@ contains
         endif
 
         do iter = 1, fstrSOLID%step_ctrl(cstep)%max_iter
-          call fstr_StiffMatrix( hecMESH, hecMAT, fstrSOLID, fstrDYNAMIC%t_curr, fstrDYNAMIC%t_delta )
+          if (fstrPARAM%nlgeom) then
+            call fstr_StiffMatrix( hecMESH, hecMAT, fstrSOLID, fstrDYNAMIC%t_curr, fstrDYNAMIC%t_delta )
+          else
+            if (.not. associated(hecMAT0)) then
+              call fstr_StiffMatrix( hecMESH, hecMAT, fstrSOLID, fstrDYNAMIC%t_curr, fstrDYNAMIC%t_delta )
+              allocate(hecMAT0)
+              call hecmw_mat_init(hecMAT0)
+              call hecmw_mat_copy_profile(hecMAT, hecMAT0)
+              call hecmw_mat_copy_val(hecMAT, hecMAT0)
+            else
+              call hecmw_mat_copy_val(hecMAT0, hecMAT)
+            endif
+          endif
 
           if( fstrDYNAMIC%ray_k/=0.d0 .or. fstrDYNAMIC%ray_m/=0.d0 ) then
             do j = 1 ,ndof*nnod
@@ -218,7 +234,7 @@ contains
           enddo
 
           !C-- geometrical boundary condition
-          call hecmw_mpc_mat_ass(hecMESH, hecMAT, hecMATmpc)
+          call hecmw_mpc_mat_ass(hecMESH, hecMAT, hecMESHmpc, hecMATmpc)
           call hecmw_mpc_trans_rhs(hecMESH, hecMAT, hecMATmpc)
           call dynamic_mat_ass_bc   (hecMESH, hecMATmpc, fstrSOLID, fstrDYNAMIC, fstrPARAM, fstrMAT, iter)
           call dynamic_mat_ass_bc_vl(hecMESH, hecMATmpc, fstrSOLID, fstrDYNAMIC, fstrPARAM, fstrMAT, iter)
@@ -234,7 +250,7 @@ contains
 
           !res = dsqrt(bsize)/n_node_global
           res = dsqrt(bsize/resb)
-          if( ndof /= 4 ) then
+          if( fstrPARAM%nlgeom .and. ndof /= 4 ) then
             if(hecMESH%my_rank==0) write(*,'(a,i5,a,1pe12.4)')"iter: ",iter,", res: ",res
             if(hecMESH%my_rank==0) write(ISTA,'(''iter='',I5,''- Residual'',E15.7)')iter,res
             if( res<fstrSOLID%step_ctrl(cstep)%converg ) exit
@@ -243,14 +259,18 @@ contains
           !C-- linear solver [A]{X} = {B}
           hecMATmpc%X = 0.0d0
           if( iexit .ne. 1 ) then
-            if( iter == 1 ) then
-              hecMATmpc%Iarray(97) = 2   !Force numerical factorization
-            else
-              hecMATmpc%Iarray(97) = 1   !Need numerical factorization
+            if( fstrPARAM%nlgeom ) then
+              if( iter == 1 ) then
+                hecMATmpc%Iarray(97) = 2   !Force numerical factorization
+              else
+                hecMATmpc%Iarray(97) = 1   !Need numerical factorization
+              endif
+              call fstr_set_current_config_to_mesh(hecMESHmpc,fstrSOLID,coord)
             endif
-            call fstr_set_current_config_to_mesh(hecMESH,fstrSOLID,coord)
-            call solve_LINEQ(hecMESH,hecMATmpc)
-            call fstr_recover_initial_config_to_mesh(hecMESH,fstrSOLID,coord)
+            call solve_LINEQ(hecMESHmpc,hecMATmpc)
+            if( fstrPARAM%nlgeom ) then
+              call fstr_recover_initial_config_to_mesh(hecMESHmpc,fstrSOLID,coord)
+            endif
           endif
           call hecmw_mpc_tback_sol(hecMESH, hecMAT, hecMATmpc)
 
@@ -261,6 +281,7 @@ contains
           call fstr_UpdateNewton( hecMESH, hecMAT, fstrSOLID, fstrDYNAMIC%t_curr, &
             &  fstrDYNAMIC%t_delta, iter, fstrDYNAMIC%strainEnergy )
 
+          if(.not. fstrPARAM%nlgeom) exit
           if(ndof == 4) exit
         enddo
 
@@ -378,7 +399,11 @@ contains
     endif
 
     deallocate(coord)
-    call hecmw_mpc_mat_finalize(hecMESH, hecMAT, hecMATmpc)
+    call hecmw_mpc_mat_finalize(hecMESH, hecMAT, hecMESHmpc, hecMATmpc)
+    if (associated(hecMAT0)) then
+      call hecmw_mat_finalize(hecMAT0)
+      deallocate(hecMAT0)
+    endif
   end subroutine fstr_solve_dynamic_nlimplicit
 
   !> \brief This subroutine provides function of nonlinear implicit dynamic analysis using the Newmark method.
@@ -414,6 +439,7 @@ contains
     !C-- local variable
     !C
 
+    type(hecmwST_local_mesh), pointer :: hecMESHmpc
     type(hecmwST_matrix), pointer :: hecMATmpc
     integer(kind=kint) :: nnod, ndof, numnp, nn
     integer(kind=kint) :: i, j, ids, ide, ims, ime, kk, idm, imm
@@ -442,7 +468,7 @@ contains
     integer :: istat
     real(kind=kreal), allocatable :: coord(:)
 
-    call hecmw_mpc_mat_init(hecMESH, hecMAT, hecMATmpc)
+    call hecmw_mpc_mat_init(hecMESH, hecMAT, hecMESHmpc, hecMATmpc)
 
     ! sum of n_node among all subdomains (to be used to calc res)
     n_node_global = hecMESH%nn_internal
@@ -650,7 +676,7 @@ contains
           !C ********************************************************************************
 
           !C-- geometrical boundary condition
-          call hecmw_mpc_mat_ass(hecMESH, hecMAT, hecMATmpc)
+          call hecmw_mpc_mat_ass(hecMESH, hecMAT, hecMESHmpc, hecMATmpc)
           call hecmw_mpc_trans_rhs(hecMESH, hecMAT, hecMATmpc)
           if(paraContactFlag.and.present(conMAT)) then
             call dynamic_mat_ass_bc   (hecMESH, hecMATmpc, fstrSOLID, fstrDYNAMIC, fstrPARAM, fstrMAT, stepcnt, conMAT=conMAT)
@@ -707,13 +733,13 @@ contains
 
           !   ----  For Parallel Contact with Multi-Partition Domains
           hecMATmpc%X = 0.0d0
-          call fstr_set_current_config_to_mesh(hecMESH,fstrSOLID,coord)
+          call fstr_set_current_config_to_mesh(hecMESHmpc,fstrSOLID,coord)
           if(paraContactFlag.and.present(conMAT)) then
-            call solve_LINEQ_contact(hecMESH,hecMATmpc,fstrMAT,istat,1.0D0,conMAT)
+            call solve_LINEQ_contact(hecMESHmpc,hecMATmpc,fstrMAT,istat,1.0D0,conMAT)
           else
-            call solve_LINEQ_contact(hecMESH,hecMATmpc,fstrMAT,istat,rf)
+            call solve_LINEQ_contact(hecMESHmpc,hecMATmpc,fstrMAT,istat,rf)
           endif
-          call fstr_recover_initial_config_to_mesh(hecMESH,fstrSOLID,coord)
+          call fstr_recover_initial_config_to_mesh(hecMESHmpc,fstrSOLID,coord)
           call hecmw_mpc_tback_sol(hecMESH, hecMAT, hecMATmpc)
 
           ! ----- update external nodal displacement increments
@@ -824,7 +850,7 @@ contains
     endif
 
     deallocate(coord)
-    call hecmw_mpc_mat_finalize(hecMESH, hecMAT, hecMATmpc)
+    call hecmw_mpc_mat_finalize(hecMESH, hecMAT, hecMESHmpc, hecMATmpc)
   end subroutine fstr_solve_dynamic_nlimplicit_contactSLag
 
 end module fstr_dynamic_nlimplicit
