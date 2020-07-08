@@ -158,6 +158,7 @@ contains
     time_Ax = hecmw_matvec_get_timer()
     time_precond = hecmw_precond_get_timer()
 
+    N=hecMAT%N
     NP=hecMAT%NPL+hecMAT%NPU
     NDOF=hecMAT%NDOF
     call hecmw_allreduce_I1 (hecMESH, N , hecmw_sum)
@@ -175,13 +176,15 @@ contains
       write (*,'(a, i0      )') '    N                : ', N
       write (*,'(a, i0      )') '    NP               : ', NP
       write (*,'(a          )') '    MatrixSize       : '
-      write (*,'(a, f14.3," MB")') '      - index        : ', real(kint*N)/1024**2
-      write (*,'(a, f14.3," MB")') '      - item         : ', real(kint*NP)/1024**2
-      write (*,'(a, f14.3," MB")') '      - LDU          : ', kreal*nsize/1024**2
-      write (*,'(a, f14.3," MB")') '      - ALL          : ', 1.0d0/1024**2 * (kreal*nsize + kint*(NP+N))
+      write (*,'(a, f14.3," GB")') '      - index        : ', real(kint*N)/1024**3
+      write (*,'(a, f14.3," GB")') '      - item         : ', real(kint*NP)/1024**3
+      write (*,'(a, f14.3," GB")') '      - LDU          : ', kreal*nsize/1024**3
+      write (*,'(a, f14.3," GB")') '      - ALL          : ', 1.0d0/1024**3 * (kreal*nsize + kint*(NP+N))
       write (*,'(a          )') '    Bandwidth        : '
-      write (*,'(a, f14.3, " GB/s")') '      - Matrix       : ', 1.0d0/1024**3 * ITER*real(kint*(N+NP)+kreal*(N+NP)*NDOF**2)/time_Ax
-      write (*,'(a, f14.3, " GB/s")') '      - MatrixVector : ', 1.0d0/1024**3 * ITER*real(kint*(N+NP)+kreal*(N+NP)*NDOF**2+2*kreal*N*NDOF)/time_Ax
+      write (*,'(a, f14.3, " GB/s")') '      - Matrix       : ', 1.0d0/1024**3* &
+      & ITER*real(kint*(N+NP)+kreal*(N+NP)*NDOF**2)/time_Ax
+      write (*,'(a, f14.3, " GB/s")') '      - MatrixVector : ', 1.0d0/1024**3* & 
+      & ITER*real(kint*(N+NP)+kreal*(N+NP)*NDOF**2+2*kreal*N*NDOF)/time_Ax
       write (*,'(a          )') '    FLOPS        : '
       write (*,'(a, f14.3, " GFLOPS")') '      - Matrix       : ', 1.0d0/1024**3/time_Ax * ITER*real(2*(N+NP)*NDOF**2)
       write (*,'(a, 1pe16.6 )') '    solver/precond   : ', time_precond
